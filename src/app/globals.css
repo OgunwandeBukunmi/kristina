@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Asimovian&family=Cookie&family=Delius&family=Outfit:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Asimovian&family=Cookie&family=Delius&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -12,7 +13,10 @@
   --font-outfit : Outfit , sans-serif;
   --font-cookie : "Cookie",sans-serif;
   --font-delius : Delius,sans-serif;
-  --font-roboto: Roboto , sans-serif
+  --font-roboto: Roboto , sans-serif;
+  --font-quintessential : Quintessential ,sans-serif;
+  --font-open : "Open Sans"
+
 }
 @theme inline {
   --color-background: var(--background);
@@ -25,7 +29,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "outfit", Helvetica, sans-serif;
+  font-family: "Open Sans", Helvetica, sans-serif;
   min-height: 100vh ;
   min-width: 100vw;
   overflow-x: hidden;

@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     // Desktop navbar
     <header>
-          <div className='hidden lg:flex flex-row w-full p-4  bg-white  justify-between  '>
+          <div className='hidden font-open lg:flex flex-row w-full p-4  bg-white  justify-between  '>
       <h1>
            <Image
           src="/kristina.png"       
@@ -48,7 +48,7 @@ export default function Navbar() {
       href="/profiles"
       className="p-1  hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
     >
-      Profiles
+      Interviews
     </Link>
   </li>
   <li className="p-2 text-xl">
@@ -121,7 +121,7 @@ export default function Navbar() {
          <ul className={` w-full h-screen p-8 absolute top-1  z-15 left-0 flex flex-col items-center justify-center gap-2 bg-white text-pink-500  ${isHidden ? "translate-full hidden" : ""} duration-300 ease-in-out`}>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/">Home</Link></li>
         <li className='p-2 hover:text-pink-100 text-3xl'><Link href="/services">Work With Me</Link></li> 
-        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/profiles">Profiles</Link></li>
+        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/interview">Interviews</Link></li>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/resources">Resources</Link></li>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/blog">Blog</Link></li>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/contact">Contact</Link></li>

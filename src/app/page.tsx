@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,8 +17,8 @@ export default function Home() {
 
     {/* Content */}
     <div className="relative z-10 text-white px-4">
-      <h1 className="text-7xl md:text-9xl font-cookie leading-tight">
-        I’m a <span className="text-pink-400 font-bold">whiz</span> at every stage of the creative process.
+      <h1 className="text-6xl md:text-8xl font-open leading-tight">
+        I’m a <span className="text-pink-400 font-cookie  font-bold">whiz</span> at every stage of the creative process.
       </h1>
       <h3 className="mt-6 text-xl md:text-2xl font-delius">
         Writing Partnership. Developmental & Line Editing. Proofreading.
@@ -73,7 +74,7 @@ export default function Home() {
     <p className="text-xl font-bold text-pink-500">
       Oh, and yes—I love purple. Obviously.
     </p>
-    <p>But back to what’s important right now: <span className="text-xl text-white underline decoration-pink-500"> What do you need?</span> </p>
+    <p>But back to what’s important right now: <span className="text-xl text-white  decoration-pink-500"> What do you need?</span> </p>
   </div>
   <div className=" relative w-full lg:w-1/2 flex items-center justify-center">
        
@@ -93,13 +94,82 @@ export default function Home() {
 
   </section>
         {/* Services */}
-  <section>
-    <h1 className="font-cookie text-6xl text-center">My Services</h1>
-    <main>
-      <div>
-       
-      </div>
-    </main>
+  <section className="bg-pink-200 py-12">
+    <h1 className="font-cookie text-6xl text-center text-center text-background font-bold">My Services</h1>
+<main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-25 p-6">
+  <div className="bg-white text-black p-6 rounded-lg shadow-md">
+    <Image
+      src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?auto=format&fit=crop&q=80&w=1170"
+      alt="books"
+      width={400}
+      height={300}
+      className="w-full h-[300px] object-cover rounded-md"
+    />
+    <h1 className="text-xl md:text-2xl font-bold mt-4 mb-2">Writing Partnership</h1>
+    <p className="mb-5 text-sm md:text-base leading-relaxed">
+      For the scared, inconsistent, and lonely writer. Writing can be
+      <span className="italic text-pink-500">&nbsp;a lot</span>. Stressful. Lonely.
+      Anxiety-inducing. Overwhelming. Scary, even. I’m a writer. I get it. So, let me come in—with
+      <span className="text-pink-500"> energy, structure,</span> and the
+      <span className="text-pink-500"> empathy</span> you need to be the best writer you can be.
+    </p>
+    <Link
+      href="/"
+      className="inline-block px-4 py-2 bg-background text-white font-bold rounded-lg"
+    >
+      Explore this service →
+    </Link>
+  </div>
+
+  <div className="bg-white text-black p-6 rounded-lg shadow-md">
+    <Image
+      src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=687"
+      alt="books"
+      width={400}
+      height={300}
+      className="w-full h-[300px] object-cover rounded-md"
+    />
+    <h1 className="text-xl md:text-2xl font-bold mt-4 mb-2">Writing Partnership</h1>
+    <p className="mb-5 text-sm md:text-base leading-relaxed">
+      For the scared, inconsistent, and lonely writer. Writing can be
+      <span className="italic text-pink-500">&nbsp;a lot</span>. Stressful. Lonely.
+      Anxiety-inducing. Overwhelming. Scary, even. I’m a writer. I get it. So, let me come in—with
+      <span className="text-pink-500"> energy, structure,</span> and the
+      <span className="text-pink-500"> empathy</span> you need to be the best writer you can be.
+    </p>
+    <Link
+      href="/"
+      className="inline-block px-4 py-2 bg-background text-white font-bold rounded-lg"
+    >
+      Explore this service →
+    </Link>
+  </div>
+
+  <div className="bg-white text-black p-6 rounded-lg shadow-md">
+    <Image
+      src="https://images.squarespace-cdn.com/content/v1/6645e4d1689c580a65f90548/dcc803ab-1c11-4564-a73b-07a3cfc1f1d9/Coached+Manuscript+Evaluation.jpeg?format=750w"
+      alt="books"
+      width={400}
+      height={300}
+      className="w-full h-[300px] object-cover rounded-md"
+    />
+    <h1 className="text-xl md:text-2xl font-bold mt-4 mb-2">Writing Partnership</h1>
+    <p className="mb-5 text-sm md:text-base leading-relaxed">
+      For the scared, inconsistent, and lonely writer. Writing can be
+      <span className="italic text-pink-500">&nbsp;a lot</span>. Stressful. Lonely.
+      Anxiety-inducing. Overwhelming. Scary, even. I’m a writer. I get it. So, let me come in—with
+      <span className="text-pink-500"> energy, structure,</span> and the
+      <span className="text-pink-500"> empathy</span> you need to be the best writer you can be.
+    </p>
+    <Link
+      href="/"
+      className="inline-block px-4 py-2 bg-background text-white font-bold rounded-lg"
+    >
+      Explore this service →
+    </Link>
+  </div>
+</main>
+<p className="text-center">Those are all my services but not everything I have to offer😊! </p>
   </section>
 </section>
 
