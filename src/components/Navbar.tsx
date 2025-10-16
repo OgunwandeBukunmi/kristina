@@ -13,8 +13,16 @@ export default function Navbar() {
            <Image
           src="/kristina.png"       
           alt="LOGO" 
-          width={190}              
-          height={190}            
+          width={225}              
+          height={225}  
+          className='hidden lg:flex'          
+        />
+            <Image
+          src="/kristina.png"       
+          alt="LOGO" 
+          width={80}              
+          height={80}  
+          className='flex lg:hidden'          
         />
 
       </h1>
