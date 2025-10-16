@@ -81,7 +81,7 @@ export default function Home() {
      
      <Image
         src="https://images.unsplash.com/photo-1646133754508-3a795f34acae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=722"
-        alt="woman"
+        alt="Woman"
         width={300} // required
         height={360} // required
         className="rounded-lg shadow-xl"
@@ -96,9 +96,7 @@ export default function Home() {
     <h1 className="font-cookie text-6xl text-center">My Services</h1>
     <main>
       <div>
-        <Image
-          
-        />
+       
       </div>
     </main>
   </section>
