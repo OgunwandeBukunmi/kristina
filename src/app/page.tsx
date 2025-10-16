@@ -79,12 +79,14 @@ export default function Home() {
            <span className="text-6xl font-cookie  p-2 text-pink-500 absolute -top-20 right-20 md:-top-10 md:right-20">(that’s me!)</span>    
 
      
-        <img
+     <Image
         src="https://images.unsplash.com/photo-1646133754508-3a795f34acae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=722"
         alt="woman"
-        className=" rounded-lg shadow-xl h-[420px] md:w-[375px]"
+        width={300} // required
+        height={360} // required
+        className="rounded-lg shadow-xl"
+      />
 
-        />
   </div>
 </main>
 

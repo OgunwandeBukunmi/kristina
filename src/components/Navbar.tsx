@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Navbar() {
   const[isHidden,setisHidden] = useState<boolean>(true)
@@ -19,52 +20,52 @@ export default function Navbar() {
       </h1>
      <ul className="flex flex-row gap-2 items-center p-3 text-pink-500">
   <li className="p-2 text-xl">
-    <a
+    <Link
       href="/"
       className="p-1 hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
     >
       Home
-    </a>
+    </Link>
   </li>
   <li className="p-2 text-xl">
-    <a
+    <Link
       href="/services"
       className="p-1 hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
     >
       Work With Me
-    </a>
+    </Link>
   </li>
   <li className="p-2 text-xl">
-    <a
+    <Link
       href="/profiles"
       className="p-1  hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
     >
       Profiles
-    </a>
+    </Link>
   </li>
   <li className="p-2 text-xl">
-    <a
+    <Link
       href="/resources"
       className="p-1 hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
     >
       Resources
-    </a>
+    </Link>
   </li>
   <li className="p-2 text-xl">
-    <a
+    <Link
       href="/blog"
       className="p-1 hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
     >
       Blog
-    </a>
+    </Link>
   </li>
   <li className="p-2 text-xl">
-    <a
+    <Link
       href="/contact"
       className="p-1 hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
     >
       Contact
-    </a>
+    </Link>
   </li>
 </ul>
     </div>
@@ -110,12 +111,12 @@ export default function Navbar() {
         }
       </button>
          <ul className={` w-full h-screen p-8 absolute top-1  z-15 left-0 flex flex-col items-center justify-center gap-2 bg-white text-pink-500  ${isHidden ? "translate-full hidden" : ""} duration-300 ease-in-out`}>
-        <li className='p-2 hover:text-pink-100  text-3xl'><a href="/">Home</a></li>
-        <li className='p-2 hover:text-pink-100 text-3xl'><a href="/services">Work With Me</a></li> 
-        <li className='p-2 hover:text-pink-100  text-3xl'><a href="/profiles">Profiles</a></li>
-        <li className='p-2 hover:text-pink-100  text-3xl'><a href="/resources">Resources</a></li>
-        <li className='p-2 hover:text-pink-100  text-3xl'><a href="/blog">Blog</a></li>
-        <li className='p-2 hover:text-pink-100  text-3xl'><a href="/contact">Contact</a></li>
+        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/">Home</Link></li>
+        <li className='p-2 hover:text-pink-100 text-3xl'><Link href="/services">Work With Me</Link></li> 
+        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/profiles">Profiles</Link></li>
+        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/resources">Resources</Link></li>
+        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/blog">Blog</Link></li>
+        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/contact">Contact</Link></li>
       </ul>
         </div>
     
