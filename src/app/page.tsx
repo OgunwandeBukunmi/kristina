@@ -47,10 +47,11 @@ export default function Home() {
       <span className="text-pink-500 italic font-semibold">
         I love love <span className="text-2xl font-extrabold tracking-wide">LOVE</span> it.
       </span>
+       &nbsp; It excites me.
     </p>
 
     <p>
-      It excites me. And I’ve spent the past five years getting <span className="underline decoration-pink-500">damn good</span> at it.<br />
+       And I’ve spent the past five years getting <span className="underline decoration-pink-500">damn good</span> at it.<br />
       I’ve worked with publishing and editing companies like 
       <span className="text-purple-200 font-medium"> MysticqueRose Publishing</span> and 
       <span className="text-purple-200 font-medium"> FirstEditing.com</span>, and written with teams like 
