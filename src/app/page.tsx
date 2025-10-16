@@ -1,103 +1,106 @@
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+   <section className="w-full h-screen">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  <Navbar />
+  {/* Hero section */}
+  <article className=" h-[500px]  relative text-center py-12   overflow-hidden">
+    {/* Background image and gradient */}
+    <div className="absolute inset-0 bg-gradient-to-r from-gray-500 to-gray-800 bg-[url('/passion_word.jpg')] bg-cover bg-center opacity-60"></div>
+
+    {/* Softer overlay for better text visibility */}
+    <div className="absolute inset-0 bg-black/20"></div>
+
+    {/* Content */}
+    <div className="relative z-10 text-white px-4">
+      <h1 className="text-6xl md:text-8xl font-cookie leading-tight">
+        I’m a <span className="text-pink-400 font-bold">whiz</span> at every stage of the creative process.
+      </h1>
+      <h3 className="mt-6 text-xl md:text-2xl font-delius">
+        Writing Partnership. Developmental & Line Editing. Proofreading.
+      </h3>
     </div>
+  </article>
+    {/* Meet Kristina */}
+
+  <section className="w-full my-8 mb-12 md:mt-10 ">
+    <div className="relative flex flex-col items-center">
+       <h2 className="relative text-6xl font-cookie text-center">Meet Kristina   
+
+      </h2> 
+     <svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute top-10">
+  <path
+       d="M5 30 C40 10, 80 50, 120 20 S180 30, 195 25" 
+        stroke="#D946EF" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+    </div>
+  
+
+<main className=" flex flex-col-reverse lg:flex-row gap-3 mt-12 p-8 font-sans text-purple-300">
+  <div className="w-full lg:w-1/2 space-y-6 leading-relaxed">
+    <p className="text-lg">
+      <span className="font-bold text-xl text-purple-200">The most important thing you need to know about me?</span><br />
+      I don’t just love writing and editing— 
+      <span className="text-pink-500 italic font-semibold">
+        I love love <span className="text-2xl font-extrabold tracking-wide">LOVE</span> it.
+      </span>
+    </p>
+
+    <p>
+      It excites me. And I’ve spent the past five years getting <span className="underline decoration-pink-500">damn good</span> at it.<br />
+      I’ve worked with publishing and editing companies like 
+      <span className="text-purple-200 font-medium"> MysticqueRose Publishing</span> and 
+      <span className="text-purple-200 font-medium"> FirstEditing.com</span>, and written with teams like 
+      <span className="text-purple-200 font-medium"> Eric Kim Digital Agency</span> (now 
+      <span className="text-purple-200 font-medium"> Zator Media</span>).
+    </p>
+
+    <p className="italic text-pink-500">
+      But honestly? My favorite part has been collaborating with individual writers—
+      <span className="font-semibold text-purple-200">people who just need someone to believe in their stories as much as they do.</span>
+    </p>
+
+    <p>
+      I care about words because I care about people. I believe that every story, even the most fantastical ones, carries elements of the human experience.<br />
+      I’m <span className="font-bold text-pink-500">obsessed</span> with exploring it and helping writers share that truth.<br />
+      That’s probably the Psychology degree talking <span className="italic text-purple-200">(ha-ha)</span>, but it’s also just me.
+    </p>
+ 
+    <p className="text-xl font-bold text-pink-500">
+      Oh, and yes—I love purple. Obviously.
+    </p>
+    <p>But back to what’s important right now: <span className="text-xl text-white underline decoration-pink-500"> What do you need?</span> </p>
+  </div>
+  <div className=" relative w-full lg:w-1/2 flex items-center justify-center">
+       
+           <span className="text-6xl font-cookie  p-2 text-pink-500 absolute -top-20 right-20 md:-top-10 md:right-20">(that’s me!)</span>    
+
+     
+        <img
+        src="https://images.unsplash.com/photo-1646133754508-3a795f34acae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=722"
+        alt="woman"
+        className=" rounded-lg shadow-xl h-[420px] md:w-[375px]"
+
+        />
+  </div>
+</main>
+
+  </section>
+        {/* Services */}
+  <section>
+    <h1 className="font-cookie text-6xl text-center">My Services</h1>
+    <main>
+      <div>
+        <Image
+          
+        />
+      </div>
+    </main>
+  </section>
+</section>
+
   );
 }
