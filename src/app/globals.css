@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Asimovian&family=Cookie&family=Delius&family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&family=Cookie&family=Delius&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -9,8 +10,9 @@
 
 @theme{
   --font-outfit : Outfit , sans-serif;
-  --font-cookie : Cookie,sans-serif;
+  --font-cookie : "Cookie",sans-serif;
   --font-delius : Delius,sans-serif;
+  --font-roboto: Roboto , sans-serif
 }
 @theme inline {
   --color-background: var(--background);

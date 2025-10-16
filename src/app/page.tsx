@@ -16,8 +16,8 @@ export default function Home() {
 
     {/* Content */}
     <div className="relative z-10 text-white px-4">
-      <h1 className="text-6xl md:text-8xl font-cookie leading-tight">
-        I’m a <span className="text-pink-400 font-bold">whiz</span> at every stage of the creative process.
+      <h1 className="text-6xl md:text-8xl font-roboto leading-tight">
+        I’m a <span className="text-pink-400 font-cookie font-bold">whiz</span> at every stage of the creative process.
       </h1>
       <h3 className="mt-6 text-xl md:text-2xl font-delius">
         Writing Partnership. Developmental & Line Editing. Proofreading.
