@@ -175,7 +175,7 @@ Let’s shed the corporate clone and show your uniqueness. Unapologetically.
   </section>
 
   {/* profiles */}
-<section className="my-16 p-18 md:px-12">
+<section className="my-16 p-8 md:px-12">
   <div className="flex flex-col md:flex-row items-center gap-10">
     <Image
       src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&q=80&w=1170"
