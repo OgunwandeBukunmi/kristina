@@ -40,8 +40,8 @@ export default function Home() {
     </div>
   
 
-<main className=" flex flex-col-reverse lg:flex-row gap-3 mt-12 p-8 font-sans text-purple-300">
-  <div className="w-full lg:w-1/2 space-y-6 leading-relaxed">
+<main className=" flex flex-col-reverse lg:flex-row justify-between gap-3 mt-12 p-8 font-sans text-purple-300">
+  <div className="w-full lg:w-1/2 max-w-md space-y-6 leading-relaxed">
     <p className="text-lg">
       <span className="font-bold text-xl text-purple-200">The most important thing you need to know about me?</span><br />
       I don’t just love writing and editing— 
@@ -105,8 +105,8 @@ export default function Home() {
       height={300}
       className="w-full h-[300px] object-cover rounded-md"
     />
-    <h1 className="text-xl md:text-2xl font-bold mt-4 mb-2">Writing Partnership</h1>
-    <p className="mb-5 text-sm md:text-base leading-relaxed">
+    <h1 className="text-xl md:text-2xl font-quintessential font-bold mt-4 mb-2 tracking-wider">Writing Partnership</h1>
+    <p className="mb-5 min-h-60 text-sm md:text-base leading-relaxed">
       For the scared, inconsistent, and lonely writer. Writing can be
       <span className="italic text-pink-500">&nbsp;a lot</span>. Stressful. Lonely.
       Anxiety-inducing. Overwhelming. Scary, even. I’m a writer. I get it. So, let me come in—with
@@ -129,13 +129,17 @@ export default function Home() {
       height={300}
       className="w-full h-[300px] object-cover rounded-md"
     />
-    <h1 className="text-xl md:text-2xl font-bold mt-4 mb-2">Writing Partnership</h1>
-    <p className="mb-5 text-sm md:text-base leading-relaxed">
-      For the scared, inconsistent, and lonely writer. Writing can be
-      <span className="italic text-pink-500">&nbsp;a lot</span>. Stressful. Lonely.
-      Anxiety-inducing. Overwhelming. Scary, even. I’m a writer. I get it. So, let me come in—with
-      <span className="text-pink-500"> energy, structure,</span> and the
-      <span className="text-pink-500"> empathy</span> you need to be the best writer you can be.
+    <h1 className="text-xl md:text-2xl font-quintessential font-bold mt-4 mb-2 tracking-wider">Editing </h1>
+    <p className="mb-5 max-h-100 text-sm md:text-base leading-relaxed">
+      For the unsure, growing, or ready-to-publish writer
+You’ve done the writing (what a feat!). Now, it’s time to go further.
+        I bring
+      <span className="italic text-pink-500">&nbsp;fresh eyes, sharp instinctst</span> and five years of 
+      <span className="text-pink-500"> editing muscle </span> to tell you 
+      <span className="text-pink-500"> what works, what doesn’t,</span> and <span className="text-pink-500">how to fix it! </span>
+       And if your work is already perfect? I’ll make sure to tell you that, too.
+Let’s make your words as clear, powerful, and alive as the story behind them.
+
     </p>
     <Link
       href="/"
@@ -153,13 +157,11 @@ export default function Home() {
       height={300}
       className="w-full h-[300px] object-cover rounded-md"
     />
-    <h1 className="text-xl md:text-2xl font-bold mt-4 mb-2">Writing Partnership</h1>
-    <p className="mb-5 text-sm md:text-base leading-relaxed">
-      For the scared, inconsistent, and lonely writer. Writing can be
-      <span className="italic text-pink-500">&nbsp;a lot</span>. Stressful. Lonely.
-      Anxiety-inducing. Overwhelming. Scary, even. I’m a writer. I get it. So, let me come in—with
-      <span className="text-pink-500"> energy, structure,</span> and the
-      <span className="text-pink-500"> empathy</span> you need to be the best writer you can be.
+    <h1 className="text-xl  font-quintessential  md:text-2xl font-bold mt-4 mb-2 tracking-wider">LinkedIn & Website Content Writing</h1>
+    <p className="mb-5 min-h-60 text-sm md:text-base leading-relaxed">
+    For the person who’s done pretending online and is ready to sound like themselves!
+Let’s shed the corporate clone and show your uniqueness. Unapologetically. 
+
     </p>
     <Link
       href="/"
@@ -169,8 +171,34 @@ export default function Home() {
     </Link>
   </div>
 </main>
-<p className="text-center">Those are all my services but not everything I have to offer😊! </p>
+<p className="text-center mt-10">Those are all my services but not everything I have to offer😊! </p>
   </section>
+
+  {/* profiles */}
+<section className="my-16 p-18 md:px-12">
+  <div className="flex flex-col md:flex-row items-center gap-10">
+    <Image
+      src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&q=80&w=1170"
+      alt="People Together"
+      width={700}
+      height={700}
+      className="rounded-xl w-full md:w-1/2 shadow-lg object-cover"
+    />
+    <main className="w-full md:w-1/2 max-w-md text-center md:text-left">
+      <h1 className="text-4xl md:text-5xl font-bold tracking-wide font-quintessential mb-4 text-pink-200">
+        Profiles
+      </h1>
+      <h3 className="text-2xl font-semibold text-pink-600 mb-3">For the curious</h3>
+      <p className="text-base md:text-lg leading-relaxed text-white my-5">
+        I tell the stories of everyday people—the ones who may not be famous but are absolutely
+        fascinating. Their experiences hold meaning, depth, and humanity. Maybe you’ll be inspired,
+        entertained, or even shed a tear.
+      </p>
+      <Link href="/interview" className=" bg-pink-200 p-3 text-background font-bold rounded-lg">Read Profiles</Link>
+    </main>
+  </div>
+</section>
+ 
 </section>
 
   );
