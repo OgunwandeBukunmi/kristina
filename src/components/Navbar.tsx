@@ -13,17 +13,11 @@ export default function Navbar() {
            <Image
           src="/kristina.png"       
           alt="LOGO" 
-          width={225}              
-          height={225}  
-          className='hidden lg:flex'          
+          width={180}              
+          height={180}  
+          className=''          
         />
-            <Image
-          src="/kristina.png"       
-          alt="LOGO" 
-          width={80}              
-          height={80}  
-          className='flex lg:hidden'          
-        />
+       
 
       </h1>
      <ul className="flex flex-row gap-2 items-center p-3 text-pink-500">
@@ -78,19 +72,19 @@ export default function Navbar() {
 </ul>
     </div>
     {/* Mobile navbar */}
-       <div className=' relative flex justify-between lg:hidden bg-white p-4  '>
+       <div className=' relative flex justify-between lg:hidden bg-white p-2  '>
       
         <h1> 
             <Image
           src="/kristina.png"       
           alt="LOGO" 
-          width={210}              
-          height={210}  
+          width={150}              
+          height={150}  
                    
         />
 
       </h1>
-      <button className='p-2 z-20' onClick={()=>setisHidden(!isHidden)}>
+      <button className='p-4 z-20' onClick={()=>setisHidden(!isHidden)}>
         {
           isHidden ? (
                      <svg
@@ -99,7 +93,7 @@ export default function Navbar() {
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="#ec4899"
-                  className="w-11 h-11"
+                  className="w-9 h-9"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -110,7 +104,7 @@ export default function Navbar() {
                 viewBox="0 0 24 24"
                 strokeWidth={2}
                 stroke="#ec4899"
-                className="w-11 h-11"
+                className="w-9 h-9"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
