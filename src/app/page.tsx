@@ -175,26 +175,12 @@ export default function Home() {
 
   {/* Thngs about her */}
 <section className="flex flex-col items-center justify-center gap-12 min-h-[150px] py-10 px-4">
-  <div className="relative"> <h1 className="text-6xl font-bold font-cookie text-center">
+<h1 className="text-6xl font-bold font-cookie text-center">
     Small Things That Make Me, Me✨
   </h1>
-      <svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute top-10">
-  <path
-  d="M5 30 
-     C40 10, 80 50, 120 20 
-     S180 30, 195 25 
-     S240 40, 270 10 
-     S310 50, 340 20 
-     S380 30, 410 25"
-  stroke="#D946EF"
-  strokeWidth="3"
-  fill="none"
-  strokeLinecap="round"
-  strokeLinejoin="round"
-/>
-</svg></div>
+
  
-  <ul className="max-w-3xl text-center  space-y-6 text-lg leading-relaxed font-outfit  tracking-wider">
+  <ul className="max-w-3xl text-center  space-y-6 text-md leading-relaxed font-outfit  tracking-wider">
     <li>
       I don’t talk in the mornings—not because I’m grumpy, just because I don’t like mornings. I quietly wait for them to pass.
     </li>
