@@ -34,3 +34,15 @@ body {
   min-width: 100vw;
   overflow-x: hidden;
 }
+.ce-toolbar__plus,
+.ce-toolbar__settings {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Prevent hiding on hover */
+.ce-toolbar__plus:hover,
+.ce-toolbar__settings:hover {
+  opacity: 1 !important;
+}
+
