@@ -108,7 +108,9 @@ export default function Page() {
     </button>
   </div>
 </h1>
-
+    <div className='w-full mb-3 mt-2'>
+        <input type="text"  placeholder='Title' className='p-3 w-full max-w-md text-black  bg-white border-0  outline-0 rounded-md'/>
+    </div>
     <div
       id="editorjs"
       className="w-full max-w-4xl h-screen bg-white border border-gray-300 rounded-lg shadow-md p-6"
