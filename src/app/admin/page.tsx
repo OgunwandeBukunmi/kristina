@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import type EditorJS from "@editorjs/editorjs";
 
 export default function Page() {
-  const editorRef = useRef<any>(null);
+  const editorRef = useRef<EditorJS | null>(null);
   const [currentStep, setCurrentStep] = useState("admin-login");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +13,7 @@ export default function Page() {
   useEffect(() => {
     if (currentStep !== "admin-writing") return;
 
-    let editorInstance: any = null;
+    let editorInstance: EditorJS = null;
 
     async function initEditor() {
       const EditorJS = (await import("@editorjs/editorjs")).default;
@@ -135,12 +136,13 @@ export default function Page() {
           </button>
         </div>
       </h1>
-      <div className="w-full mb-3 mt-2">
+      <div className="w-full mb-3 mt-2 flex flex-col md:flex-row items-center justify-center">
         <input
           type="text"
           placeholder="Title"
-          className="p-3 w-full max-w-md text-black bg-white border-0 outline-0 rounded-md"
-        />
+          className="p-3 w-full max-w-md text-black bg-white border-0 outline-0 rounded-md tracking-wider"
+        /> 
+        <span className="text-xl text-pink-200 p-2 ml-2 underline min-w-sm "> in {contentFor}</span>
       </div>
       <div
         id="editorjs"
