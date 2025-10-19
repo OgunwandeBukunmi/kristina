@@ -13,7 +13,7 @@ export default function Page() {
   useEffect(() => {
     if (currentStep !== "admin-writing") return;
 
-    let editorInstance: EditorJS = null;
+    let editorInstance: EditorJS | null = null;
 
     async function initEditor() {
       const EditorJS = (await import("@editorjs/editorjs")).default;
