@@ -2,8 +2,15 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 
+type space = {
+  name : string,
+  target : string,
+  content : string,
+  cta : string
+}
+
 export default function Home() {
-  const WritingSpaces = [
+  const WritingSpaces : space[] = [
     {
       name : "Interviews",
       target : "For the curious",
@@ -272,7 +279,7 @@ export default function Home() {
 
         <main className="grid md:grid-cols-3 gap-10">
           {WritingSpaces &&
-            WritingSpaces.map((item, index) => (
+            WritingSpaces?.map((item:space, index : number) => (
               <div
                 key={index}
                 className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 text-left border border-white/10 hover:bg-white/20 hover:scale-[1.02] transition-all duration-300"
