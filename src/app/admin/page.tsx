@@ -40,7 +40,7 @@ export default function AdminDashboard() {
     header: Header,
     list: List,
     paragraph: Paragraph,
-    marker: Marker,
+    // marker: Marker,
     underline: Underline,
     // textColor: {
     //   class: TextColorPlugin,
