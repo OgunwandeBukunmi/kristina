@@ -1,6 +1,13 @@
+"use client"
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type space = {
   name : string,
@@ -10,6 +17,54 @@ type space = {
 }
 
 export default function Home() {
+
+  const reviews =[{
+    content : "“I've worked with Ewaoluwa for several years now, and it never ceases to amaze me how good she is at capturing my ideas and articulating them with true perfection. I found that in order to be a good writer, you must also be an amazing listener, and she truly is that. She listens closely and recreates my words as they are in my mind. Her editing is just as amazing as her writing skills. With a keen eye for detail, Ewaoluwa has successfully edited a number of my works with incredible accuracy. She takes her time to not just read text, but breaks it down to ensure she fully understands it before marking it up. Anyone lucky enough to work with Ewaoluwa is truly blessed“.",
+    person : "Porsché Mysticque Steele (My former boss🙈, CEO of MysticqueRose Publishing, and TEDx Speaker)"
+  },
+  {
+    content : "Thank you so much for editing the sample, Kristina. This is exactly the type of feedback & guidance I need to make my book the best it can be.",
+    person : "Felicia Emery (She immediately hired me to edit her book!)"
+  },
+   {
+    content : "Amazing job! I’m truly grateful for her help in telling and editing my life’s story.",
+    person : "Whitney Williams, Author of The Revival (We spent three amazing months working on her story!)"
+  },
+    {
+    content : "She was superb! Very talented. She took my run-on sentences and chaotic paragraphs and made them flow like a pro. Definitely recommend her.",
+    person : "Gregory Maisonville (I enjoyed it!)"
+  },
+   {
+    content : "During this project, Kristina was flexible and easy to contact, and she remained dedicated to ensuring the project was completed to my satisfaction.",
+    person : "Dorian (That’s what I do!)"
+  },
+   {
+    content : "Kristina is a phenomenal writer. She was hardworking, transparent, and delivered great results. These are typical for a well-reviewed freelance copywriter, but the thing that I was really impressed with was her ability to learn the style and tone of the client. To take feedback with a grain of salt and make adjustments. I’d recommend working with her for a great experience and great results.",
+    person : "Eric Kim (My former boss🙈 and Principal Consultant at Zator Media)"
+  },
+  {
+    content : "Ewaoluwa writes things amazingly. She also enjoys and analyzes literary works. I think she is like a ball of fire- beautiful with the ability to beat things into perfection.",
+    person : "Ololade Edun"
+  },
+    {
+    content : "We had fun creating stories together.",
+    person : "Angela Jamieson (Told you I enjoy what I do!)"
+  },
+  {content : "Working with Kristina was the difference between having an idea and having it come alive. I told her everything I had in my head, and she just listened—then somehow turned all my rambling into something that actually made sense. Through genuine understanding and skill, she helped me get my ideas on the page and create a finished draft. The result felt effortless to read, and the result reminded me how powerful human writing is.",
+  person : "Daniel"
+  },{
+  content : "Kristina took my rough ideas and turned them into something I couldn’t stop reading. Every line felt natural, like she understood exactly what I wanted to say before I did. The writing was clear, human, and alive. I saw my vision on the page and heard it in my words. That’s what makes her writing stand out—it feels like you.",
+  person : "Daniel"
+  }
+,{
+  content : "Kristina helped me put my brand into words in a way I’d never been able to before—and she did it so fast! It was just one ad copy, but she managed to capture what makes my brand unique and get the message across clearly. It was short, sharp, and actually made people want to act. She just gets it.",
+  person : "Titobi"
+},{
+  content : "I was really struggling to organize my ideas for an essay, and Kristina helped me sort everything out. We talked through each point together, and she helped me expand on them, making sure they actually fit the topic and made sense. My thoughts were all over the place, but she helped me detangle and structure them. By the end, everything flowed and felt clear. It honestly made such a difference.",
+  person : "Jerry"
+}
+
+]
   const WritingSpaces : space[] = [
     {
       name : "Interviews",
@@ -305,7 +360,53 @@ export default function Home() {
       </div>
     </section>
 
-  {/* Thngs about her */}
+<section className="bg-[#430169] text-white py-16 px-4 md:px-10 lg:px-20 relative">
+      <h2 className="text-3xl md:text-4xl font-quintessential text-center mb-16 text-pink-300">
+       What’s a home page without a little brag section😜?
+      </h2>
+
+      {/* Swiper Container */}
+      <div className="relative max-w-5xl mx-auto">
+        <Swiper
+          modules={[Pagination, Autoplay, Navigation]}
+          spaceBetween={40}
+          slidesPerView={1}
+          loop={true}
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 6000,
+            disableOnInteraction: false,
+          }}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          className="rounded-2xl overflow-hidden"
+        >
+          {reviews.map((review, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-white min-h-96 text-[#430169] rounded-2xl shadow-lg p-8 md:p-12 flex flex-col items-center text-center transition-all duration-500 hover:shadow-xl">
+                <p className="text-lg md:text-xl italic leading-relaxed text-gray-800 mb-6">
+                  {review.content}
+                </p>
+                <p className="text-sm md:text-base font-semibold text-pink-600">
+                  --{review.person}
+                </p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Navigation Buttons */}
+        <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 bg-pink-400 hover:bg-pink-500 text-white p-3 rounded-full shadow-lg transition-all duration-300">
+          <ChevronLeft size={24} />
+        </button>
+
+        <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 bg-pink-400 hover:bg-pink-500 text-white p-3 rounded-full shadow-lg transition-all duration-300">
+          <ChevronRight size={24} />
+        </button>
+      </div>
+    </section>
 
 
  
