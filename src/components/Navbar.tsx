@@ -8,13 +8,13 @@ export default function Navbar() {
   return (
     // Desktop navbar
     <header>
-          <div className='hidden  lg:flex flex-row w-full p-4  bg-white  justify-between  '>
+          <div className='hidden  lg:flex flex-row w-full p-2  bg-white items-center   justify-between  '>
       <h1>
            <Image
           src="/kristina.png"       
           alt="LOGO" 
-          width={180}              
-          height={180}  
+          width={120}              
+          height={120}  
           className=''          
         />
        
@@ -63,7 +63,7 @@ export default function Navbar() {
   </li>
   <li className="p-2 text-xl">
     <Link
-      href="/contact"
+      href="/#contact"
       className="p-1 hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
     >
       Contact
@@ -72,19 +72,19 @@ export default function Navbar() {
 </ul>
     </div>
     {/* Mobile navbar */}
-       <div className=' relative flex justify-between lg:hidden bg-white p-2  '>
+       <div className=' relative flex justify-between items-center lg:hidden bg-white p-2  '>
       
         <h1> 
             <Image
           src="/kristina.png"       
           alt="LOGO" 
-          width={150}              
-          height={150}  
+          width={80}              
+          height={80}  
                    
         />
 
       </h1>
-      <button className='p-4 z-20' onClick={()=>setisHidden(!isHidden)}>
+      <button className='p-2 z-20' onClick={()=>setisHidden(!isHidden)}>
         {
           isHidden ? (
                      <svg
@@ -112,13 +112,13 @@ export default function Navbar() {
           )
         }
       </button>
-         <ul className={`w-full h-screen p-8 absolute top-0 left-0 w-3/4  z-15  flex flex-col items-center justify-center gap-2 bg-white text-pink-500  ${isHidden ? "opacity-0 " : "opacity-100" }  transition duration-300 ease-in-out`}>
+         <ul className={`w-full h-screen p-8 absolute top-0 left-0 w-3/4  z-15  flex flex-col items-center justify-center gap-2 bg-white text-pink-500  ${isHidden ? "opacity-0 pointer-events-none " : "opacity-100" }  transition duration-300 ease-in-out`}>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/">Home</Link></li>
         <li className='p-2 hover:text-pink-100 text-3xl'><Link href="/services">Work With Me</Link></li> 
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/interview">Interviews</Link></li>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/resources">Resources</Link></li>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/blog">Blog</Link></li>
-        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/contact">Contact</Link></li>
+        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/#contact">Contact</Link></li>
       </ul>
         </div>
     

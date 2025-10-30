@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 type space = {
   name : string,
@@ -17,6 +18,7 @@ type space = {
 }
 
 export default function Home() {
+  const [name,setName] = useState<string | null>("")
 
   const reviews =[{
     content : "“I've worked with Ewaoluwa for several years now, and it never ceases to amaze me how good she is at capturing my ideas and articulating them with true perfection. I found that in order to be a good writer, you must also be an amazing listener, and she truly is that. She listens closely and recreates my words as they are in my mind. Her editing is just as amazing as her writing skills. With a keen eye for detail, Ewaoluwa has successfully edited a number of my works with incredible accuracy. She takes her time to not just read text, but breaks it down to ensure she fully understands it before marking it up. Anyone lucky enough to work with Ewaoluwa is truly blessed“.",
@@ -109,7 +111,7 @@ export default function Home() {
 
       </h3>
       <div className="mt-5 py-5">  <Link
-      href="workwithme" className="p-3 font-semibold rounded-md text-xl bg-pink-400 ">Work With Me</Link>
+      href="#services" className="p-3 font-semibold rounded-md text-xl bg-pink-400 ">Work With Me</Link>
     </div></div>
    
   </article>
@@ -186,7 +188,7 @@ export default function Home() {
 
   <section className="w-full my-8 mb-12 md:mt-10 ">
     <div className="relative flex flex-col items-center">
-       <h2 className="relative text-6xl font-cookie text-center">Hi, I’m Kristina!
+       <h2 className="relative  text-5xl md:text-7xl font-cookie text-center">Hi, I’m Kristina!
 
       </h2> 
   
@@ -248,7 +250,7 @@ export default function Home() {
 
   </section>
         {/* Services */}
-  <section className="bg-pink-200 py-12">
+  <section className="bg-pink-200 py-12" id="services">
     <h1 className="font-cookie text-6xl text-center text-center text-background font-bold">My Services</h1>
 <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-6 font-delius">
   <div className="bg-white text-black p-6 rounded-lg shadow-md backdrop-blur-md">
@@ -389,7 +391,7 @@ export default function Home() {
                 <p className="text-lg md:text-xl italic leading-relaxed text-gray-800 mb-6 z-30">
                   {review.content}
                 </p>
-                <p className="text-sm md:text-base font-semibold text-pink-600 ">
+                <p className="text-sm md:text-base font-semibold text-pink-600 mx-2 px-2">
                   -- {review.person}
                 </p>
               </div>
@@ -398,15 +400,80 @@ export default function Home() {
         </Swiper>
 
         {/* Navigation Buttons */}
-        <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 bg-pink-400 hover:bg-pink-500 text-white p-3 rounded-full shadow-lg transition-all duration-300">
-          <ChevronLeft size={24} />
+        <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2   transparent -z-5 p-3 rounded-full shadow-lg transition-all duration-300">
+          <ChevronLeft size={24} className="text-pink-500 -z-5 " />
         </button>
 
-        <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 bg-pink-400 hover:bg-pink-500 text-white p-3 rounded-full shadow-lg transition-all duration-300">
-          <ChevronRight size={24} />
+        <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 transparent p-3 rounded-full shadow-lg transition-all duration-300">
+          <ChevronRight size={24} className="text-pink-500 -z-5 " />
         </button>
       </div>
     </section>
+         
+      {/* contact form    */}
+
+    <section
+  id="contact"
+  className="bg-[#430169] text-white py-16 px-6 md:px-12 lg:px-20 flex flex-col items-center"
+>
+  <div className="max-w-2xl w-full">
+    <h1 className="text-center text-pink-300 text-3xl md:text-4xl font-semibold mb-4">
+      Got a project, question, or wild idea? Tell me all about it!
+    </h1>
+    <h3 className="text-center text-gray-200 text-base md:text-lg mb-10">
+      I read every message personally (yes, really). Fill out the form below,
+      and I’ll get back to you soon.
+    </h3>
+
+    <form className="flex flex-col gap-5">
+      <input
+        type="text"
+        placeholder="Your Name"
+        className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none transition duration-300 placeholder-gray-300"
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none transition duration-300 placeholder-gray-300"
+      />
+
+      <select
+        className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none text-gray-200 transition duration-300"
+      >
+        <option>Writing Partnership</option>
+        <option>Editing</option>
+        <option>LinkedIn/Website Content Writing</option>
+        <option>Something else!</option>
+      </select>
+
+      <textarea
+        placeholder="Tell me about your project (project type, genre, word count, expectations, …)"
+        rows={5}
+        className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none transition duration-300 placeholder-gray-300 resize-none"
+      ></textarea>
+
+      <select
+        className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none text-gray-200 transition duration-300"
+      >
+          <option value="" disabled selected>
+   How soon are you looking to start?
+  </option>
+        <option>ASAP</option>
+        <option>In the next few weeks</option>
+        <option>Just exploring for now</option>
+      </select>
+
+      <button
+        type="submit"
+        className="mt-6 bg-pink-400 hover:bg-pink-500 text-white font-medium py-3 px-8 rounded-xl shadow-lg transition duration-300"
+      >
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
 
 
  
