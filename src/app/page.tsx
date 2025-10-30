@@ -49,7 +49,7 @@ export default function Home() {
       <h1 className="text-4xl md:text-7xl font-funnel font-bold font-de leading-tight">
        You’ve got something worth saying—I help you say it better. 
       </h1>
-      <h3 className="mt-6 text-lg md:text- font-funnel ">
+      <h3 className="mt-6 text-sm md:text-lg text-gray-300 font-funnel ">
        Writing Partnership and Editing support that turns rough ideas and drafts into impactful, goal-crushing pieces. & <br /> Authentic LinkedIn and Website Copy that connects, converts, and still feels like you.
 
       </h3>
