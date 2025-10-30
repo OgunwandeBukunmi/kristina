@@ -101,11 +101,11 @@ export default function Home() {
 
     {/* Content */}
     <div className="relative z-10 text-white px-4">
-      <h1 className="text-4xl md:text-7xl font-funnel font-bold font-de leading-tight">
-       You’ve got something worth saying—I help you say it better. 
+      <h1 className="text-5xl md:text-8xl font-instrument font-bold font-de leading-tight">
+       You’ve got something worth saying—I help you <span className="italic text-pink-500"> say</span> it better. 
       </h1>
-      <h3 className="mt-6 text-sm md:text-lg text-gray-300 font-funnel ">
-       Writing Partnership and Editing support that turns rough ideas and drafts into impactful, goal-crushing pieces. & <br /> Authentic LinkedIn and Website Copy that connects, converts, and still feels like you.
+      <h3 className="mt-6 text-sm md:text-lg text-gray-200 font-funnel ">
+       Writing Partnership and Editing support that turns rough ideas and drafts into impactful, goal-crushing pieces. <br /> & <br /> Authentic LinkedIn and Website Copy that connects, converts, and still feels like you.
 
       </h3>
       <div className="mt-5 py-5">  <Link
@@ -131,26 +131,26 @@ export default function Home() {
 
         <div className="space-y-8 text-gray-200">
           <p>
-            Are you the writer with rough ideas and unfinished drafts? Wrestling
-            with fear, overwhelm, and inconsistency? Unable to stand how lonely
+            Are you the writer with<span className="text-pink-300 italic"> rough ideas</span>  and <span className="underline text-pink-300">unfinished drafts?</span> <span className="text-red-400"> Wrestling
+            with fear, overwhelm, and inconsistency?</span>  Unable to stand how lonely
             writing can get?
           </p>
 
           <p>
             Or maybe you’re the writer who’s already written their piece. You’re
-            proud, but unsure—wondering if it’s good enough, or if the world will
-            understand and accept it.
+            <span className="text-red-300"> proud, but unsure—wondering if it’s good enough</span>, or <span className="text-green-300">  if the world will
+            understand and accept it.</span>
           </p>
 
           <p>
             Or perhaps you’re not a writer at all. You’re a professional or
-            creative done with copy that sounds like everyone else’s. You want
-            your voice to show up in your online presence.
+            creative done with copy that sounds like everyone else’s. <span className="text-green-300">You want
+            your voice to show up in your online presence.</span> 
           </p>
 
           <p className="font-medium  mt-8">
-            Whichever it is, I’m ready to meet you in the middle of your chaos
-            and help you turn it into clear, confident, and complete stories and
+            Whichever it is, I’m ready to<span className="text-pink-500"> meet you in the middle of your chaos</span>
+            and help you turn it into <span className="text-green-300">clear, confident, and complete</span> stories and
             copy.
           </p>
 
@@ -386,11 +386,11 @@ export default function Home() {
           {reviews.map((review, index) => (
             <SwiperSlide key={index}>
               <div className="bg-white min-h-96 text-[#430169] rounded-2xl shadow-lg p-8 md:p-12 flex flex-col items-center text-center transition-all duration-500 hover:shadow-xl">
-                <p className="text-lg md:text-xl italic leading-relaxed text-gray-800 mb-6">
+                <p className="text-lg md:text-xl italic leading-relaxed text-gray-800 mb-6 z-30">
                   {review.content}
                 </p>
-                <p className="text-sm md:text-base font-semibold text-pink-600">
-                  --{review.person}
+                <p className="text-sm md:text-base font-semibold text-pink-600 ">
+                  -- {review.person}
                 </p>
               </div>
             </SwiperSlide>
@@ -411,6 +411,8 @@ export default function Home() {
 
  
 </section>
+
+
 
   );
 }

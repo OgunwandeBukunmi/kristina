@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     // Desktop navbar
     <header>
-          <div className='hidden font-open lg:flex flex-row w-full p-4  bg-white  justify-between  '>
+          <div className='hidden  lg:flex flex-row w-full p-4  bg-white  justify-between  '>
       <h1>
            <Image
           src="/kristina.png"       
