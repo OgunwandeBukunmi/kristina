@@ -12,6 +12,7 @@ export default function AdminDashboard() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [contentFor, setContentFor] = useState<"interviews" | "blogs" | "resources">("interviews");
+  const[error,setError] = useState<string | null>("")
   const [title, setTitle] = useState("");
 
   // ✅ Initialize EditorJS when entering writing mode
@@ -83,9 +84,9 @@ export default function AdminDashboard() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim() && password.trim()) {
-      setCurrentStep("admin-writing");
-    }
+    if (!name.trim() ||  !password.trim()) return setError("Incomplete Credentials") 
+    
+      if(name === "Kristina"  ) return setCurrentStep("admin-writing")
   };
 
   const handlePublish = async () => {

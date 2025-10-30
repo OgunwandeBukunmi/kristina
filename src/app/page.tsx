@@ -370,7 +370,7 @@ export default function Home() {
       {/* Swiper Container */}
       <div className="relative max-w-5xl mx-auto">
         <Swiper
-          modules={[Pagination, Autoplay, Navigation]}
+          modules={[ Autoplay, Navigation]}
           spaceBetween={40}
           slidesPerView={1}
           loop={true}
@@ -465,6 +465,11 @@ export default function Home() {
         <option>Just exploring for now</option>
       </select>
 
+          <p className="font-semibold"> Book a <span className="text-pink-300">free 20-minute call</span>  to see if we’re the right fit.</p>
+          <div >  
+            <p>file upload — for manuscripts or briefs</p>
+          <input type="file" className="p-3 border border-transparent bg-white/10 backdrop-blur-md rounded-lg" id="" /></div>
+        
       <button
         type="submit"
         className="mt-6 bg-pink-400 hover:bg-pink-500 text-white font-medium py-3 px-8 rounded-xl shadow-lg transition duration-300"
