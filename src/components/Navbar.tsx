@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 export default function Navbar() {
   const[isHidden,setisHidden] = useState<boolean>(true)
+  const[isDropdown,setIsDropDown] = useState(false)
   return (
     // Desktop navbar
     <header>
@@ -29,14 +30,42 @@ export default function Navbar() {
       Home
     </Link>
   </li>
-  <li className="p-2 text-xl">
-    <Link
-      href="/services"
-      className="p-1 hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
-    >
-      Work With Me
-    </Link>
-  </li>
+<li 
+  className="relative p-2 text-xl" 
+  onMouseEnter={() => setIsDropDown(true)} 
+  onMouseLeave={() => setIsDropDown(false)}
+>
+  <Link
+    href="/#services"
+    className="p-1 relative hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
+  >
+    Work With Me
+  </Link>
+
+  {isDropdown && (
+    <div className="absolute z-20 left-0 mt-2 w-48 bg-white shadow-md rounded-lg p-2 z-10">
+      <Link 
+        href="/writingpartnership" 
+        className="block px-3 py-2 text-gray-700 hover:bg-pink-50 rounded"
+      >
+        Writing Partnership
+      </Link>
+      <Link 
+        href="/editing" 
+        className="block px-3 py-2 text-gray-700 hover:bg-pink-50 rounded"
+      >
+        Editing
+      </Link>
+      <Link 
+        href="/contentwriting" 
+        className="block px-3 py-2 text-gray-700 hover:bg-pink-50 rounded"
+      >
+        LinkedIn / Website Content
+      </Link>
+    </div>
+  )}
+</li>
+
   <li className="p-2 text-xl">
     <Link
       href="/profiles"

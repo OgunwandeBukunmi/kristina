@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 type space = {
   name : string,
@@ -270,7 +271,7 @@ export default function Home() {
        
   
     <Link
-      href="/"
+      href="/writingpartnership"
       className="inline-block px-4 py-2 bg-background text-white font-bold rounded-lg"
     >
       Explore this service →
@@ -294,7 +295,7 @@ export default function Home() {
       <p>Ready to make your words clear, powerful, and alive?</p>
     </div>
     <Link
-      href="/"
+      href="/editing"
       className="inline-block px-4 py-2 bg-background text-white font-bold rounded-lg"
     >
       Explore this service →
@@ -317,7 +318,7 @@ export default function Home() {
     </div>
 
     <Link
-      href="/"
+      href="/contentwriting"
       className="inline-block px-4 py-2 bg-background text-white font-bold rounded-lg"
     >
       Explore this service →
@@ -467,7 +468,7 @@ export default function Home() {
 
           <p className="font-semibold"> Book a <span className="text-pink-300">free 20-minute call</span>  to see if we’re the right fit.</p>
           <div >  
-            <p>file upload — for manuscripts or briefs</p>
+            <p>file upload — for manuscripts or briefs(optional)</p>
           <input type="file" className="p-3 border border-transparent bg-white/10 backdrop-blur-md rounded-lg" id="" /></div>
         
       <button
@@ -479,7 +480,7 @@ export default function Home() {
     </form>
   </div>
 </section>
-
+<Footer/>
 
  
 </section>
