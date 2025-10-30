@@ -273,8 +273,8 @@ export default function Home() {
     <section className="bg-[var(--background)] text-white py-20 px-6 md:px-16">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-2xl md:text-3xl font-medium leading-relaxed mb-12 text-pink-200">
-          "I’ve built this space to be part portfolio, part home — a place where
-          you can find support, learn, and notice with me, even before we meet."
+          I’ve built this space to be part portfolio, part home — a place where
+          you can find support, learn, and notice with me, even before we meet.
         </h2>
 
         <main className="grid md:grid-cols-3 gap-10">

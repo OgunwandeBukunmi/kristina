@@ -11,7 +11,7 @@ export default function AdminDashboard() {
   );
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [contentFor, setContentFor] = useState<"interviews" | "blogs">("interviews");
+  const [contentFor, setContentFor] = useState<"interviews" | "blogs" | "resources">("interviews");
   const [title, setTitle] = useState("");
 
   // ✅ Initialize EditorJS when entering writing mode
@@ -26,9 +26,9 @@ export default function AdminDashboard() {
       const Header = (await import("@editorjs/header")).default;
       const List = (await import("@editorjs/list")).default;
       const Paragraph = (await import("@editorjs/paragraph")).default;
-      const Marker = (await import("@editorjs/marker")).default;
+      // const Marker = (await import("@editorjs/marker")).default;
       const Underline = (await import("@editorjs/underline")).default;
-      const { TextColorPlugin } = (await import("editorjs-text-color-plugin")).default;
+      // const { TextColorPlugin } = (await import("editorjs-text-color-plugin")).default;
       const ImageTool = (await import("@editorjs/image")).default;
 
       if (!isMounted) return;
@@ -167,6 +167,16 @@ export default function AdminDashboard() {
               }`}
             >
               Blogs
+            </button>
+                  <button
+              onClick={() => setContentFor("resources")}
+              className={`p-2 rounded-lg font-medium transition ${
+                contentFor === "resources"
+                  ? "bg-green-100 text-green-700"
+                  : "hover:bg-gray-100 text-gray-700"
+              }`}
+            >
+              Resources
             </button>
           </nav>
         </div>
