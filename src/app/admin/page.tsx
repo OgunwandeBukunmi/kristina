@@ -11,7 +11,7 @@ export default function AdminDashboard() {
   );
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [contentFor, setContentFor] = useState<"interviews" | "blogs" | "resources">("interviews");
+  const [contentFor, setContentFor] = useState<"interviews" | "blogs" | "resources" | "responses">("interviews");
   const[error,setError] = useState<string | null>("")
   const [title, setTitle] = useState("");
 
@@ -141,6 +141,8 @@ export default function AdminDashboard() {
     );
   }
 
+
+
   // --- Editor Dashboard UI
   return (
     <div className="min-h-screen w-full bg-gray-100 flex flex-col md:flex-row">
@@ -179,12 +181,23 @@ export default function AdminDashboard() {
             >
               Resources
             </button>
+                <button
+              onClick={() => setContentFor("responses")}
+              className={`p-2 rounded-lg font-medium transition  ${
+                contentFor === "responses"
+                  ? "bg-green-100 text-green-700"
+                  : "hover:bg-gray-100 text-gray-700"
+              }`}
+            >
+             Contact Responses
+            </button>
           </nav>
         </div>
       </aside>
 
       {/* Editor Area */}
-      <main className="flex-1 p-6 flex flex-col">
+      {contentFor != "responses" ? (
+         <main className="flex-1 p-6 flex flex-col">
         <h1 className="text-2xl font-semibold text-gray-800 mb-4">
           Writing for:{" "}
           <span className="text-green-600 capitalize">{contentFor}</span>
@@ -209,7 +222,10 @@ export default function AdminDashboard() {
         >
           Publish
         </button>
-      </main>
+      </main>) :(<>
+      <h1>Responses</h1>
+      </>)}
+    
     </div>
   );
 }

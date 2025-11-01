@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Footer from "@/components/Footer";
 
 type space = {
@@ -19,7 +19,12 @@ type space = {
 }
 
 export default function Home() {
-  const [name,setName] = useState<string | null>("")
+  const [name,setName] = useState<string >("")
+  const[email,setEmail] = useState<string >("")
+  const[reason,setReason] = useState<string >("")
+  const[aboutProject,setaboutProject] = useState<string >("")
+   const[time,setTime] = useState<string >("")
+   let formData = new FormData()
 
   const reviews =[{
     content : "“I've worked with Ewaoluwa for several years now, and it never ceases to amaze me how good she is at capturing my ideas and articulating them with true perfection. I found that in order to be a good writer, you must also be an amazing listener, and she truly is that. She listens closely and recreates my words as they are in my mind. Her editing is just as amazing as her writing skills. With a keen eye for detail, Ewaoluwa has successfully edited a number of my works with incredible accuracy. She takes her time to not just read text, but breaks it down to ensure she fully understands it before marking it up. Anyone lucky enough to work with Ewaoluwa is truly blessed“.",
@@ -90,12 +95,33 @@ export default function Home() {
 
   ]
 
+  async function handleContactFormSubmit(e : FormEvent){
+    e.preventDefault()
+    formData.append("name",name)
+    formData.append("email",email)
+    formData.append("reason",reason)
+    formData.append("projectDetails",aboutProject)
+    formData.append("time",time)
+    
+    console.log("Contact Data Received")
+    try{
+      const request = await fetch("/api/contact",{
+        method : "POST",
+        body : formData
+      })
+      const response = await request.json()
+      console.log(response.message)
+    }catch(err){
+
+    }
+    
+  }
   return (
    <section className="w-full h-screen">
 
   <Navbar />
   {/* Hero section */}
-  <article className=" h-[500px]  relative text-center py-12   overflow-hidden">
+  <article className=" h-[500px]  relative text-center py-12   overflow-hidden p-2 ">
     {/* Background image and gradient */}
     <div className="absolute inset-0 bg-gradient-to-r from-gray-500 to-gray-800 bg-[url('/passion_word.jpg')] bg-cover bg-center opacity-60"></div>
 
@@ -328,7 +354,7 @@ export default function Home() {
 <p className="text-center mt-10">Those are all my services but not everything I have to offer😊! </p>
   </section>
 
-    <section className="bg-[var(--background)] text-white py-20 px-6 md:px-16">
+<section className="bg-[var(--background)] text-white py-20 px-6 md:px-16">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-2xl md:text-3xl font-medium leading-relaxed mb-12 text-pink-200">
           I’ve built this space to be part portfolio, part home — a place where
@@ -426,23 +452,35 @@ export default function Home() {
       and I’ll get back to you soon.
     </h3>
 
-    <form className="flex flex-col gap-5">
+    <form className="flex flex-col gap-5" onSubmit={handleContactFormSubmit}>
       <input
         type="text"
         placeholder="Your Name"
+        required
         className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none transition duration-300 placeholder-gray-300"
+        onChange={(e)=>setName(e.target.value)}
+        value={name}
+       
       />
 
       <input
         type="email"
         name="email"
         placeholder="Your Email"
+        required
         className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none transition duration-300 placeholder-gray-300"
+        value={email}
+        onChange={(e)=>setEmail(e.target.value)}
       />
 
       <select
+      required
         className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none text-gray-200 transition duration-300"
+        onChange={(e)=>setReason(e.target.value)}
       >
+            <option value="" disabled selected>
+   What are you reaching out about?
+  </option>
         <option>Writing Partnership</option>
         <option>Editing</option>
         <option>LinkedIn/Website Content Writing</option>
@@ -450,13 +488,18 @@ export default function Home() {
       </select>
 
       <textarea
+      required
         placeholder="Tell me about your project (project type, genre, word count, expectations, …)"
         rows={5}
         className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none transition duration-300 placeholder-gray-300 resize-none"
+        value={aboutProject}
+        onChange={(e)=>setaboutProject(e.target.value)}
       ></textarea>
 
       <select
+      required
         className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none text-gray-200 transition duration-300"
+        onChange={(e)=>setTime(e.target.value)}
       >
           <option value="" disabled selected>
    How soon are you looking to start?
@@ -469,7 +512,16 @@ export default function Home() {
           <p className="font-semibold"> Book a <span className="text-pink-300">free 20-minute call</span>  to see if we’re the right fit.</p>
           <div >  
             <p>file upload — for manuscripts or briefs(optional)</p>
-          <input type="file" className="p-3 border border-transparent bg-white/10 backdrop-blur-md rounded-lg" id="" /></div>
+          <input 
+          accept="image/*,application/pdf"
+          type="file" className="p-3 border border-transparent bg-white/10 backdrop-blur-md rounded-lg"  
+          onChange={async (e: ChangeEvent<HTMLInputElement>) => {
+  const files = e.target.files;
+  if (!files || files.length === 0) return; // no file selected
+  formData.append("file", files[0]);
+  console.log("File added:", files[0]);
+}
+          }/></div>
         
       <button
         type="submit"

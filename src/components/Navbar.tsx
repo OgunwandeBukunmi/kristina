@@ -143,7 +143,7 @@ export default function Navbar() {
       </button>
          <ul className={`w-full h-screen p-8 absolute top-0 left-0 w-3/4  z-15  flex flex-col items-center justify-center gap-2 bg-white text-pink-500  ${isHidden ? "opacity-0 pointer-events-none " : "opacity-100" }  transition duration-300 ease-in-out`}>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/">Home</Link></li>
-        <li className='p-2 hover:text-pink-100 text-3xl'><Link href="/services">Work With Me</Link></li> 
+        <li className='p-2 hover:text-pink-100 text-3xl'><Link href="/#services">Work With Me</Link></li> 
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/interview">Interviews</Link></li>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/resources">Resources</Link></li>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/blog">Blog</Link></li>
