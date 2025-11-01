@@ -8,6 +8,11 @@ let clientPromise: Promise<MongoClient>;
 
 if (!uri) throw new Error('Please add your MongoDB URI to .env.local');
 
+declare global {
+ 
+  var _mongoClientPromise: Promise<MongoClient> | undefined;
+}
+
 // Reuse client between hot reloads in dev
 if (process.env.NODE_ENV === 'development') {
   // @ts-ignore

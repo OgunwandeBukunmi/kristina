@@ -112,10 +112,15 @@ export default function Home() {
       })
       const response = await request.json()
       console.log(response.message)
-    }catch(err:any){
-      console.error(err.message)
-      setError(err.message)
-    }
+    }catch (err: unknown) {
+  if (err instanceof Error) {
+    console.error(err.message);
+    setError(err.message);
+  } else {
+    console.error(String(err));
+    setError("Something went wrong");
+  }
+}
     
   }
   return (

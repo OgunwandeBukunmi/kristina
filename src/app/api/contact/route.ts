@@ -11,7 +11,7 @@ export async function POST(req:NextRequest){
 
 
     }catch(err){
-
+        return NextResponse.json({sucess : false, message :"Error somewhere"},{status : 500})
     }
     
 
