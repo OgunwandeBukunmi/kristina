@@ -3,7 +3,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -24,7 +24,8 @@ export default function Home() {
   const[reason,setReason] = useState<string >("")
   const[aboutProject,setaboutProject] = useState<string >("")
    const[time,setTime] = useState<string >("")
-   let formData = new FormData()
+   const[error,setError] = useState<string>("")
+   const formData = new FormData()
 
   const reviews =[{
     content : "“I've worked with Ewaoluwa for several years now, and it never ceases to amaze me how good she is at capturing my ideas and articulating them with true perfection. I found that in order to be a good writer, you must also be an amazing listener, and she truly is that. She listens closely and recreates my words as they are in my mind. Her editing is just as amazing as her writing skills. With a keen eye for detail, Ewaoluwa has successfully edited a number of my works with incredible accuracy. She takes her time to not just read text, but breaks it down to ensure she fully understands it before marking it up. Anyone lucky enough to work with Ewaoluwa is truly blessed“.",
@@ -111,8 +112,9 @@ export default function Home() {
       })
       const response = await request.json()
       console.log(response.message)
-    }catch(err){
-
+    }catch(err :any){
+      console.error(err.message)
+      setError(err.message)
     }
     
   }
@@ -453,6 +455,7 @@ export default function Home() {
     </h3>
 
     <form className="flex flex-col gap-5" onSubmit={handleContactFormSubmit}>
+     {error ? <span className="p-s bg-red-900 text-red-300 rounded-md"></span> : <></> } 
       <input
         type="text"
         placeholder="Your Name"
