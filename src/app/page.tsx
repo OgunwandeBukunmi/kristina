@@ -112,7 +112,7 @@ export default function Home() {
       })
       const response = await request.json()
       console.log(response.message)
-    }catch(err :any){
+    }catch(err:any){
       console.error(err.message)
       setError(err.message)
     }

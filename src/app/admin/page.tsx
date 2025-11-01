@@ -85,15 +85,17 @@ export default function AdminDashboard() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() ||  !password.trim()) return setError("Incomplete Credentials") 
+
     
-      if(name === "Kristina"  ) return setCurrentStep("admin-writing")
+      if(name === "Kristina" && password === "kristina123"  ) return setCurrentStep("admin-writing")
+        setError("Incorrect Username or Password")
   };
 
   const handlePublish = async () => {
     if (!title.trim()) return alert("Please add a title before publishing.");
 
     const savedData: OutputData | undefined = await editorRef.current?.save();
-    console.log("✅ Published:", { title, contentFor, savedData });
+    console.log("✅ Published:", savedData);
 
 
   };
@@ -107,7 +109,8 @@ export default function AdminDashboard() {
             Welcome Back Kristina
           </h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
+            {error ? <span className="bg-red-700 text-red-300 p-2 rounded-md font-bold mb-8 w-full">{error}</span> : <></>}
+            <div className="mt-4">
               <label className="block text-sm font-medium mb-1">Username</label>
               <input
                 type="text"
@@ -201,6 +204,7 @@ export default function AdminDashboard() {
         <h1 className="text-2xl font-semibold text-gray-800 mb-4">
           Writing for:{" "}
           <span className="text-green-600 capitalize">{contentFor}</span>
+          
         </h1>
 
         <input
