@@ -10,9 +10,15 @@ export async function POST(req:NextRequest){
         return NextResponse.json({sucess : true, message : "Message received by backend FormData"})
 
 
-    }catch(err){
-        return NextResponse.json({sucess : false, message :"Error somewhere"},{status : 500})
-    }
+    }catch (err: unknown) {
+  let message = "An unexpected error occurred";
+
+  if (err instanceof Error) {
+    message = err.message;
+  }
+
+  return NextResponse.json({ success: false, message }, { status: 500 });
+}
     
 
 }
