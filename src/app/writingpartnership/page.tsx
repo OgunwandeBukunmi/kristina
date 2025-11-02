@@ -118,10 +118,10 @@ export default function page() {
 </section>
 
 <section className="py-24 px-8 space-y-8 ">
-  <h1 className='font-bold text-center font-quintessential text-4xl'>Your struggle <span className="italic text-pink-500">doesn&apos;t mean</span> you're not good enough</h1>
+  <h1 className='font-bold text-center font-quintessential text-4xl'>Your struggle <span className="italic text-pink-500">doesn&apos;t mean</span> you&apos;re not good enough</h1>
   <div className='space-y-8 text-lg px-8 text-grat-200 max-w-3xl mx-auto mt-16'>
-   <p>It's time to stop treating your writing hurdles as signs <span className="italic text-pink-500">you&apos;ve failed.</span> <span className="text-green-500"> You haven&apos;t.</span> </p>
-  <p>You’ve just been trying to do something <span className="text-green-500 font-semibold">incredibly brave without the right kind of help.</span> </p>
+   <p>It&apos;s time to stop treating your writing hurdles as signs <span className="italic text-pink-500">you&apos;ve failed.</span> <span className="text-green-500"> You haven&apos;t.</span> </p>
+  <p>You&apos;ve just been trying to do something <span className="text-green-500 font-semibold">incredibly brave without the right kind of help.</span> </p>
   <p>You deserve to be fulfilled by your finished work—and the journey it took to get there.</p>
   <p>Are you staring at a blank page, stuck halfway through, or holding a vague urge to write something? I&apos;ll meet you there—with strategy, structure, and support that gets you unstuck.</p>
   <p>Book, Substack post, article, or paper—it doesn&apos;t matter the form. What matters is that we finish it together.</p>
