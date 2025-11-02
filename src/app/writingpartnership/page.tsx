@@ -1,12 +1,33 @@
+"use client"
 import Navbar from '@/components/Navbar'
 import React from 'react'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 import Footer from '@/components/Footer'
+import FaqAccordion from '@/components/FaqAccordion';
+import Link from 'next/link';
 
 
 export default function page() {
+  const faqs = [
+  {
+    question: "Is This Therapy for Writers?",
+    answer:
+      "God, no. It’s structure, strategy, and creative partnership. The sessions are designed to help you move past fear, detangle your thoughts, and build a steady rhythm that keeps you writing and finishing your drafts. You already have what it takes to write. You just need the right kind of support—someone to listen, ask the right questions, and help you stay consistent.",
+  },
+  {
+    question: "How is this different from ghostwriting?",
+    answer:
+      "In ghostwriting, you hand over the idea, and someone else writes it for you. In a writing partnership, we create together. You stay the writer. I’m just here to help you think, structure, and express your story or message clearly. I ask the right questions, challenge what needs depth, and refine what’s already there so your voice stays at the center.",
+  },
+  {
+    question: "How can you possibly work on different genres?",
+    answer:
+      "Because I don’t just work with topics, I work with people. My focus is understanding what you’re trying to say and helping you say it well. Whether it’s fiction, nonfiction, or personal essays, every piece comes down to ideas, emotion, and clarity. My role is to help you bring out what’s already in you, not impose a genre formula. The research, structure, and voice always revolve around your goals for the project.",
+  },
+];
   const writingreviews  = [
     {
       content : "I was really struggling to organize my ideas for an essay, and Kristina helped me sort everything out. We talked through each point together, and she helped me expand on them, making sure they actually fit the topic and made sense. My thoughts were all over the place, but she helped me detangle and structure them. By the end, everything flowed and felt clear. It honestly made such a difference.",
@@ -353,14 +374,63 @@ export default function page() {
   </main>
 </section>
 
-<section className=' py-20 px-6'>
-<main >
-  <h1 className='text-4xl font-bold'>More Results</h1>
-  <h3 className='text-center text-gray-200'>I was really struggling to organize my ideas for an essay, and Kristina helped me sort everything out. We talked through each point together, and she helped me expand on them, making sure they actually fit the topic and made sense. My thoughts were all over the place, but she helped me detangle and structure them. By the end, everything flowed and felt clear. It honestly made such a difference.</h3>
+<section className="bg-background py-20 px-6 text-gray-100">
+  <main className="max-w-5xl mx-auto">
+    <h1 className="text-4xl font-bold text-center text-pink-400 mb-4">More Results</h1>
+    <h3 className="text-center text-gray-200 max-w-2xl mx-auto text-lg leading-relaxed">
+      I was really struggling to organize my ideas for an essay, and Kristina helped me sort everything out. We talked through each point together, and she helped me expand on them, making sure they actually fit the topic and made sense. My thoughts were all over the place, but she helped me detangle and structure them. By the end, everything flowed and felt clear. It honestly made such a difference.
+    </h3>
 
-  
-</main>
+    <div className="max-w-3xl mx-auto mt-16">
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        spaceBetween={30}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 4000 }}
+        loop={true}
+        className="rounded-2xl shadow-lg bg-white backdrop-blur-md p-8 border border-pink-500/30"
+      >
+        {writingreviews.map((review, index) => (
+          <SwiperSlide key={index}>
+            <div className="flex flex-col items-center text-center gap-4 p-8">
+              <p className="text-gray-900 leading-relaxed italic">“{review.content}”</p>
+              <p className="font-semibold text-pink-500 mt-2">--{review.person}</p>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  </main>
+
 </section>
+
+ <section className="bg-gray-800 text-gray-100 py-20 px-6">
+      <main className="max-w-5xl mx-auto text-center">
+        <p className="max-w-2xl text-4xl font-bold mx-auto text-gray-100 leading-relaxed">
+          Writing Doesn’t Have to Be Lonely, Messy, or Endless.
+        </p>
+        <p className="max-w-2xl mx-auto text-gray-400 mt-3">
+          With the right partner, it becomes purposeful, structured, and fulfilling.
+        </p>
+        <p className="max-w-2xl mx-auto text-gray-400 mt-3">
+          Ready to finally get your words on paper—and enjoy the process while you’re at it?
+        </p>
+
+        <div className="mt-10">
+          <button className="bg-pink-500 hover:bg-pink-600 transition-all text-white px-8 py-3 rounded-2xl font-semibold shadow-md">
+            <Link href="/#contact">Let’s Talk About Your Project</Link>
+            
+          </button>
+        </div>
+
+        <div className="mt-20 text-left">
+         
+          <FaqAccordion items={faqs} />
+        </div>
+      </main>
+    </section>
+
 
 
   <Footer/>

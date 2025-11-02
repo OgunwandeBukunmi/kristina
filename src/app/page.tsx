@@ -150,7 +150,7 @@ export default function Home() {
    
   </article>
 
-    <section className="min-h-screen bg-background text-white flex flex-col justify-center items-center px-6 md:px-20 py-20 text-lg leading-relaxed font-delius">
+    <section className="min-h-screen bg-gray-800 text-white flex flex-col justify-center items-center px-6 md:px-20 py-20 text-lg leading-relaxed font-delius">
       <div className="max-w-4xl text-center space-y-6">
         <p className="text-xl md:text-2xl italic text-pink-300">
           “One thing I know for sure? Writing is one hell of a task!”
