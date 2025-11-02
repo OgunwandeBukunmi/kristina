@@ -11,7 +11,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ChangeEvent, FormEvent, useState } from "react";
 import Footer from "@/components/Footer";
 
-type space = {
+export type space = {
   name : string,
   target : string,
   content : string,
