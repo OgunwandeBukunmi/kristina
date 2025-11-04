@@ -15,7 +15,8 @@ export type space = {
   name : string,
   target : string,
   content : string,
-  cta : string
+  cta : string,
+  link : string
 }
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
   const[aboutProject,setaboutProject] = useState<string >("")
    const[time,setTime] = useState<string >("")
    const[error,setError] = useState<string>("")
+  const[message,setMessage] = useState("")
    const formData = new FormData()
 
   const reviews =[{
@@ -79,18 +81,21 @@ export default function Home() {
       name : "Interviews",
       target : "For the curious",
       content : "I tell the stories of everyday people—the ones who may not be famous but are absolutely fascinating. Their experiences hold meaning, depth, and humanity. Maybe you’ll be inspired, entertained, or even shed a tear.",
-      cta : "Read Interviews"
+      cta : "Read Interviews",
+      link: "interviews" 
     },
        {
       name : "Resources",
       target : "To help my fellow editors and guide writerss",
       content : "I share the tools, lessons, and lightbulb moments that have shaped me as an editor and as a human. Everything here has either helped me grow or increased my efficiency, and I hope it helps you too.",
-      cta : "Explore Resources"
+      cta : "Explore Resources",
+      link : "resources"
     }, {
       name : "Blog",
       target : "For everyone.",
       content : "Here’s where I write just because I want to—fiction, non-fiction, whatever’s calling me. These are the pieces closest to my heart, and I hope they find their way into yours.",
-      cta : "Read My Stories"
+      cta : "Read My Stories",
+      link : "blog"
     },
 
 
@@ -111,11 +116,13 @@ export default function Home() {
         body : formData
       })
       const response = await request.json()
-      console.log(response.message)
+      console.log(response.message,response.url)
+      setMessage(response.message)
     }catch (err: unknown) {
   if (err instanceof Error) {
     console.error(err.message);
     setError(err.message);
+    
   } else {
     console.error(String(err));
     setError("Something went wrong");
@@ -385,7 +392,7 @@ export default function Home() {
                   {item.content}
                 </p>
                 <Link
-                  href={item.cta}
+                  href={item.link}
                   className="inline-block bg-pink-500 text-white px-5 py-2 rounded-full font-medium hover:bg-pink-400 transition-all duration-300"
                 >
                   {item.cta || "Learn more"}
@@ -460,7 +467,7 @@ export default function Home() {
     </h3>
 
     <form className="flex flex-col gap-5" onSubmit={handleContactFormSubmit}>
-     {error ? <span className="p-s bg-red-900 text-red-300 rounded-md"></span> : <></> } 
+     {error ? <span className="p-s bg-red-900 text-red-300 rounded-md">{error}</span> : <></> } 
       <input
         type="text"
         placeholder="Your Name"
@@ -537,6 +544,7 @@ export default function Home() {
       >
         Send Message
       </button>
+      {message ? <span className="p-s bg-red-900 text-red-300 rounded-md">{message}</span> : <></> } 
     </form>
   </div>
 </section>

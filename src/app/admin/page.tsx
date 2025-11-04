@@ -3,6 +3,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import type EditorJS from "@editorjs/editorjs";
 import type { OutputData } from "@editorjs/editorjs";
+import { div, h1 } from "framer-motion/client";
+
+type response = {
+  name : "string",
+  email : "string",
+  projectDetails:"string",
+  reason : "string",
+  time: "string",
+  url : "string",
+  _id : "string"
+
+}
 
 export default function AdminDashboard() {
   const editorRef = useRef<EditorJS | null>(null);
@@ -14,15 +26,45 @@ export default function AdminDashboard() {
   const [contentFor, setContentFor] = useState<"interviews" | "blogs" | "resources" | "responses">("interviews");
   const[error,setError] = useState<string | null>("")
   const [title, setTitle] = useState("");
+  const[contactLoading,setContactLoading] = useState(false)
+  const [responses,setResponses] = useState<response[]>([])
+
+useEffect(()=>{
+ async function fetchResponses(){
+  setContactLoading(true)
+  try{
+    const request = await fetch("/api/contact")
+    if(!request.ok) return setError("Error, Something Happened")
+    const response = await request.json()
+  if(!response.data) return
+  setContactLoading(false)
+    console.log(response.data)
+     setResponses(response.data)
+  }catch (err: unknown) {
+  if (err instanceof Error) {
+    console.error(err.message);
+    setError(err.message);
+   
+    
+  } else {
+    console.error(String(err));
+    setError("Something went wrong");
+  }
+}
+ 
+ }
+ fetchResponses()
+
+},[])
+
 
   // ✅ Initialize EditorJS when entering writing mode
-  useEffect(() => {
-    if (currentStep !== "admin-writing") return;
+useEffect(() => {
+if (currentStep !== "admin-writing") return;
+let editorInstance: EditorJS | null = null;
+let isMounted = true;
 
-    let editorInstance: EditorJS | null = null;
-    let isMounted = true;
-
-    async function initEditor() {
+ async function initEditor() {
       const EditorJS = (await import("@editorjs/editorjs")).default;
       const Header = (await import("@editorjs/header")).default;
       const List = (await import("@editorjs/list")).default;
@@ -97,6 +139,22 @@ export default function AdminDashboard() {
     const savedData: OutputData | undefined = await editorRef.current?.save();
     console.log("✅ Published:", savedData);
 
+    try{
+      const request = await fetch("/api/post",{
+        method : "POST",
+        headers:{
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({title,savedData})
+      })
+    }catch(err :unknown){
+     let message = "An unexpected error occurred";
+       if (err instanceof Error) message = err.message;
+   
+       console.error("❌ Upload failed:", message);
+       setError("Something Went Wrong")
+     
+    }
 
   };
 
@@ -226,9 +284,50 @@ export default function AdminDashboard() {
         >
           Publish
         </button>
-      </main>) :(<>
-      <h1>Responses</h1>
-      </>)}
+      </main>): contactLoading ? (
+        <div className="text-black">
+          <h1>Loading...</h1>
+        </div>
+        ) :(
+      <section className="px-4 ">
+        <h1 className="text-4xl text-black mb-4 font-bold">All the responses from your Contact Form</h1>
+        <main></main>
+        {responses && responses.map((item)=>(
+        <div
+  key={item._id}
+  className="bg-white shadow-md rounded-xl p-5 mb-4 border border-gray-100 hover:shadow-lg transition-shadow duration-200"
+>
+  <div className="space-y-2">
+    <h2 className="text-lg font-semibold text-gray-900">{item.name}</h2>
+    <p className="text-sm text-gray-600">{item.email}</p>
+
+    <div className="mt-3">
+      <p className="text-gray-800">
+        <span className="font-medium text-gray-700">Project Details:</span> {item.projectDetails}
+      </p>
+      <p className="text-gray-800">
+        <span className="font-medium text-gray-700">Reason:</span> {item.reason}
+      </p>
+      <p className="text-gray-800">
+        <span className="font-medium text-gray-700">Time:</span> {item.time}
+      </p>
+      {item.url && (
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 font-medium underline"
+        >
+          View File
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+         
+        ))}
+      </section>
+      )}
     
     </div>
   );

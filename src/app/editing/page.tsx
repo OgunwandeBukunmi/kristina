@@ -26,9 +26,19 @@ export default function page() {
 
 
 
-<section>
-    
+<section className='py-16 px-8'>
+    <main>
+      <div className='mx-auto space-y-8 max-w-2xl text-xl p-8 py-16 text-white  rounded-lg'>
+        <p className='text-center italic tracking-wider'>&apos;From the very first project, Kristina showed a level of thoroughness and attention to detail that instantly stood out. Should I start with how she carefully leaves comments that actually help me improve my writing? She doesn’t just correct mistakes, she explains her reasoning, offers smart suggestions, and always manages to refine my work without altering my tone or voice. It’s rare to find someone who edits with both precision and empathy, but Kristina does it effortlessly.&apos;</p>
+        <p className='text-center text-pink-400'>—Marvellous</p>
+        </div>
+
+    </main>
+
 </section>
+    <section>
+      
+    </section>
 
 
   <Footer/>

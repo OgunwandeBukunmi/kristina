@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import Footer from '@/components/Footer'
 import FaqAccordion from '@/components/FaqAccordion';
 import Link from 'next/link';
-
+import Image from 'next/image';
 
 export default function page() {
   const faqs = [
@@ -83,7 +83,19 @@ export default function page() {
       <span className="text-pink-300 italic">Tell me,</span> what makes writing hard for you?
     </h1>
 
-    <div className="space-y-4 max-w-3xl mx-auto text-lg text-gray-200 leading-relaxed text-center">
+    <div className='flex flex-col md:flex-row items-center gap-16'>
+    <div>
+      <Image 
+      src="https://media.istockphoto.com/id/1355037951/photo/shot-of-a-young-businesswoman-frowning-while-using-a-laptop-in-a-modern-office.webp?a=1&b=1&s=612x612&w=0&k=20&c=8L0sgH8mEg-YDPl-QiSwRAZOkrS0ABcHQU_68FcTDV0="
+      alt="woman"
+      width = {500}
+      height={500}
+      className='rounded-lg md:w-140 md:h-110 h-100 w-100 '
+      >
+
+      </Image>
+    </div>
+          <div className="space-y-4 w-full md:w-1/2 max-w-3xl mx-auto text-lg text-gray-200 leading-relaxed text-center">
       <p className='text-center'>
         Is it the <span className="text-pink-500 font-semibold italic">fear, overwhelm, and self-doubt</span> that sneak in when you try to start? Or the <span className="text-pink-500 font-semibold italic">loneliness</span> of doing it all on your own?
       </p>
@@ -97,6 +109,8 @@ export default function page() {
         Whichever it is, <span className="font-semibold italic text-pink-500">you’re not alone.</span>
       </p>
     </div>
+    </div>
+
   </main>
 
   <main className="space-y-6 bg-gray-800 py-16 px-8">
