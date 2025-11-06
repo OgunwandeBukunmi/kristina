@@ -57,7 +57,7 @@ export default function Navbar() {
         Editing
       </Link>
       <Link 
-        href="/contentwriting" 
+        href="/websitecontent" 
         className="block px-3 py-2 text-gray-700 hover:bg-pink-50 rounded"
       >
         LinkedIn / Website Content
@@ -92,7 +92,7 @@ export default function Navbar() {
   </li>
   <li className="p-2 text-xl">
     <Link
-      href="/#contact"
+      href="/contact"
       className="p-1 hover:border-pink-600 hover:bg-pink-100 rounded transition-colors duration-200"
     >
       Contact
@@ -147,7 +147,7 @@ export default function Navbar() {
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/interview">Interviews</Link></li>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/resources">Resources</Link></li>
         <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/blog">Blog</Link></li>
-        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/#contact">Contact</Link></li>
+        <li className='p-2 hover:text-pink-100  text-3xl'><Link href="/contact">Contact</Link></li>
       </ul>
         </div>
     

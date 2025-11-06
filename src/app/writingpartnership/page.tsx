@@ -433,7 +433,7 @@ export default function page() {
 
         <div className="mt-10">
           <button className="bg-pink-500 hover:bg-pink-600 transition-all text-white px-8 py-3 rounded-2xl font-semibold shadow-md">
-            <Link href="/#contact">Let’s Talk About Your Project</Link>
+            <Link href="/contact">Let’s Talk About Your Project</Link>
             
           </button>
         </div>

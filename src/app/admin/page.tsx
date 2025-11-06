@@ -288,7 +288,9 @@ let isMounted = true;
         <div className="text-black">
           <h1>Loading...</h1>
         </div>
-        ) :(
+        ) : responses.length == 0 ? (
+          <div className="text-black">No Responses</div>
+        ) :( 
       <section className="px-4 ">
         <h1 className="text-4xl text-black mb-4 font-bold">All the responses from your Contact Form</h1>
         <main></main>
