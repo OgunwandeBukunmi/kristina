@@ -1,18 +1,19 @@
 "use client"
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
-import { ChangeEvent, FormEvent, useState } from 'react'
-import React from 'react'
+import Link from 'next/link'
+import { ChangeEvent, FormEvent} from 'react'
+import React ,{useState} from 'react'
 
-export default function page() {
-      const [name,setName] = useState<string >("")
-      const[email,setEmail] = useState<string >("")
-      const[reason,setReason] = useState<string >("")
-      const[aboutProject,setaboutProject] = useState<string >("")
-       const[time,setTime] = useState<string >("")
-       const[error,setError] = useState<string>("")
-      const[message,setMessage] = useState("")
-       const formData = new FormData()
+export default function Page() {
+const [name,setName] = useState<string >("")
+const[email,setEmail] = useState<string >("")
+const[reason,setReason] = useState<string >("")
+const[aboutProject,setaboutProject] = useState<string >("")
+const[time,setTime] = useState<string >("")
+ const[error,setError] = useState<string>("")
+const[message,setMessage] = useState("")
+const formData = new FormData()
 
 
   async function handleContactFormSubmit(e : FormEvent){
@@ -143,6 +144,24 @@ export default function page() {
        </form>
      </div>
    </section>
+    
+<div className="text-center text-4xl font-extrabold text-gray-100 tracking-wide my-8">
+  OR...
+</div>
+
+<section className="flex justify-center items-center px-4 py-10 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-2xl shadow-lg">
+  <main className="flex flex-col items-center text-center space-y-4 max-w-2xl">
+    <h1 className="font-bold text-3xl md:text-4xl text-gray-100 leading-snug">
+      Send a direct email to{" "}
+      <span className="text-indigo-400 hover:text-indigo-300 transition-colors duration-300">
+        <Link href="mailto:kristinawrites93@gmail.com">
+          kristinawrites93@gmail.com
+        </Link>
+      </span>
+    </h1>
+  </main>
+</section>
+
    <Footer/>
    </div>
   

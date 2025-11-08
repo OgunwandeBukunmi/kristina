@@ -332,7 +332,7 @@ export default function page() {
 </section>
 
 <section>
-  <main className="flex flex-col items-center gap-16 ">
+  <main className="flex flex-col items-center gap-16 py-16 ">
     <h1 className="text-5xl font-bold">Testimonials</h1>
        <div className="relative max-w-5xl mx-auto">
         <Swiper

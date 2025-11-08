@@ -3,12 +3,12 @@ import clientPromise from "../../../../lib/mongodb";
 import { Network } from "lucide-react";
 
 export async function POST(req:NextRequest) {
-    const { title,savedData} = await req.json()
+    const {space, title,savedData} = await req.json()
 
     try{
         const client = await clientPromise
         const db = client.db("kristina")
-        const doc = await db.collection("posts").insertOne({title, content : savedData})
+        const doc = await db.collection(space).insertOne({ space,title, content : savedData})
         if(!doc ) return;
         return NextResponse.json({succes : true, data: doc})
 

@@ -145,7 +145,7 @@ let isMounted = true;
         headers:{
           "Content-Type" : "application/json"
         },
-        body : JSON.stringify({title,savedData})
+        body : JSON.stringify({space: contentFor,title,savedData})
       })
     }catch(err :unknown){
      let message = "An unexpected error occurred";
