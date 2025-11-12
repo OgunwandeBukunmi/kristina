@@ -8,17 +8,7 @@ import Footer from "@/components/Footer";
 
 import Image from "next/image";
 import usePostStore from "@/store/useSpaceStore";
-
-interface Post {
-  _id: string;
-  space: string;
-  title: string;
-  description : string;
-  content: {
-    time: number;
-    blocks: { type: string; data: any }[];
-  };
-}
+import type { Post } from "@/store/useSpaceStore";
 
 export default function PostsList() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -91,11 +81,7 @@ export default function PostsList() {
               </p>
             )}
 
-            {post.content?.blocks?.length > 0 && (
-              <p className="text-gray-300 text-sm sm:text-lg line-clamp-3">
-                {post.content.blocks[0].data.text}
-              </p>
-            )}
+       
           </div>
         </Link>
       ))}

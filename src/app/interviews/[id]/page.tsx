@@ -9,14 +9,7 @@ import usePostStore from '@/store/useSpaceStore';
 
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-
-export interface Post {
-  _id: string;
-  space: string;
-  title: string;
-  description?: string;
-  content: { ops: DeltaOp[] }; // Fixed: Added [] for array type
-}
+import type { Post } from '@/store/useSpaceStore';
 
 export default function PostPage() { // Renamed for clarity (optional)
   const params = useParams(); // Destructure properly

@@ -36,7 +36,7 @@ export default function PostPage() { // Renamed for clarity (optional)
     const fetchPost = async () => {
       try {
         setLoading(true);
-        let value : Post = findResourcesPosts(id)!// Assuming this is sync; make async if needed
+        const value : Post = findResourcesPosts(id)!// Assuming this is sync; make async if needed
         setPost(value || []);
         console.log("Fetched post:", value);
         if (!value) { 

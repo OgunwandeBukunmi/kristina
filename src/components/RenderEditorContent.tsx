@@ -16,7 +16,7 @@ export type DeltaOp  = {
     background?: string;
     list?: "ordered" | "bullet";
     code?: boolean;
-    inline : any;
+    inline : boolean;
     blockquote?: boolean;
   };
 }
@@ -25,13 +25,15 @@ interface DeltaData {
   ops: DeltaOp[];
 }
 
+type ClassAttribute = Array<DeltaOp["attributes"] | null>;
+
 export default function RenderQuillContent({ data }: { data: DeltaData }) {
   if (!data || !data.ops || data.ops.length === 0) {
     return <p className="text-gray-400">No content available.</p>;
   }
 
   const getClassNameAttributes = () => {
-  let attributes: any[] = [];
+  const attributes:ClassAttribute  = [];
 
   // Step 1: Build the initial attributes array
   data.ops?.forEach((item) => {
@@ -82,7 +84,7 @@ export default function RenderQuillContent({ data }: { data: DeltaData }) {
 
   // Helper to get className from attributes
   const getClassName = (key: number) => {
-   let  attributes = headers[key]
+   const  attributes = headers[key]
  // Default text: bigger (text-base), better spacing (leading-loose)
     let classes = "";
     if (attributes?.header == 1) classes += "text-pink-800 font-bold mt-8 mb-4 leading-tight tracking-wide text-5xl"; // Bigger H1, tighter line-height for headers
