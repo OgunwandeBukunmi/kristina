@@ -88,8 +88,9 @@ const formData = new FormData()
          required
            className="w-full p-3 rounded-xl bg-[#5d2b8c] border border-transparent focus:border-pink-400 outline-none text-gray-200 transition duration-300"
            onChange={(e)=>setReason(e.target.value)}
+           defaultValue=""
          >
-               <option value="" disabled selected>
+               <option value="" disabled >
       What are you reaching out about?
      </option>
            <option>Writing Partnership</option>
@@ -154,7 +155,7 @@ const formData = new FormData()
     <h1 className="font-bold text-3xl md:text-4xl text-gray-100 leading-snug">
       Send a direct email to{" "}
       <span className="text-indigo-400 hover:text-indigo-300 transition-colors duration-300">
-        <Link href="mailto:kristinawrites93@gmail.com">
+        <Link href="mailto:kristinawrites93@gmail.com?subject=Hello%20Kristina&body=Hi%20Kristina%2C%0A%0AI%20would%20like%20to%20discuss%20my%20project...">
           kristinawrites93@gmail.com
         </Link>
       </span>
