@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import ReactQuill from "react-quill-new"; // Updated import
-import "react-quill-new/dist/quill.snow.css"; // Updated CSS (move to layout.tsx if needed)
-import { useMemo } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
+import ReactQuill from "react-quill-new";
+import "react-quill-new/dist/quill.snow.css";
+
 type response = {
   name: string,
   email: string,
@@ -25,8 +25,8 @@ type Delta = {
       color?: string;
       underline?: boolean;
       code?: boolean;
-      background?: string; // For marker/highlight
-      script?: string; // For inline code if needed
+      background?: string;
+      script?: string;
     };
   }>;
 };
@@ -78,9 +78,9 @@ export default function AdminDashboard() {
     setShouldRenderEditor(currentStep === "admin-writing" && contentFor !== "responses");
   }, [currentStep, contentFor]);
 
-  // Image upload handler (similar to EditorJS)
+  // Image upload handler (memoized with SSR guard)
   const imageHandler = useMemo(() => {
-    if (typeof window === "undefined") return () => {}; // No-op on server
+    if (typeof window === "undefined") return () => {};
     return () => {
       const input = document.createElement('input');
       input.setAttribute('type', 'file');
@@ -103,24 +103,29 @@ export default function AdminDashboard() {
         }
       };
     };
-  }, []);
+  }, [quillRef]); // Depend on ref for safety
 
-  // Quill modules config (toolbar with all features)
-  const modules = {
-    toolbar: {
-      container: [
-        [{ header: [1, 2, 3, false] }], // Headers
-        ['bold', 'italic', 'underline'], // Bold, italic, underline
-        [{ 'color': [] }, { 'background': [] }], // Text color and highlight (marker)
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }], // Lists
-        ['code', 'blockquote'], // Inline code, blockquote (as alt to marker)
-        ['image'] // Image
-      ],
-      handlers: {
-        image: imageHandler // Custom image upload
-      }
-    },
-  };
+  // Quill modules config (memoized with SSR guard to avoid server evaluation)
+  const modules = useMemo(() => {
+    if (typeof window === "undefined") {
+      return { toolbar: false }; // Minimal config on server
+    }
+    return {
+      toolbar: {
+        container: [
+          [{ header: [1, 2, 3, false] }],
+          ['bold', 'italic', 'underline'],
+          [{ 'color': [] }, { 'background': [] }],
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          ['code', 'blockquote'],
+          ['image']
+        ],
+        handlers: {
+          image: imageHandler
+        }
+      },
+    };
+  }, [imageHandler]);
 
   const formats = [
     'header', 'bold', 'italic', 'underline', 'color', 'background',
