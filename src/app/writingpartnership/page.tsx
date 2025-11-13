@@ -9,6 +9,20 @@ import Footer from '@/components/Footer'
 import FaqAccordion from '@/components/FaqAccordion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { 
+  LuEar,         // listening 
+  LuLayers,      // structure
+  LuBrain,       // stuck / thinking
+  LuAnchor,      // grounding / guidance
+  LuPartyPopper, // celebration
+  LuFileCheck    // editing / polishing
+} from "react-icons/lu";
+import { 
+  LuPhoneCall,    // Onboarding Call
+  LuLightbulb,    // Brainstorm & Outline
+  LuPenLine,      // Write & Review
+  LuSparkles      // Edit & Polish
+} from "react-icons/lu";
 
 export default function page() {
   const faqs = [
@@ -54,6 +68,90 @@ export default function page() {
     }
 
   ]
+   const points = [
+    {
+      icon: <LuEar className="text-pink-500 text-4xl" />,
+      text: (
+        <>
+          <span className="text-green-300">Listens carefully to your ideas</span>, 
+          helping you spot the thought you’re excited about and figure out what you want to say.
+        </>
+      ),
+    },
+    {
+      icon: <LuLayers className="text-pink-500 text-4xl" />,
+      text: (
+        <>
+          <span className="text-green-300">Brings structure to your creativity</span> 
+          with a plan that leverages your strengths and accommodates your weaknesses.
+        </>
+      ),
+    },
+    {
+      icon: <LuBrain className="text-pink-500 text-4xl" />,
+      text: (
+        <>
+          Names what keeps you <span className="text-pink-500 font-semibold italic">stuck</span> 
+          and equips you with <span className="text-green-300">practical tools and resources</span> 
+          to move through it.
+        </>
+      ),
+    },
+    {
+      icon: <LuAnchor className="text-pink-500 text-4xl" />,
+      text: (
+        <>
+          Guides and grounds you with <span className="text-green-300">
+          outlines, accountability, and shared writing sessions</span> 
+          when it feels <span className="text-pink-500 font-semibold italic">lonely or scary</span> to keep going.
+        </>
+      ),
+    },
+    {
+      icon: <LuPartyPopper className="text-pink-400 text-4xl" />,
+      text: (
+        <>
+          <span className="text-green-300">Celebrates you through every step,</span> 
+          displacing the <span className="text-pink-500 font-semibold italic">self-doubt</span> 
+          and helping you grow into a more confident writer.
+        </>
+      ),
+    },
+    {
+      icon: <LuFileCheck className="text-pink-500 text-4xl" />,
+      text: (
+        <>
+          <span className="text-green-300">
+            Polishes your work with thoughtful editorial support
+          </span> 
+          that tightens your writing and makes it publish-ready.
+        </>
+      ),
+    },
+  ];
+
+    const steps = [
+    {
+      icon: <LuPhoneCall className="text-pink-500 text-3xl" />,
+      title: "1. Onboarding Call",
+      text: "We talk through your goals, challenges, and current project (or your desire to finally start one). Together, we build a roadmap that is strategic, realistic, and aligned with your writing rhythm.",
+    },
+    {
+      icon: <LuLightbulb className="text-pink-500 text-3xl" />,
+      title: "2. Brainstorm & Outline",
+      text: "We’ll draw out your ideas, organize your thoughts, and find the structure that fits both your voice and your process.",
+    },
+    {
+      icon: <LuPenLine className="text-pink-500 text-3xl" />,
+      title: "3. Write & Review",
+      text: "You write, with strategy and at your pace. I review and refine, offering gentle direction, resources, and editorial insight that helps each section grow stronger without losing its heart.",
+    },
+    {
+      icon: <LuSparkles className="text-pink-500 text-3xl" />,
+      title: "4. Edit & Polish",
+      text: "Once the full draft takes shape, we perfect it—through detailed editing, feedback, and adjustments—until it’s clear, confident, and ready to meet readers.",
+    },
+  ];
   return (
     <div>
       <Navbar/>
@@ -113,47 +211,69 @@ export default function page() {
 
   </main>
 
-  <main className="space-y-6 bg-gray-800 py-16 px-8">
-    <h1 className="text-4xl font-bold font-quintessential text-center text-white mb-8">
-      What If Writing Didn’t Feel So <span className="text-pink-600 italic font-bold">Heavy?</span> 
-    </h1>
-    <div className="max-w-3xl mx-auto space-y-4 text-lg text-gray-200 leading-relaxed">
-      <p>
-        Writing can be a lot. You try your best, but the <span className="text-pink-500 font-semibold italic">goals still slip away</span>. The routines, the productivity hacks—they stop helping. You start wondering if maybe <span className="text-pink-500 font-semibold italic">you’re not cut out for this.</span> Or worse, you start thinking about <span className="text-pink-500 font-semibold italic">quitting altogether.</span>
-      </p>
-      <p>
-        But what if someone showed up to make <span className="text-green-300"> writing easier?</span> 
-      </p>
+<main className="space-y-6 bg-gray-800 py-16 px-8">
+      <h1 className="text-4xl font-bold font-quintessential text-center text-white mb-8">
+        What If Writing Didn’t Feel So{" "}
+        <span className="text-pink-600 italic font-bold">Heavy?</span>
+      </h1>
 
-      <div className="mt-16">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-100">Someone who:</h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-200">
-          <li>
-            <span className="text-green-300">Listens carefully to your ideas</span> , helping you spot the thought you’re excited about and figure out what you want to say.
-          </li>
-          <li>
-             <span className="text-green-300">Brings structure to your creativity</span>  with a plan that leverages your strengths and accommodates your weaknesses.
-          </li>
-          <li>
-            Names what keeps you <span className="text-pink-500 font-semibold italic">stuck</span> and equips you with <span className="text-green-300">practical tools and resources</span> to move through it.
-          </li>
-          <li>
-            Guides and grounds you with <span className="text-green-300">outlines, accountability, and shared writing sessions</span>   when it feels <span className="text-pink-500 font-semibold italic">lonely or scary</span> to keep going.
-          </li>
-          <li>
-           <span className="text-green-300">Celebrates you through every step,</span>  displacing the <span className="text-pink-500 font-semibold italic">self-doubt</span> and helping you grow into a more confident writer.
-          </li>
-          <li>
-            <span className="text-green-300">Polishes your work with thoughtful editorial support that tightens your writing and makes it publish-ready.</span> 
-          </li>
-        </ul>
+      <div className="max-w-3xl mx-auto space-y-4 text-lg text-gray-200 leading-relaxed">
+        <p>
+          Writing can be a lot. You try your best, but the{" "}
+          <span className="text-pink-500 font-semibold italic">
+            goals still slip away
+          </span>
+          . The routines, the productivity hacks—they stop helping. You start
+          wondering if maybe{" "}
+          <span className="text-pink-500 font-semibold italic">
+            you’re not cut out for this.
+          </span>{" "}
+          Or worse, you start thinking about{" "}
+          <span className="text-pink-500 font-semibold italic">
+            quitting altogether.
+          </span>
+        </p>
+
+        <p>
+          But what if someone showed up to make{" "}
+          <span className="text-green-300">writing easier?</span>
+        </p>
+
+        <div className="mt-16">
+          <h2 className="text-2xl font-semibold mb-8 text-gray-100 text-center">
+            Someone who:
+          </h2>
+
+          {/* Grid layout for cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {points.map((point, index) => (
+              <div
+                key={index}
+                className="bg-gray-700/50 border border-gray-600 rounded-2xl p-6 flex flex-col items-center text-center hover:bg-gray-700 transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                <div className="mb-4">{point.icon}</div>
+                <p className="text-gray-200 text-base leading-relaxed">{point.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div> 
-  </main>
+    </main>
 </section>
 
-<section className="py-24 px-8 space-y-8 ">
-  <h1 className='font-bold text-center font-quintessential text-4xl'>Your struggle <span className="italic text-pink-500">doesn&apos;t mean</span> you&apos;re not good enough</h1>
+<section className="py-24 px-8">
+  <main className='flex flex-col md:flex-row gap-8'>
+    <div>
+      <Image
+      src="https://images.unsplash.com/photo-1575096611627-a9906523ae71?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJvb2tzJTIwb24lMjB3b21hbiUyMGhlYWR8ZW58MHx8MHx8fDA%3D"
+      alt='woman holding book'
+      width={500}
+      height={500}
+      className='rounded-md shadow-lg '
+      />
+    </div>
+    <div className=' space-y-8 '>
+       <h1 className='font-bold text-center font-quintessential text-4xl'>Your struggle <span className="italic text-pink-500">doesn&apos;t mean</span> you&apos;re not good enough</h1>
   <div className='space-y-8 text-lg px-8 text-grat-200 max-w-3xl mx-auto mt-16'>
    <p>It&apos;s time to stop treating your writing hurdles as signs <span className="italic text-pink-500">you&apos;ve failed.</span> <span className="text-green-500"> You haven&apos;t.</span> </p>
   <p>You&apos;ve just been trying to do something <span className="text-green-500 font-semibold">incredibly brave without the right kind of help.</span> </p>
@@ -161,6 +281,9 @@ export default function page() {
   <p>Are you staring at a blank page, stuck halfway through, or holding a vague urge to write something? I&apos;ll meet you there—with strategy, structure, and support that gets you unstuck.</p>
   <p>Book, Substack post, article, or paper—it doesn&apos;t matter the form. What matters is that we finish it together.</p>
   </div>
+    </div>
+  </main>
+ 
 
 </section>
 
@@ -248,30 +371,16 @@ export default function page() {
 
     {/* PROCESS STEPS */}
     <div className="grid md:grid-cols-2 gap-8">
-      {[
-        {
-          title: "1. Onboarding Call",
-          text: "We talk through your goals, challenges, and current project (or your desire to finally start one). Together, we build a roadmap that is strategic, realistic, and aligned with your writing rhythm.",
-        },
-        {
-          title: "2. Brainstorm & Outline",
-          text: "We’ll draw out your ideas, organize your thoughts, and find the structure that fits both your voice and your process.",
-        },
-        {
-          title: "3. Write & Review",
-          text: "You write, with strategy and at your pace. I review and refine, offering gentle direction, resources, and editorial insight that helps each section grow stronger without losing its heart.",
-        },
-        {
-          title: "4. Edit & Polish",
-          text: "Once the full draft takes shape, we perfect it—through detailed editing, feedback, and adjustments—until it’s clear, confident, and ready to meet readers.",
-        },
-      ].map((step) => (
+      {steps.map((step) => (
         <div
           key={step.title}
-          className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 hover:border-pink-600 transition-all"
+          className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 hover:border-pink-600 transition-all shadow-sm hover:shadow-lg"
         >
-          <h2 className="text-xl font-bold text-green-400">{step.title}</h2>
-          <p className="mt-2 text-gray-300">{step.text}</p>
+          <div className="flex items-center gap-3 mb-2">
+            {step.icon}
+            <h2 className="text-xl font-bold text-green-400">{step.title}</h2>
+          </div>
+          <p className="text-gray-300 leading-relaxed">{step.text}</p>
         </div>
       ))}
     </div>

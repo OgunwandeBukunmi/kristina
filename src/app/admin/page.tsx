@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactQuill from "react-quill-new"; // Updated import
 import "react-quill-new/dist/quill.snow.css"; // Updated CSS (move to layout.tsx if needed)
-
+import { useMemo } from "react";
 type response = {
   name: string,
   email: string,
@@ -79,28 +79,31 @@ export default function AdminDashboard() {
   }, [currentStep, contentFor]);
 
   // Image upload handler (similar to EditorJS)
-  const imageHandler = () => {
-    const input = document.createElement('input');
-    input.setAttribute('type', 'file');
-    input.setAttribute('accept', 'image/*');
-    input.click();
+  const imageHandler = useMemo(() => {
+    if (typeof window === "undefined") return () => {}; // No-op on server
+    return () => {
+      const input = document.createElement('input');
+      input.setAttribute('type', 'file');
+      input.setAttribute('accept', 'image/*');
+      input.click();
 
-    input.onchange = async () => {
-      const file = input.files?.[0];
-      if (file) {
-        const formData = new FormData();
-        formData.append("file", file);
-        try {
-          const res = await fetch("/api/upload", { method: "POST", body: formData });
-          const result = await res.json();
-          const range = quillRef.current?.getEditor().getSelection()?.index || 0;
-          quillRef.current?.getEditor().insertEmbed(range, 'image', result.url);
-        } catch (err) {
-          console.error("Image upload failed:", err);
+      input.onchange = async () => {
+        const file = input.files?.[0];
+        if (file) {
+          const formData = new FormData();
+          formData.append("file", file);
+          try {
+            const res = await fetch("/api/upload", { method: "POST", body: formData });
+            const result = await res.json();
+            const range = quillRef.current?.getEditor().getSelection()?.index || 0;
+            quillRef.current?.getEditor().insertEmbed(range, 'image', result.url);
+          } catch (err) {
+            console.error("Image upload failed:", err);
+          }
         }
-      }
+      };
     };
-  };
+  }, []);
 
   // Quill modules config (toolbar with all features)
   const modules = {

@@ -92,7 +92,7 @@ export default function RenderQuillContent({ data }: { data: DeltaData }) {
     else if (attributes?.header === 3) classes += "text-white font-bold mt-4 mb-2 text-2xl leading-tight"; // Bigger H3
     if (attributes?.blockquote) classes += "uppercase pl-4 italic text-gray-300 my-6 leading-loose"; // Better spacing for quotes
     if (attributes?.list === "ordered") classes += " ml-6 list-disc list-inside text-gray-200  leading-loose"; // Better spacing for lists
-    else if (attributes?.list === "bullet") classes += " list-outside list-disc ml-16 -translate-y-8 text-gray-200  leading-loose";
+    else if (attributes?.list === "bullet") classes += " list-outside list-disc ml-4 -translate-y-10 text-gray-200  leading-loose";
     if (attributes?.code && !attributes?.inline) classes += " bg-gray-800 text-green-400 p-4 rounded-lg font-mono text-base overflow-x-auto my-6 leading-loose"; // Bigger code, better spacing
     else classes += " text-gray-200 leading-loose text-base"; // Fallback for inline text: bigger, spaced
     if (classes === "") classes += "text-gray-200 leading-loose text-base";
