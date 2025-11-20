@@ -3,14 +3,10 @@
 import React, { useEffect, useRef, useState, useMemo } from "react";
 
 import dynamic from "next/dynamic";
-
-
 const ReactQuill = dynamic(() => import("react-quill-new"), {
   ssr: false,
   loading: () => <p>Loading editor...</p>,
 });
-
-import "react-quill-new/dist/quill.snow.css";
 
 
 // Import CSS
@@ -43,8 +39,19 @@ type Delta = {
   }>;
 };
 
+type ReactQuillInstance = {
+  getEditor(): {
+    getContents(): any;
+    setContents(delta: any): void;
+    getSelection(): { index: number } | null;
+    insertEmbed(index: number, type: string, value: string): void;
+    setSelection(index: number, length: number): void;
+    insertText(index: number, text: string): void;
+  };
+};
+
 export default function AdminDashboard() {
-  const quillRef = useRef<ReactQuill | null>(null);
+  const quillRef = useRef<ReactQuillInstance | null>(null);
   const [currentStep, setCurrentStep] = useState<"admin-login" | "admin-writing">(
     "admin-login"
   );
