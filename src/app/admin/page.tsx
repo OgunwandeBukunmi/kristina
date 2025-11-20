@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useMemo } from "react";
-import ReactQuill from "react-quill-new";
+
+import dynamic from "next/dynamic";
+
+
+const ReactQuill = dynamic(() => import("react-quill-new"), {
+  ssr: false,
+  loading: () => <p>Loading editor...</p>,
+});
+
 import "react-quill-new/dist/quill.snow.css";
 
 type response = {
@@ -32,7 +40,7 @@ type Delta = {
 };
 
 export default function AdminDashboard() {
-  const quillRef = useRef<ReactQuill>(null);
+  const quillRef = useRef<any>(null);
   const [currentStep, setCurrentStep] = useState<"admin-login" | "admin-writing">(
     "admin-login"
   );
