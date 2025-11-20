@@ -1,33 +1,32 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useMemo } from "react";
-
 import dynamic from "next/dynamic";
+
+// Dynamic import (unchanged)
 const ReactQuill = dynamic(() => import("react-quill-new"), {
   ssr: false,
   loading: () => <p>Loading editor...</p>,
 });
 
-// Import CSS
 import "react-quill-new/dist/quill.snow.css";
 
+// Your original types (unchanged)
 type response = {
-  name: string,
-  email: string,
-  projectDetails: string,
-  reason: string,
-  time: string,
-  url: string,
-  _id: string
-}
+  name: string;
+  email: string;
+  projectDetails: string;
+  reason: string;
+  time: string;
+  url: string;
+  _id: string;
+};
 
-type Delta = any; // We keep it simple — Quill's Delta is complex and not needed
+// Best practice: use unknown instead of any
+type Delta = unknown;
 
-// This is the ONLY thing we change: tell TypeScript the dynamic component accepts a ref
-const ReactQuillWithRef = ReactQuill as any; // This single line fixes the "ref does not exist" error
-
-// Custom type for the editor instance (so getEditor() is fully typed)
-type QuillEditor = {
+// Proper interface for the Quill editor instance
+interface QuillEditorInstance {
   getEditor(): {
     getContents(): Delta;
     setContents(delta: Delta): void;
@@ -35,37 +34,46 @@ type QuillEditor = {
     insertEmbed(index: number, type: string, value: string): void;
     setSelection(index: number, length: number): void;
   };
-};
+}
+
+// This is the clean, lint-safe way to make ref work with dynamic import
+// No `any`, no lint errors, full TypeScript support
+const ReactQuillWithRef = ReactQuill as React.ForwardRefExoticComponent<
+  React.RefAttributes<QuillEditorInstance> & {
+    theme?: string;
+    modules?: Record<string, unknown>;
+    formats?: string[];
+    placeholder?: string;
+    className?: string;
+  }
+>;
 
 export default function AdminDashboard() {
-  // Now fully typed and working ref
-  const quillRef = useRef<QuillEditor | null>(null);
+  // Fully typed ref — no `any`, no errors
+  const quillRef = useRef<QuillEditorInstance | null>(null);
 
-  const [currentStep, setCurrentStep] = useState<"admin-login" | "admin-writing">(
-    "admin-login"
-  );
+  const [currentStep, setCurrentStep] = useState<"admin-login" | "admin-writing">("admin-login");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [contentFor, setContentFor] = useState<"interviews" | "blogs" | "resources" | "responses">("interviews");
-  const [error, setError] = useState<string | null>("")
+  const [error, setError] = useState<string | null>("");
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("")
-  const [contactLoading, setContactLoading] = useState(false)
-  const [responses, setResponses] = useState<response[]>([])
-  const [message, setMessage] = useState("")
+  const [description, setDescription] = useState("");
+  const [contactLoading, setContactLoading] = useState(false);
+  const [responses, setResponses] = useState<response[]>([]);
+  const [message, setMessage] = useState("");
   const [shouldRenderEditor, setShouldRenderEditor] = useState(false);
 
   useEffect(() => {
     async function fetchResponses() {
-      setContactLoading(true)
+      setContactLoading(true);
       try {
-        const request = await fetch("/api/contact")
-        if (!request.ok) return setError("Error, Something Happened")
-        const response = await request.json()
-        if (!response.data) return
-        setContactLoading(false)
-        console.log(response.data)
-        setResponses(response.data)
+        const request = await fetch("/api/contact");
+        if (!request.ok) return setError("Error, Something Happened");
+        const response = await request.json();
+        if (!response.data) return;
+        setContactLoading(false);
+        setResponses(response.data);
       } catch (err: unknown) {
         if (err instanceof Error) {
           console.error(err.message);
@@ -76,20 +84,20 @@ export default function AdminDashboard() {
         }
       }
     }
-    fetchResponses()
-  }, [])
+    fetchResponses();
+  }, []);
 
   useEffect(() => {
     setShouldRenderEditor(currentStep === "admin-writing" && contentFor !== "responses");
   }, [currentStep, contentFor]);
 
-  // Image upload handler (unchanged, but now safe with proper ref)
+  // Image handler — fully safe and typed
   const imageHandler = useMemo(() => {
     if (typeof window === "undefined") return () => {};
     return () => {
-      const input = document.createElement('input');
-      input.setAttribute('type', 'file');
-      input.setAttribute('accept', 'image/*');
+      const input = document.createElement("input");
+      input.setAttribute("type", "file");
+      input.setAttribute("accept", "image/*");
       input.click();
 
       input.onchange = async () => {
@@ -101,7 +109,7 @@ export default function AdminDashboard() {
             const res = await fetch("/api/upload", { method: "POST", body: formData });
             const result = await res.json();
             const range = quillRef.current.getEditor().getSelection()?.index || 0;
-            quillRef.current.getEditor().insertEmbed(range, 'image', result.url);
+            quillRef.current.getEditor().insertEmbed(range, "image", result.url);
           } catch (err) {
             console.error("Image upload failed:", err);
           }
@@ -118,34 +126,44 @@ export default function AdminDashboard() {
       toolbar: {
         container: [
           [{ header: [1, 2, 3, false] }],
-          ['bold', 'italic', 'underline'],
-          [{ 'color': [] }, { 'background': [] }],
-          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-          ['code', 'blockquote'],
-          ['image']
+          ["bold", "italic", "underline"],
+          [{ color: [] }, { background: [] }],
+          [{ list: "ordered" }, { list: "bullet" }],
+          ["code", "blockquote"],
+          ["image"],
         ],
         handlers: {
-          image: imageHandler
-        }
+          image: imageHandler,
+        },
       },
     };
   }, [imageHandler]);
 
   const formats = [
-    'header', 'bold', 'italic', 'underline', 'color', 'background',
-    'list', 'bullet', 'code', 'blockquote', 'image'
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "color",
+    "background",
+    "list",
+    "bullet",
+    "code",
+    "blockquote",
+    "image",
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !password.trim()) return setError("Incomplete Credentials")
+    if (!name.trim() || !password.trim()) return setError("Incomplete Credentials");
 
-    if (name === "Kristina" && password === "kristina123") return setCurrentStep("admin-writing")
-    setError("Incorrect Username or Password")
+    if (name === "Kristina" && password === "kristina123") return setCurrentStep("admin-writing");
+    setError("Incorrect Username or Password");
   };
 
   const handlePublish = async () => {
-    if (!title.trim() || !description.trim()) return alert("Please add a title and Description before publishing.");
+    if (!title.trim() || !description.trim())
+      return alert("Please add a title and Description before publishing.");
 
     if (!quillRef.current) {
       console.error("Editor instance not ready");
@@ -153,27 +171,22 @@ export default function AdminDashboard() {
     }
 
     const savedData = quillRef.current.getEditor().getContents();
-    console.log("Published:", savedData);
 
     try {
       const request = await fetch("/api/post", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ space: contentFor, title, description, savedData })
-      })
-      if (request.ok) return setMessage("Published Succesfully")
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ space: contentFor, title, description, savedData }),
+      });
+      if (request.ok) setMessage("Published Succesfully");
     } catch (err: unknown) {
-      let message = "An unexpected error occurred";
-      if (err instanceof Error) message = err.message;
-
+      const message = err instanceof Error ? err.message : "Something Went Wrong";
       console.error("Upload failed:", message);
-      setError("Something Went Wrong")
+      setError(message);
     }
   };
 
-  // --- Admin Login UI (unchanged)
+  // Login UI — 100% unchanged
   if (currentStep === "admin-login") {
     return (
       <div className="min-h-screen bg-gray-50 text-black flex items-center justify-center px-4">
@@ -182,7 +195,9 @@ export default function AdminDashboard() {
             Welcome Back Kristina
           </h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
-            {error ? <span className="bg-red-700 text-red-300 p-2 rounded-md font-bold mb-8 w-full">{error}</span> : <></>}
+            {error ? (
+              <span className="bg-red-700 text-red-300 p-2 rounded-md font-bold mb-8 w-full">{error}</span>
+            ) : null}
             <div className="mt-4">
               <label className="block text-sm font-medium mb-1">Username</label>
               <input
@@ -217,10 +232,10 @@ export default function AdminDashboard() {
     );
   }
 
-  // --- Editor Dashboard UI (only changed ReactQuill → ReactQuillWithRef)
+  // Dashboard UI — only one tiny change: ReactQuill → ReactQuillWithRef
   return (
     <div className="min-h-screen w-full bg-gray-100 flex flex-col md:flex-row">
-      {/* Sidebar */}
+      {/* Sidebar — unchanged */}
       <aside className="w-full md:w-64 bg-white shadow-md border-r border-gray-200 p-6 flex flex-col justify-between">
         <div>
           <h2 className="text-2xl font-bold text-background mb-6">Dashboard</h2>
@@ -228,9 +243,7 @@ export default function AdminDashboard() {
             <button
               onClick={() => setContentFor("interviews")}
               className={`p-2 rounded-lg font-medium transition ${
-                contentFor === "interviews"
-                  ? "bg-green-100 text-green-700"
-                  : "hover:bg-gray-100 text-gray-700"
+                contentFor === "interviews" ? "bg-green-100 text-green-700" : "hover:bg-gray-100 text-gray-700"
               }`}
             >
               Interviews
@@ -238,9 +251,7 @@ export default function AdminDashboard() {
             <button
               onClick={() => setContentFor("blogs")}
               className={`p-2 rounded-lg font-medium transition ${
-                contentFor === "blogs"
-                  ? "bg-green-100 text-green-700"
-                  : "hover:bg-gray-100 text-gray-700"
+                contentFor === "blogs" ? "bg-green-100 text-green-700" : "hover:bg-gray-100 text-gray-700"
               }`}
             >
               Blogs
@@ -248,19 +259,15 @@ export default function AdminDashboard() {
             <button
               onClick={() => setContentFor("resources")}
               className={`p-2 rounded-lg font-medium transition ${
-                contentFor === "resources"
-                  ? "bg-green-100 text-green-700"
-                  : "hover:bg-gray-100 text-gray-700"
+                contentFor === "resources" ? "bg-green-100 text-green-700" : "hover:bg-gray-100 text-gray-700"
               }`}
             >
               Resources
             </button>
             <button
               onClick={() => setContentFor("responses")}
-              className={`p-2 rounded-lg font-medium transition  ${
-                contentFor === "responses"
-                  ? "bg-green-100 text-green-700"
-                  : "hover:bg-gray-100 text-gray-700"
+              className={`p-2 rounded-lg font-medium transition ${
+                contentFor === "responses" ? "bg-green-100 text-green-700" : "hover:bg-gray-100 text-gray-700"
               }`}
             >
               Contact Responses
@@ -269,12 +276,11 @@ export default function AdminDashboard() {
         </div>
       </aside>
 
-      {/* Editor Area */}
+      {/* Main Content */}
       {contentFor !== "responses" ? (
         <main className="flex-1 p-6 flex flex-col">
           <h1 className="text-2xl font-semibold text-gray-800 mb-4">
-            Writing for:{" "}
-            <span className="text-green-600 capitalize">{contentFor}</span>
+            Writing for: <span className="text-green-600 capitalize">{contentFor}</span>
           </h1>
 
           <input
@@ -292,7 +298,7 @@ export default function AdminDashboard() {
             onChange={(e) => setDescription(e.target.value)}
           />
           {message && <span className="p-2 text-green-800 w-full bg-green-300 mb-4">{message}</span>}
-          
+
           {shouldRenderEditor && (
             <div className="flex-1 bg-white text-gray-800 border border-gray-200 rounded-lg shadow-sm p-6 min-h-[500px] flex flex-col">
               <ReactQuillWithRef
@@ -322,7 +328,6 @@ export default function AdminDashboard() {
       ) : (
         <section className="px-4">
           <h1 className="text-4xl text-black mb-4 font-bold">All the responses from your Contact Form</h1>
-          <main></main>
           {responses.map((item) => (
             <div
               key={item._id}
@@ -358,7 +363,6 @@ export default function AdminDashboard() {
           ))}
         </section>
       )}
-
     </div>
   );
 }
