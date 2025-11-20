@@ -41,8 +41,8 @@ type Delta = {
 
 type ReactQuillInstance = {
   getEditor(): {
-    getContents(): any;
-    setContents(delta: any): void;
+    getContents(): Delta;
+    setContents(delta: Delta): void;
     getSelection(): { index: number } | null;
     insertEmbed(index: number, type: string, value: string): void;
     setSelection(index: number, length: number): void;
