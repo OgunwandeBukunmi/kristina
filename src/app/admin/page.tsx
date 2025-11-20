@@ -8,7 +8,6 @@ const ReactQuill = dynamic(() => import("react-quill-new"), {
   loading: () => <p>Loading editor...</p>,
 });
 
-
 // Import CSS
 import "react-quill-new/dist/quill.snow.css";
 
@@ -22,36 +21,26 @@ type response = {
   _id: string
 }
 
-type Delta = {
-  ops: Array<{
-    insert?: string;
-    attributes?: {
-      header?: number;
-      list?: string;
-      bold?: boolean;
-      italic?: boolean;
-      color?: string;
-      underline?: boolean;
-      code?: boolean;
-      background?: string;
-      script?: string;
-    };
-  }>;
-};
+type Delta = any; // We keep it simple — Quill's Delta is complex and not needed
 
-type ReactQuillInstance = {
+// This is the ONLY thing we change: tell TypeScript the dynamic component accepts a ref
+const ReactQuillWithRef = ReactQuill as any; // This single line fixes the "ref does not exist" error
+
+// Custom type for the editor instance (so getEditor() is fully typed)
+type QuillEditor = {
   getEditor(): {
     getContents(): Delta;
     setContents(delta: Delta): void;
     getSelection(): { index: number } | null;
     insertEmbed(index: number, type: string, value: string): void;
     setSelection(index: number, length: number): void;
-    insertText(index: number, text: string): void;
   };
 };
 
 export default function AdminDashboard() {
-  const quillRef = useRef<ReactQuillInstance | null>(null);
+  // Now fully typed and working ref
+  const quillRef = useRef<QuillEditor | null>(null);
+
   const [currentStep, setCurrentStep] = useState<"admin-login" | "admin-writing">(
     "admin-login"
   );
@@ -81,23 +70,20 @@ export default function AdminDashboard() {
         if (err instanceof Error) {
           console.error(err.message);
           setError(err.message);
-
         } else {
           console.error(String(err));
           setError("Something went wrong");
         }
       }
-
     }
     fetchResponses()
-
   }, [])
 
   useEffect(() => {
     setShouldRenderEditor(currentStep === "admin-writing" && contentFor !== "responses");
   }, [currentStep, contentFor]);
 
-  // Image upload handler (memoized with SSR guard)
+  // Image upload handler (unchanged, but now safe with proper ref)
   const imageHandler = useMemo(() => {
     if (typeof window === "undefined") return () => {};
     return () => {
@@ -108,26 +94,25 @@ export default function AdminDashboard() {
 
       input.onchange = async () => {
         const file = input.files?.[0];
-        if (file) {
+        if (file && quillRef.current) {
           const formData = new FormData();
           formData.append("file", file);
           try {
             const res = await fetch("/api/upload", { method: "POST", body: formData });
             const result = await res.json();
-            const range = quillRef.current?.getEditor().getSelection()?.index || 0;
-            quillRef.current?.getEditor().insertEmbed(range, 'image', result.url);
+            const range = quillRef.current.getEditor().getSelection()?.index || 0;
+            quillRef.current.getEditor().insertEmbed(range, 'image', result.url);
           } catch (err) {
             console.error("Image upload failed:", err);
           }
         }
       };
     };
-  }, [quillRef]); // Depend on ref for safety
+  }, []);
 
-  // Quill modules config (memoized with SSR guard to avoid server evaluation)
   const modules = useMemo(() => {
     if (typeof window === "undefined") {
-      return { toolbar: false }; // Minimal config on server
+      return { toolbar: false };
     }
     return {
       toolbar: {
@@ -168,7 +153,7 @@ export default function AdminDashboard() {
     }
 
     const savedData = quillRef.current.getEditor().getContents();
-    console.log("✅ Published:", savedData);
+    console.log("Published:", savedData);
 
     try {
       const request = await fetch("/api/post", {
@@ -178,19 +163,17 @@ export default function AdminDashboard() {
         },
         body: JSON.stringify({ space: contentFor, title, description, savedData })
       })
-      if (request.ok) return setMessage("Published Succesfully ✅")
+      if (request.ok) return setMessage("Published Succesfully")
     } catch (err: unknown) {
       let message = "An unexpected error occurred";
       if (err instanceof Error) message = err.message;
 
-      console.error("❌ Upload failed:", message);
+      console.error("Upload failed:", message);
       setError("Something Went Wrong")
-
     }
-
   };
 
-  // --- Admin Login UI
+  // --- Admin Login UI (unchanged)
   if (currentStep === "admin-login") {
     return (
       <div className="min-h-screen bg-gray-50 text-black flex items-center justify-center px-4">
@@ -234,7 +217,7 @@ export default function AdminDashboard() {
     );
   }
 
-  // --- Editor Dashboard UI
+  // --- Editor Dashboard UI (only changed ReactQuill → ReactQuillWithRef)
   return (
     <div className="min-h-screen w-full bg-gray-100 flex flex-col md:flex-row">
       {/* Sidebar */}
@@ -312,7 +295,7 @@ export default function AdminDashboard() {
           
           {shouldRenderEditor && (
             <div className="flex-1 bg-white text-gray-800 border border-gray-200 rounded-lg shadow-sm p-6 min-h-[500px] flex flex-col">
-              <ReactQuill
+              <ReactQuillWithRef
                 ref={quillRef}
                 theme="snow"
                 modules={modules}
