@@ -113,7 +113,7 @@ export default function Home() {
       <h1 className="text-5xl md:text-8xl font-instrument font-bold font-de leading-tight">
        You’ve got something worth saying—I help you say it <span className="italic text-pink-500">better</span> . 
       </h1>
-      <h3 className="mt-6 text-sm md:text-lg text-gray-200 font-funnel ">
+      <h3 className="mt-6 font-bold text-lg md:text-xl text-gray-100 font-instrument tracking-wider">
        Writing Partnership and Editing support that turns rough ideas and drafts into impactful, goal-crushing pieces. 
 
       </h3>
@@ -123,7 +123,7 @@ export default function Home() {
    
   </article>
 
-    <section className="min-h-screen bg-purple-900 text-white flex flex-col justify-center items-center px-6 md:px-20 py-20 text-lg leading-relaxed font-delius">
+    <section className="min-h-screen bg-primary text-white flex flex-col justify-center items-center px-6 md:px-20 py-20 text-lg leading-relaxed font-delius">
       <div className="max-w-4xl text-center space-y-6">
         <p className="text-xl md:text-2xl italic text-pink-300">
          One thing I know for sure? Writing is one hell of a task!

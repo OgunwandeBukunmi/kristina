@@ -166,7 +166,7 @@ export default function page() {
       <h1 className="text-5xl md:text-8xl font-instrument font-bold font-de leading-tight">
       Ready to finally start finishing your drafts in <span className="italic text-pink-500">record time</span> ? 
       </h1>
-       <h3 className="mt-6 text-sm md:text-lg text-gray-200 font-funnel ">
+       <h3 className="mt-6 font-bold text-lg md:text-xl text-gray-100 font-instrument tracking-wider">
     I help writers move from fear, overwhelm, and inconsistency to clarity and confidence in their work.
   </h3>
   </div>

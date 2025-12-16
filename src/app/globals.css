@@ -4,6 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+
 @import "tailwindcss";
 
 :root {
@@ -19,7 +23,9 @@
   --font-quintessential : Quintessential ,sans-serif;
   --font-instrument : Instrument Serif, sans-serif;
   --font-funnel : Funnel Sans,sans-serif;
-  --font-open : "Open Sans"
+  --font-comic : Comic Relief, sans-serif;
+  --font-open : "Open Sans";
+  --font-marker : Permanent Marker,sans-serif;
 
 }
 @theme inline {
