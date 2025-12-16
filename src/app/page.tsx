@@ -21,7 +21,11 @@ export type space = {
 export default function Home() {
 
 
-  const reviews =[{
+  const reviews =[
+     {content : "Working with Kristina was the difference between having an idea and having it come alive. I told her everything I had in my head, and she just listened—then somehow turned all my rambling into something that actually made sense. Through genuine understanding and skill, she helped me get my ideas on the page and create a finished draft. The result felt effortless to read, and the result reminded me how powerful human writing is.",
+  person : "Daniel"
+  },
+    {
     content : "“I've worked with Ewaoluwa for several years now, and it never ceases to amaze me how good she is at capturing my ideas and articulating them with true perfection. I found that in order to be a good writer, you must also be an amazing listener, and she truly is that. She listens closely and recreates my words as they are in my mind. Her editing is just as amazing as her writing skills. With a keen eye for detail, Ewaoluwa has successfully edited a number of my works with incredible accuracy. She takes her time to not just read text, but breaks it down to ensure she fully understands it before marking it up. Anyone lucky enough to work with Ewaoluwa is truly blessed“.",
     person : "Porsché Mysticque Steele (My former boss🙈, CEO of MysticqueRose Publishing, and TEDx Speaker)"
   },
@@ -53,9 +57,7 @@ export default function Home() {
     content : "We had fun creating stories together.",
     person : "Angela Jamieson (Told you I enjoy what I do!)"
   },
-  {content : "Working with Kristina was the difference between having an idea and having it come alive. I told her everything I had in my head, and she just listened—then somehow turned all my rambling into something that actually made sense. Through genuine understanding and skill, she helped me get my ideas on the page and create a finished draft. The result felt effortless to read, and the result reminded me how powerful human writing is.",
-  person : "Daniel"
-  },{
+ {
   content : "Kristina took my rough ideas and turned them into something I couldn’t stop reading. Every line felt natural, like she understood exactly what I wanted to say before I did. The writing was clear, human, and alive. I saw my vision on the page and heard it in my words. That’s what makes her writing stand out—it feels like you.",
   person : "Daniel"
   }
@@ -109,10 +111,10 @@ export default function Home() {
     {/* Content */}
     <div className="relative z-10 text-white px-4">
       <h1 className="text-5xl md:text-8xl font-instrument font-bold font-de leading-tight">
-       You’ve got something worth saying—I help you <span className="italic text-pink-500"> say</span> it better. 
+       You’ve got something worth saying—I help you say it <span className="italic text-pink-500">better</span> . 
       </h1>
       <h3 className="mt-6 text-sm md:text-lg text-gray-200 font-funnel ">
-       Writing Partnership and Editing support that turns rough ideas and drafts into impactful, goal-crushing pieces. <br /> & <br /> Authentic LinkedIn and Website Copy that connects, converts, and still feels like you.
+       Writing Partnership and Editing support that turns rough ideas and drafts into impactful, goal-crushing pieces. 
 
       </h3>
       <div className="mt-5 py-5">  <Link
@@ -121,10 +123,10 @@ export default function Home() {
    
   </article>
 
-    <section className="min-h-screen bg-gray-800 text-white flex flex-col justify-center items-center px-6 md:px-20 py-20 text-lg leading-relaxed font-delius">
+    <section className="min-h-screen bg-purple-900 text-white flex flex-col justify-center items-center px-6 md:px-20 py-20 text-lg leading-relaxed font-delius">
       <div className="max-w-4xl text-center space-y-6">
         <p className="text-xl md:text-2xl italic text-pink-300">
-          “One thing I know for sure? Writing is one hell of a task!”
+         One thing I know for sure? Writing is one hell of a task!
         </p>
 
         <p className="text-gray-200">
@@ -138,14 +140,14 @@ export default function Home() {
 
         <div className="space-y-8 text-gray-200">
           <p>
-            Are you the writer with<span className="text-pink-300 italic"> rough ideas</span>  and <span className="underline text-pink-300">unfinished drafts?</span> <span className="text-red-400"> Wrestling
-            with fear, overwhelm, and inconsistency?</span>  Unable to stand how lonely
+            Are you the writer with<span className="text-pink-300 italic"> rough ideas</span>  and <span className="underline text-pink-300">unfinished drafts</span>?<span className="text-red-400"> Wrestling
+            with fear, overwhelm, and inconsistency</span>?  Unable to stand how lonely
             writing can get?
           </p>
 
           <p>
             Or maybe you’re the writer who’s already written their piece. You’re
-            <span className="text-red-300"> proud, but unsure—wondering if it’s good enough</span>, or <span className="text-green-300">  if the world will
+            <span className="text-red-300"> proud, but unsure<span className="text-white">—</span>wondering if it’s good enough</span>, or <span className="text-green-300">  if the world will
             understand and accept it.</span>
           </p>
 
@@ -156,7 +158,7 @@ export default function Home() {
           </p>
 
           <p className="font-medium  mt-8">
-            Whichever it is, I’m ready to<span className="text-pink-500"> meet you in the middle of your chaos</span>
+            Whichever it is, I’m ready to<span className="text-pink-500"> meet you in the middle of your chaos </span>
             and help you turn it into <span className="text-green-300">clear, confident, and complete</span> stories and
             copy.
           </p>
@@ -205,9 +207,9 @@ export default function Home() {
     <p className="">
       <span className="font-bold text-xl text-purple-200">The most important thing you need to know about me?</span><br />
       I don’t just love writing and editing— 
-      <span className="text-pink-500 italic font-semibold">
-        I love love <span className="text-2xl font-extrabold tracking-wide">LOVE</span> it.
-      </span>
+      
+        I love love <span className="text-2xl italic text-pink-400 font-extrabold tracking-wide">LOVE</span> it.
+      
        &nbsp;It excites me.
        And I’ve spent the past five years getting <span className="underline decoration-pink-500">damn good</span> at it.<br />
     </p>
@@ -221,20 +223,20 @@ export default function Home() {
       <span className="text-purple-200 font-medium"> Zator Media</span>).
     </p>
 
-    <p className="">
-      <span className="text-pink-500">  But honestly? My favorite part has been collaborating with individual writers—</span>
+    <p className="">But honestly?
+      <span className="text-pink-500">   My favorite part has been collaborating with individual writers</span>—
     
-      <span className="font-semibold text-purple-200">people who just need someone to believe in their stories as much as they do. </span>
+      <span className=" text-purple-200">people who just need someone to believe in their stories as much as they do. </span>
     
 
     </p>
     <p>
       I care about words because I care about people. I believe that every story, even the most fantastical ones, carries elements of the human experience.
-      I’m <span className="font-bold text-pink-500">obsessed</span> with exploring it and helping writers share that truth, and I get to see it happen in real-time! (That’s probably the Psychology degree talking🤔.)
+      I’m <span className=" text-pink-500">obsessed</span> with exploring it and helping writers share that truth, and I get to see it happen in real-time! (That’s probably the Psychology degree talking🤔.)
     </p>
  
-    <p className="text-xl font-bold text-pink-500">
-      Oh, and yes—I love purple. Obviously.
+    <p className="text-xl ">
+      Oh, and yes—I love purple! Obviously.
     </p>
     <p>But back to what’s important right now: <span className="text-xl text-white  decoration-pink-500 font-bold"> What do you need?</span> </p>
   </div>
@@ -306,28 +308,7 @@ export default function Home() {
     </Link>
   </div>
 
-  <div className="bg-white text-black p-6 rounded-lg shadow-md">
-    <Image
-      src="https://images.unsplash.com/photo-1510172951991-856a654063f9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974"
-      alt="books"
-      width={200}
-      height={150}
-      className="w-full h-[150px] object-cover rounded-md"
-    />
-    <h1 className="text-xl  font-quintessential  md:text-2xl font-bold mt-4 mb-4 tracking-wider">LinkedIn & Website Content Writing</h1>
-    <div className="space-y-2  my-8 min-h-56  text-sm text-gray-800">
-      <p>For the person who’s done pretending online and is ready to sound like themselves!</p>
-      <p>You’re finally done with the writing formulas that strip away your voice and keep you from standing out. </p>
-      <p>Let me help you shed the corporate clone and show your uniqueness. Unapologetically. </p>
-    </div>
 
-    <Link
-      href="/websitecontent"
-      className="inline-block px-4 py-2 bg-background text-white font-bold rounded-lg"
-    >
-      Explore this service →
-    </Link>
-  </div>
 </main>
 <p className="text-center mt-10">Those are all my services but not everything I have to offer😊! </p>
   </section>
@@ -397,7 +378,7 @@ export default function Home() {
                   {review.content}
                 </p>
                 <p className="text-sm md:text-base font-semibold text-pink-600 mx-2 px-2">
-                  -- {review.person}
+                  {review.person}
                 </p>
               </div>
             </SwiperSlide>

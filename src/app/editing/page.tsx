@@ -42,7 +42,7 @@ export default function page() {
     {/* Content */}
     <div className="relative z-10 text-white px-4">
       <h1 className="text-5xl md:text-8xl font-instrument font-bold font-de leading-tight">
-      Developmental and Line Editing that supports <span className="italic text-pink-500">your voice, your story, and your vision</span>
+      Developmental and Line Editing that supports <span className="italic text-pink-500">your voice <span className="text-white">, </span>your story<span className="text-white">, and </span> your vision</span>
       </h1>
   </div>
  
@@ -71,91 +71,101 @@ export default function page() {
 </section>
 
 
-<section className="bg-background py-16 px-6 md:px-20 lg:px-40">
-<main className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 px-4">
-  {/* Image Section */}
-  <div className="w-full md:w-1/2 flex justify-center">
-    <div className="w-full h-full">
+<section className="bg-background py-20 px-6 md:px-20 lg:px-10">
+  <main className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-14 md:gap-20">
+
+    {/* Image */}
+    <div className="w-full md:w-1/2 flex justify-center">
       <Image
-        src="https://images.unsplash.com/photo-1597563104935-03914a270d87?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d29tYW4lMjBoYXBweSUyMGp1bXBpbmclMjBjaGVlcmluZ3xlbnwwfHwwfHx8MA%3D%3D"
-        alt="woman jumping and cheering"
+        src="https://images.unsplash.com/photo-1597563104935-03914a270d87?w=600&auto=format&fit=crop&q=60"
+        alt="Woman jumping and cheering"
         width={600}
         height={600}
-        className="object-cover rounded-2xl w-full h-full"
+        className="object-cover rounded-3xl shadow-xl w-full"
       />
     </div>
-  </div>
 
-  {/* Text Section */}
-  <div className="w-full md:w-1/2">
-    <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-10">
-      You’ve done the brave thing:{" "}
-      <span className="italic text-pink-500">you wrote your book.</span>
-    </h1>
+    {/* Text */}
+    <div className="w-full md:w-1/2 text-gray-200">
 
-    <div className="space-y-6 text-lg text-gray-200 leading-relaxed">
-      <p>
-        But now that it’s done, you’re wondering—
-        <span className="italic text-pink-400">is it actually good?</span> Will
-        anyone understand what I was trying to say? Did I do justice to the
-        story I wanted to tell?
-      </p>
+      <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-8">
+        You’ve done the brave thing:{" "}
+        <span className="italic text-pink-500">you wrote your book.</span>
+      </h1>
 
-      <p>
-        You’ve read and reread it so many times, trying to figure out the
-        <span className="font-semibold text-green-600"> organization</span>,
-        <span className="font-semibold text-green-600"> characterization</span>,
-        and all those fancy English terms editors are always yapping about.
-      </p>
+      <div className="space-y-6 text-lg leading-relaxed">
 
-      <p>
-        Maybe you’re even afraid … that handing your book to an editor might
-        mean not sounding like yourself anymore.
-      </p>
+        <p>
+          Now that it’s done, a new question quietly creeps in:
+          <span className="italic text-pink-400"> Is it actually good?</span>{" "}
+          Will readers understand what you were trying to say? Did you do justice
+          to the story that mattered so deeply to you?
+        </p>
 
-      <p className="text-xl font-semibold text-white mt-10">
-        But what if it didn’t have to be that way?
-      </p>
+        <p>
+          You’ve read and reread it countless times, squinting at the
+          <span className="text-green-500 font-semibold"> structure</span>, the
+          <span className="text-green-500 font-semibold"> characterization</span>,
+          and all those intimidating editing terms you were never supposed to
+          master alone.
+        </p>
 
-      <p>
-        What if you could have a seasoned professional step in—someone who knows
-        the technical terms and how to
-        <span className="font-semibold text-green-600"> honor your voice</span>.
-        Someone who wants to help you stay authentically yourself while making
-        your story stronger.
-      </p>
+        <p>
+          Maybe there’s also a quieter fear beneath it all—that handing your book
+          to an editor might mean losing your voice.
+        </p>
 
-      <blockquote className="border-l-4 border-indigo-500 pl-4 italic text-pink-400">
-        Because the truth is: Editing doesn’t strip you of your voice; it helps
-        you grow into it. It brings you closer to your readers.
-      </blockquote>
+        <p className="text-xl font-semibold text-white pt-4">
+          But what if it didn’t have to be that way?
+        </p>
 
-      <p>
-        It helps you identify what’s working and what isn’t, and discover
-        solutions that fit your style and goals.
-      </p>
+        <p>
+          What if a seasoned professional could step in—someone fluent in the
+          technical side of editing and deeply committed to
+          <span className="text-green-500 font-semibold"> honoring your voice</span>?
+          Someone whose goal is not to rewrite you, but to help your story become
+          the strongest version of itself.
+        </p>
 
-      <p className="font-medium text-pink-400">
-        And with five years of experience supporting writers across genres, I
-        can help you do exactly that.
-      </p>
+        <blockquote className="border-l-4 border-indigo-500 pl-5 italic text-pink-400">
+          Editing doesn’t strip you of your voice—it helps you grow into it.
+          It brings you closer to the readers who are waiting for your story.
+        </blockquote>
+
+        <p>
+          Together, we’ll identify what’s working, gently address what isn’t,
+          and find solutions that align with your style, your goals, and your
+          vision for this book.
+        </p>
+
+        <p className="font-medium text-pink-400">
+          With five years of experience supporting writers across genres, this is
+          exactly the work I love to do.
+        </p>
+
+      </div>
     </div>
-  </div>
-</main>
+  </main>
 
+  {/* CTA */}
+  <div className="text-center mt-20">
+    <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
+      Are you ready to bring the best version of your book to life?
+    </h2>
+
+    <button className="bg-pink-500 text-white font-semibold px-10 py-4 rounded-full hover:bg-pink-600 transition shadow-lg">
+      <Link href={"/contact"}>I’m Ready</Link>
+      
+    </button>
+  </div>
 </section>
+
 
 
 <section className="bg-gray-800 text-white py-20 px-6 md:px-12 lg:px-24">
   <main className="max-w-5xl mx-auto text-center">
     {/* Intro */}
-    <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-      Are you ready to bring your best version of your book to life?
-    </h1>
 
-    <button className="mt-4 mb-12 bg-pink-500 text-white font-semibold px-8 py-3 rounded-full hover:bg-pink-600 transition-all">
-      I’m Ready
-    </button>
 
     {/* Services Section */}
     <div className="text-left space-y-14">
@@ -207,7 +217,7 @@ export default function page() {
           </p>
           <Link href="/contact">
             <button className="mt-6 bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-full font-semibold transition-all">
-              Book a Free Call
+              Get a Sample Edit
             </button>
           </Link>
         </div>

@@ -56,12 +56,6 @@ export default function Navbar() {
       >
         Editing
       </Link>
-      <Link 
-        href="/websitecontent" 
-        className="block px-3 py-2 text-gray-700 hover:bg-pink-50 rounded"
-      >
-        LinkedIn / Website Content
-      </Link>
     </div>
   )}
 </li>

@@ -82,7 +82,7 @@ export default function page() {
       icon: <LuLayers className="text-pink-500 text-4xl" />,
       text: (
         <>
-          <span className="text-green-300">Brings structure to your creativity</span> 
+          <span className="text-green-300">Brings structure to your creativity </span> 
           with a plan that leverages your strengths and accommodates your weaknesses.
         </>
       ),
@@ -91,8 +91,8 @@ export default function page() {
       icon: <LuBrain className="text-pink-500 text-4xl" />,
       text: (
         <>
-          Names what keeps you <span className="text-pink-500 font-semibold italic">stuck</span> 
-          and equips you with <span className="text-green-300">practical tools and resources</span> 
+          Names what keeps you <span className="text-pink-500 font-semibold italic">stuck </span> 
+          and equips you with <span className="text-green-300">practical tools and resources </span> 
           to move through it.
         </>
       ),
@@ -102,7 +102,7 @@ export default function page() {
       text: (
         <>
           Guides and grounds you with <span className="text-green-300">
-          outlines, accountability, and shared writing sessions</span> 
+          outlines, accountability, and shared writing sessions </span> 
           when it feels <span className="text-pink-500 font-semibold italic">lonely or scary</span> to keep going.
         </>
       ),
@@ -111,8 +111,8 @@ export default function page() {
       icon: <LuPartyPopper className="text-pink-400 text-4xl" />,
       text: (
         <>
-          <span className="text-green-300">Celebrates you through every step,</span> 
-          displacing the <span className="text-pink-500 font-semibold italic">self-doubt</span> 
+          <span className="text-green-300">Celebrates you through every step</span>,
+          displacing the <span className="text-pink-500 font-semibold italic">self-doubt </span> 
           and helping you grow into a more confident writer.
         </>
       ),
@@ -122,9 +122,8 @@ export default function page() {
       text: (
         <>
           <span className="text-green-300">
-            Polishes your work with thoughtful editorial support
-          </span> 
-          that tightens your writing and makes it publish-ready.
+            Polishes your work with thoughtful editorial support 
+          </span> that tightens your writing and makes it publish-ready.
         </>
       ),
     },
@@ -165,7 +164,7 @@ export default function page() {
     {/* Content */}
     <div className="relative z-10 text-white px-4">
       <h1 className="text-5xl md:text-8xl font-instrument font-bold font-de leading-tight">
-      Ready to finally start finishing your drafts in <span className="italic text-pink-500">record time ? </span>
+      Ready to finally start finishing your drafts in <span className="italic text-pink-500">record time</span> ? 
       </h1>
        <h3 className="mt-6 text-sm md:text-lg text-gray-200 font-funnel ">
     I help writers move from fear, overwhelm, and inconsistency to clarity and confidence in their work.
@@ -193,15 +192,15 @@ export default function page() {
 
       </Image>
     </div>
-          <div className="space-y-4 w-full md:w-1/2 max-w-3xl mx-auto text-lg text-gray-200 leading-relaxed text-center">
-      <p className='text-center'>
-        Is it the <span className="text-pink-500 font-semibold italic">fear, overwhelm, and self-doubt</span> that sneak in when you try to start? Or the <span className="text-pink-500 font-semibold italic">loneliness</span> of doing it all on your own?
+          <div className="space-y-12 w-full md:w-1/2 max-w-3xl mx-auto text-xl text-gray-200 leading-relaxed ">
+      <p className=''>
+        Is it the fear, overwhelm, and self-doubt that sneak in when you try to start? Or the loneliness of doing it all on your own?
       </p>
       <p>
-        Is it the <span className="text-pink-500 font-semibold italic">struggle to stay consistent</span> long enough to finish?
+        Is it the struggle to stay consistent long enough to finish?
       </p>
       <p>
-        Or the <span className="text-pink-500 font-semibold italic">frustration of having scattered ideas</span> that make you unsure what to say or where to begin?
+        Or the frustration of having scattered ideas that make you unsure what to say or where to begin?
       </p>
       <p>
         Whichever it is, <span className="font-semibold italic text-pink-500">you’re not alone.</span>
@@ -214,29 +213,29 @@ export default function page() {
 <main className="space-y-6 bg-gray-800 py-16 px-8">
       <h1 className="text-4xl font-bold font-quintessential text-center text-white mb-8">
         What If Writing Didn’t Feel So{" "}
-        <span className="text-pink-600 italic font-bold">Heavy?</span>
+        <span className="text-pink-600 italic font-bold">Heavy</span> ?
       </h1>
 
       <div className="max-w-3xl mx-auto space-y-4 text-lg text-gray-200 leading-relaxed">
         <p>
           Writing can be a lot. You try your best, but the{" "}
-          <span className="text-pink-500 font-semibold italic">
+          
             goals still slip away
-          </span>
+          
           . The routines, the productivity hacks—they stop helping. You start
           wondering if maybe{" "}
-          <span className="text-pink-500 font-semibold italic">
+         
             you’re not cut out for this.
-          </span>{" "}
+        {" "}
           Or worse, you start thinking about{" "}
-          <span className="text-pink-500 font-semibold italic">
+       
             quitting altogether.
-          </span>
+         
         </p>
 
         <p>
           But what if someone showed up to make{" "}
-          <span className="text-green-300">writing easier?</span>
+          <span className="text-green-300">writing easier</span> ?
         </p>
 
         <div className="mt-16">
@@ -261,103 +260,189 @@ export default function page() {
     </main>
 </section>
 
-<section className="py-24 px-8">
-  <main className='flex flex-col md:flex-row gap-8'>
-    <div>
+<section className="py-24 px-6 md:px-12">
+  <main className="flex flex-col-reverse md:flex-row items-center gap-12 max-w-7xl mx-auto">
+    
+    {/* Image */}
+    <div className="w-full md:w-1/2">
       <Image
-      src="https://images.unsplash.com/photo-1575096611627-a9906523ae71?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJvb2tzJTIwb24lMjB3b21hbiUyMGhlYWR8ZW58MHx8MHx8fDA%3D"
-      alt='woman holding book'
-      width={500}
-      height={500}
-      className='rounded-md shadow-lg '
+        src="https://images.unsplash.com/photo-1575096611627-a9906523ae71?w=600&auto=format&fit=crop&q=60"
+        alt="Woman holding a book"
+        width={500}
+        height={500}
+        className="rounded-xl shadow-xl object-cover w-full"
       />
     </div>
-    <div className=' space-y-8 '>
-       <h1 className='font-bold text-center font-quintessential text-4xl'>Your struggle <span className="italic text-pink-500">doesn&apos;t mean</span> you&apos;re not good enough</h1>
-  <div className='space-y-8 text-lg px-8 text-grat-200 max-w-3xl mx-auto mt-16'>
-   <p>It&apos;s time to stop treating your writing hurdles as signs <span className="italic text-pink-500">you&apos;ve failed.</span> <span className="text-green-500"> You haven&apos;t.</span> </p>
-  <p>You&apos;ve just been trying to do something <span className="text-green-500 font-semibold">incredibly brave without the right kind of help.</span> </p>
-  <p>You deserve to be fulfilled by your finished work—and the journey it took to get there.</p>
-  <p>Are you staring at a blank page, stuck halfway through, or holding a vague urge to write something? I&apos;ll meet you there—with strategy, structure, and support that gets you unstuck.</p>
-  <p>Book, Substack post, article, or paper—it doesn&apos;t matter the form. What matters is that we finish it together.</p>
-  </div>
+
+    {/* Content */}
+    <div className="w-full md:w-1/2 space-y-10 text-center md:text-left">
+      
+      <h1 className="font-quintessential text-4xl md:text-5xl font-bold leading-tight">
+        Your struggle{" "}
+        <span className="italic text-pink-500">doesn&apos;t mean</span>{" "}
+        you&apos;re not good enough
+      </h1>
+
+      <div className="space-y-6 text-lg text-gray-200 max-w-xl mx-auto md:mx-0">
+        <p>
+          It&apos;s time to stop treating your writing hurdles as signs{" "}
+          <span className="italic text-pink-500">you&apos;ve failed.</span>{" "}
+          <span className="text-green-500 font-medium">You haven&apos;t.</span>
+        </p>
+
+        <p>
+          You&apos;ve been trying to do something{" "}
+          <span className="text-green-500 font-semibold">
+            incredibly brave<span className='text-white'>—</span>without the right kind of help.
+          </span>
+        </p>
+
+        <p>
+          You deserve to feel fulfilled by your finished work—and by the journey
+          it took to get there.
+        </p>
+
+        <p>
+          Whether you&apos;re staring at a blank page, stuck halfway through, or
+          holding a quiet urge to write something meaningful, I&apos;ll meet you
+          there—with strategy, structure, and real support.
+        </p>
+
+        <p>
+          Book, Substack post, article, or paper—it doesn&apos;t matter the form.
+          What matters is that we finish it together.
+        </p>
+      </div>
+
+      {/* CTA */}
+      <div>
+        <button className="bg-pink-700 hover:bg-pink-600 transition text-white text-lg font-semibold px-6 py-3 rounded-full shadow-lg">
+          <Link href={"/contact"}>
+          I’m Ready to Crush My Writing Goals 🚀
+          </Link>
+          
+        </button>
+      </div>
+
     </div>
   </main>
- 
-
 </section>
 
-<section className="py-12 px-6 text-gray-200 bg-gray-800">
-  <main className="flex flex-col items-center max-w-3xl mx-auto space-y-8">
-    <div>
-      <span className="bg-pink-800 text-sm text-white px-4 py-2 rounded-2xl">
-        I’m Ready to Crush My Writing Goals!
-      </span>
-    </div>
 
+<section className="py-20 px-2 bg-gray-800 text-gray-200">
+  <div className="max-w-6xl mx-auto flex flex-col items-center space-y-16">
+
+    {/* Heading */}
     <h1 className="text-3xl md:text-4xl font-bold text-center text-white">
       The Kind of Partner You’ll Get
     </h1>
 
-    <div className="space-y-6 leading-relaxed text-lg">
-      <p className="text-gray-300">
-        One who <span className="text-green-400 font-semibold">gets it!</span> I understand how heavy writing can feel.
-        The number of times I needed someone to hold my hand through it? <span className="text-pink-500 italic">Countless.</span>
-      </p>
+    {/* Image + Copy */}
+    <main className="flex flex-col md:flex-row items-center px-8 gap-4 md:gap-8 w-full">
 
-      <p className="text-gray-300">
-        That’s exactly why I created this partnership — to give writers the kind of
-        support I once needed myself.
-      </p>
+      {/* Image */}
+      <div className="w-full md:w-1/2 max-w-xl">
+        <Image
+          src="https://plus.unsplash.com/premium_photo-1670588776369-b61f94638db9?w=600&auto=format&fit=crop&q=60"
+          alt="Woman comforting another woman"
+          width={600}
+          height={600}
+          className="rounded-2xl shadow-xl object-cover w-full "
+        />
+      </div>
 
-      <p className="text-gray-300">
-        And I don’t just want to help — <span className="text-green-400 font-semibold">I know how.</span> With over
-        eleven years of writing and five years of editing experience, I’ve learned how
-        to turn <span className="text-pink-500">chaos into clarity</span> — how to listen deeply, ask the right
-        questions, and find the thread worth following.
-      </p>
+      {/* Copy */}
+      <div className="w-full md:w-1/2 space-y-7 text-lg md:text-xl leading-relaxed">
 
-      <p className="text-gray-300">
-        With my Writing Partnership, you don’t just get guidance. You get a
-        <span className="text-green-400 font-semibold"> co-writer, strategist, and cheerleader</span> all in one.
-      </p>
+        <p className="text-gray-300">
+          Someone who <span className="font-semibold text-white">truly gets it.</span>{" "}
+          I understand how heavy writing can feel—how isolating, frustrating, and
+          overwhelming it becomes when the words just won’t come.
+        </p>
 
-      <p className="text-gray-300 italic border-l-4 border-pink-600 pl-4">
+        <p className="text-gray-300">
+          I’ve been there more times than I can count. I know what it’s like to wish
+          someone could sit beside you, help untangle your thoughts, and remind you
+          that you’re not broken—you’re just stuck.
+        </p>
+
+        <p className="text-gray-300">
+          That’s exactly why I created this partnership: to give writers the kind of
+          support I once needed myself.
+        </p>
+
+        <p className="text-gray-300">
+          And I don’t just want to help—
+          <span className="text-green-400 font-semibold"> I know how.</span>{" "}
+          With over eleven years of writing and five years of editing experience,
+          I’ve learned how to turn{" "}
+          <span className="text-pink-500">chaos into clarity</span>—how to listen
+          deeply, ask the right questions, and uncover the thread worth following.
+        </p>
+
+        <p className="text-gray-300">
+          With my Writing Partnership, you don’t just get guidance. You get a{" "}
+          <span className="text-green-400 font-semibold">
+            co-writer, strategist, and cheerleader
+          </span>{" "}
+          in one.
+        </p>
+
+      </div>
+    </main>
+
+    {/* Testimonial + Closing */}
+    <div className="w-full max-w-4xl text-xl space-y-8 pt-6">
+
+      <blockquote className="border-l-4  border-pink-600 pl-6 italic text-gray-300">
         “Before Kristina, I had been struggling for three months to write my grad
-        school application paper. I kept coming up with nothing even after
-        collaborating with different people. Just a few hours into my discussion with
-        her, talking about all my areas of interest, we came up with a new topic, a
-        writing plan, and—most importantly—for the first time in months, I was excited
-        about writing. I started the next day, and now I’m almost halfway through. It’s
-        been really exciting, and she’s been incredibly supportive—checking in on my
-        progress, monitoring through a shared document, and offering her insight on
-        what I write. I 💯 percent recommend her as a writing partner. She’s skilled at
-        drawing out depths you didn’t know you had in you and helping you channel that
-        into your writing.”
-      </p>
+        school application paper. I kept coming up with nothing—even after working
+        with different people. Just a few hours into our discussion, we had a new
+        topic, a writing plan, and for the first time in months, I felt excited
+        about writing.
+        <br /><br />
+        I started the next day and I’m already almost halfway through. She’s been
+        incredibly supportive—checking in, working through shared documents, and
+        offering insight that helped me access depths I didn’t know I had. I 💯
+        percent recommend her as a writing partner.”
+      </blockquote>
 
-      <p className="text-gray-400 text-sm text-right">— Jade (on our third day working together!)</p>
+      <p className="text-gray-400 text-sm text-right">
+        — Jade (on our third day working together)
+      </p>
 
       <p className="text-gray-300">
-        The <span className="text-green-400 font-semibold">genre doesn’t matter!</span> Having written and edited across
-        genres—from non-fiction and memoirs to brand content and creative writing—I
-        know how to help you create great work that feels deeply, unmistakably yours.
+        <span className="text-green-400 font-semibold">The genre doesn’t matter.</span>{" "}
+        From non-fiction and memoirs to brand content and creative writing, I help
+        you create work that feels deeply—and unmistakably—yours.
       </p>
 
-      <p className="text-pink-400 font-semibold text-center text-lg">
-        Does this sound like what you need? The next step is simple.
+      <p className="text-white font-semibold text-center">
+        If this sounds like what you need, the next step is simple.
       </p>
+
+      {/* CTA */}
+      <div className="flex justify-center pt-4">
+        <Link
+          href="/contact"
+          className="bg-pink-700 hover:bg-pink-600 transition text-white text-sm font-semibold px-8 py-4 rounded-full shadow-lg"
+        >
+          Send Me a Message
+        </Link>
+      </div>
+
     </div>
-  </main>
+  </div>
 </section>
+
+
+
 
 <section className="bg-gray-900 text-gray-200 py-20 px-6">
   <main className="max-w-5xl mx-auto space-y-16">
    
     <div className="text-center space-y-4 ">
-      <span className="bg-pink-700 text-white text-sm px-4 py-2 rounded-2xl mb-16 ">
-        &lt;&lt; Send Me a Message &gt;&gt;
-      </span>
+   
       <h1 className="text-4xl md:text-5xl font-bold text-white mt-4">How It Works</h1>
       <p className="text-lg text-gray-200 max-w-3xl mx-auto">
         Support doesn’t look the same for everyone. It’s shaped around your needs, your strengths,
@@ -486,12 +571,12 @@ export default function page() {
 
     {/* CLOSING */}
     <div className="text-center space-y-4">
-      <p className="text-pink-400 text-lg italic">
+      <p className=" text-lg italic">
         This is your chance to be intentional about breaking free from the feeling that
         you’re failing at “figuring it out.”
       </p>
-      <p className="text-green-400 font-semibold text-xl">
-        You’re not failing. You just need the right kind of support — <span className="italic text-white">my support.</span>
+      <p className="text-white font-semibold text-xl">
+        You’re not failing. You just need the right kind of support—my support.
       </p>
     </div>
   </main>
@@ -500,9 +585,7 @@ export default function page() {
 <section className="bg-background py-20 px-6 text-gray-100">
   <main className="max-w-5xl mx-auto">
     <h1 className="text-4xl font-bold text-center text-pink-400 mb-4">More Results</h1>
-    <h3 className="text-center text-gray-200 max-w-2xl mx-auto text-lg leading-relaxed">
-      I was really struggling to organize my ideas for an essay, and Kristina helped me sort everything out. We talked through each point together, and she helped me expand on them, making sure they actually fit the topic and made sense. My thoughts were all over the place, but she helped me detangle and structure them. By the end, everything flowed and felt clear. It honestly made such a difference.
-    </h3>
+
 
     <div className="max-w-3xl mx-auto mt-16">
       <Swiper
