@@ -102,7 +102,7 @@ export default function page() {
       text: (
         <>
           Guides and grounds you with <span className="text-green-300">
-          outlines, accountability, and shared writing sessions </span> 
+          outlines<span className='text-white'>,</span> accountability<span className='text-white'>, and</span>  shared writing sessions </span> 
           when it feels <span className="text-pink-500 font-semibold italic">lonely or scary</span> to keep going.
         </>
       ),
@@ -177,7 +177,7 @@ export default function page() {
 <section className=" pt-8 space-y-16 ">
   <main className="space-y-6 py-16 px-8">
     <h1 className="text-5xl font-quintessential text-center font-bold leading-snug">
-      <span className="text-pink-300 italic">Tell me,</span> what makes writing hard for you?
+      <span className="text-pink-300 italic">Tell me</span>, what makes writing hard for you?
     </h1>
 
     <div className='flex flex-col md:flex-row items-center gap-16'>

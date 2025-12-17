@@ -123,7 +123,7 @@ const formData = new FormData()
    
              <p className="font-semibold"> Book a <span className="text-pink-300">free 20-minute call</span>  to see if we’re the right fit.</p>
              <div >  
-               <p>file upload — for manuscripts or briefs(optional)</p>
+               <p>File upload — for manuscripts or briefs (optional)</p>
              <input 
              accept="image/*,application/pdf"
              type="file" className="p-3 border border-transparent bg-white/10 backdrop-blur-md rounded-lg"  
