@@ -123,7 +123,7 @@ export default function Home() {
    
   </article>
 
-    <section className="min-h-screen bg-primary text-white flex flex-col justify-center items-center px-6 md:px-20 py-20 text-lg leading-relaxed font-delius">
+    <section className="min-h-screen bg-secondary text-white flex flex-col justify-center items-center px-6 md:px-20 py-20 text-lg leading-relaxed font-delius">
       <div className="max-w-4xl text-center space-y-6">
         <p className="text-xl md:text-2xl italic text-pink-300">
          One thing I know for sure? Writing is one hell of a task!
@@ -138,64 +138,104 @@ export default function Home() {
           Which one are you?
         </h1>
 
-        <div className="space-y-8 text-gray-200">
-          <p>
-            Are you the writer with<span className="text-pink-300 italic"> rough ideas</span>  and <span className="underline text-pink-300">unfinished drafts</span>?<span className="text-red-400"> Wrestling
-            with fear, overwhelm, and inconsistency</span>?  Unable to stand how lonely
-            writing can get?
-          </p>
+      <div className="grid gap-8 text-gray-200 grid grid-cols-2">
 
-          <p>
-            Or maybe you’re the writer who’s already written their piece. You’re
-            <span className="text-red-300"> proud, but unsure<span className="text-white">—</span>wondering if it’s good enough</span>, or <span className="text-green-300">  if the world will
-            understand and accept it.</span>
-          </p>
+  {/* Card 1 */}
+  <div className="bg-gray-700/40 p-6 rounded-2xl shadow-md ">
+    <p>
+      Are you the writer with{" "}
+      <span className="text-pink-300 italic">rough ideas</span> and{" "}
+      <span className="underline text-pink-300">unfinished drafts</span>?{" "}
+      <span className="text-red-400">
+        Wrestling with fear, overwhelm, and inconsistency
+      </span>
+      ? Unable to stand how lonely writing can get?
+    </p>
+  </div>
 
-          <p>
-            Or perhaps you’re not a writer at all. You’re a professional or
-            creative done with copy that sounds like everyone else’s. <span className="text-green-300">You want
-            your voice to show up in your online presence.</span> 
-          </p>
+  {/* Card 2 */}
+  <div className="bg-gray-700/40 p-6 rounded-2xl shadow-md">
+    <p>
+      Or maybe you’re the writer who’s already written their piece. You’re{" "}
+      <span className="text-red-300">
+        proud, but unsure<span className="text-white">—</span>wondering if it’s
+        good enough
+      </span>
+      , or{" "}
+      <span className="text-green-300">
+        if the world will understand and accept it.
+      </span>
+    </p>
+  </div>
 
-          <p className="font-medium  mt-8">
-            Whichever it is, I’m ready to<span className="text-pink-500"> meet you in the middle of your chaos </span>
-            and help you turn it into <span className="text-green-300">clear, confident, and complete</span> stories and
-            copy.
-          </p>
+  {/* Card 3 */}
+  <div className="bg-gray-700/40 p-6 rounded-2xl shadow-md">
+    <p>
+      Or perhaps you’re not a writer at all. You’re a professional or creative
+      done with copy that sounds like everyone else’s.{" "}
+      <span className="text-green-300">
+        You want your voice to show up in your online presence.
+      </span>
+    </p>
+  </div>
 
-          <div className="bg-pink-800 p-6 rounded-2xl shadow-sm mt-6">
-            <p className="mb-3 text-2xl font-semibold text-gray-300">
-              Whether that means:
-            </p>
-            <ul className="list-disc list-inside text-left space-y-2">
-              <li>Partnering with you to write or finish your drafts,</li>
-              <li>Editing your manuscript until it shines, or</li>
-              <li>
-                Creating authentic LinkedIn and website copy that connects and
-                converts—
-              </li>
-            </ul>
-          </div>
+  {/* Card 4 – Bridge Statement */}
+ <div className="bg-gray-800 border border-pink-500/30 p-6 rounded-2xl shadow-md">
+    <p className="font-medium">
+      Whichever it is, I’m ready to{" "}
+      <span className="text-pink-500">
+        meet you in the middle of your chaos
+      </span>{" "}
+      and help you turn it into{" "}
+      <span className="text-green-300">
+        clear, confident, and complete
+      </span>{" "}
+      stories and copy.
+    </p>
+  </div>
 
-          <p className="mt-6 text-white">
-            I help you bring your words and ideas to life without losing your
-            voice.
-          </p>
+</div>
+ 
 
-          <Link
-            href="/services"
-            className="inline-block mt-10 bg-[#1a1a1a] text-[#fdfaf7] px-6 py-3 rounded-full hover:bg-[#333] transition-all duration-300 shadow-md"
-          >
-            Explore My Services →
-          </Link>
-        </div>
+  {/* Card 5 – Services */}
+  <div className="bg-pink-800 p-6 rounded-2xl shadow-lg">
+    <p className="mb-4 text-2xl font-semibold text-gray-200">
+      Whether that means:
+    </p>
+
+    <ul className="list-disc list-inside space-y-2 text-gray-100">
+      <li>Partnering with you to write or finish your drafts</li>
+      <li>Editing your manuscript until it shines</li>
+      <li>
+        Creating authentic LinkedIn and website copy that connects and converts
+      </li>
+    </ul>
+  </div>
+
+  {/* Card 6 – Closing */}
+  <div className=" p-6 rounded-2xl text-center">
+    <p className="text-white font-semibold">
+      I help you bring your words and ideas to life—without losing your voice.
+    </p>
+  </div>
+
+  {/* CTA */}
+  <div className="flex justify-center pt-6">
+    <Link
+      href="/#services"
+      className="inline-block bg-[#1a1a1a] text-[#fdfaf7] px-8 py-4 rounded-full hover:bg-[#333] transition-all duration-300 shadow-md"
+    >
+      Explore My Services →
+    </Link>
+  </div>
+
       </div>
     </section>
     {/* Meet Kristina */}
 
   <section className="w-full my-8 mb-12 md:mt-10 ">
     <div className="relative flex flex-col items-center">
-       <h2 className="relative  text-5xl md:text-7xl font-cookie text-center">Hi, I’m Kristina!
+       <h2 className="relative  text-6xl md:text-8xl font-cookie text-center">Hi, I’m Kristina!
 
       </h2> 
   
@@ -257,61 +297,122 @@ export default function Home() {
 
   </section>
         {/* Services */}
-  <section className="bg-pink-200 py-12" id="services">
-    <h1 className="font-cookie text-6xl text-center text-center text-background font-bold">My Services</h1>
-<main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-6 font-delius">
-  <div className="bg-white text-black p-6 rounded-lg shadow-md backdrop-blur-md">
-    <Image
-      src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?auto=format&fit=crop&q=80&w=1170"
-      alt="books"
-      width={200}
-      height={150}
-      className="w-full h-[150px] object-cover rounded-md"
-    />
-    <h1 className="text-xl md:text-2xl font-quintessential font-bold mt-4 mb-4 tracking-wider">Writing Partnership</h1>
-    <div className="space-y-2 my-8 min-h-56  text-sm text-gray-800">
-       <p>For the scared, inconsistent, confused, or lonely writer.</p>
-        <p>Writing can be <span className="text-pink-500 italic">a lot</span>. Stressful. Lonely. Anxiety-inducing. Overwhelming. Scary, even.  </p>
-        <p>I’m a writer. I get it. So, let me come in—with <span className="text-pink-500">energy</span>,<span className="text-pink-500"> structure,</span> and the <span className="text-pink-500">empathy</span>  you need to be the best writer you can be,</p>
+<section className="bg-pink-200 py-16" id="services">
+  <h1 className="font-cookie text-7xl text-center text-background font-bold mb-12">
+    My Services
+  </h1>
+
+  <main className="flex flex-col gap-12 px-6 font-delius max-w-6xl mx-auto">
+
+    {/* Writing Partnership */}
+    <div className="bg-white text-black p-6 md:p-8 rounded-xl shadow-md flex flex-col md:flex-row gap-10">
+      
+      <div className="w-full md:w-1/2">
+        <Image
+          src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?auto=format&fit=crop&q=80&w=1170"
+          alt="Books on a table"
+          width={600}
+          height={400}
+          className="w-full h-full object-cover rounded-lg"
+        />
+      </div>
+
+      <div className="w-full md:w-1/2">
+        <h2 className="text-2xl md:text-4xl font-quintessential font-bold mb-6 tracking-wide">
+          Writing Partnership
+        </h2>
+
+        <div className="space-y-4 mb-8 text-lg md:text-xl text-gray-800 leading-relaxed">
+          <p>
+            For the scared, inconsistent, confused, or lonely writer.
+          </p>
+
+          <p>
+            Writing can be{" "}
+            <span className="text-pink-500 italic">a lot</span>—stressful, lonely,
+            anxiety-inducing, overwhelming… even scary.
+          </p>
+
+          <p>
+            I’m a writer. I get it. So let me step in—with{" "}
+            <span className="text-pink-500">energy</span>,{" "}
+            <span className="text-pink-500">structure</span>, and{" "}
+            <span className="text-pink-500">empathy</span>—to help you become the
+            best writer you can be.
+          </p>
+        </div>
+
+        <Link
+          href="/writingpartnership"
+          className="inline-block px-6 py-3 bg-background text-white font-bold rounded-lg hover:opacity-90 transition"
+        >
+          Explore this service →
+        </Link>
+      </div>
     </div>
-       
-  
-    <Link
-      href="/writingpartnership"
-      className="inline-block px-4 py-2 bg-background text-white font-bold rounded-lg"
-    >
-      Explore this service →
-    </Link>
-  </div>
 
-  <div className="bg-white text-black p-6 rounded-lg shadow-md">
-    <Image
-      src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=687"
-      alt="books"
-       width={200}
-      height={150}
-      className="w-full h-[150px] object-cover rounded-md"
-    />
-    <h1 className="text-xl md:text-2xl font-quintessential font-bold mt-4 mb-4 tracking-wider">Editing </h1>
-    <div className="space-y-2  my-8  text-sm text-gray-800">
-      <p>For the unsure, growing, or ready-to-publish writer.</p>
-      <p>You’ve done the writing (what a feat!). Now, it’s time to go further.</p>
-      <p>I bring <span className="text-pink-500"> fresh eyes, sharp instincts</span>, and five years of <span className="text-pink-500">editing muscle</span>  to tell you <span className="text-pink-500">what works, what doesn’t</span>, and <span className="text-pink-500">how to fix it!</span>  </p>
-      <p>And if your work is already perfect? I’ll tell you!</p>
-      <p>Ready to make your words clear, powerful, and alive?</p>
+    {/* Editing */}
+    <div className="bg-white text-black p-6 md:p-8 rounded-xl shadow-md flex flex-col md:flex-row gap-10">
+
+      <div className="w-full md:w-1/2">
+        <Image
+          src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=687"
+          alt="Open book and notes"
+          width={600}
+          height={400}
+          className="w-full h-[80vh] object-cover rounded-lg"
+        />
+      </div>
+
+      <div className="w-full md:w-1/2">
+        <h2 className="text-2xl md:text-4xl font-quintessential font-bold mb-6 tracking-wide">
+          Editing
+        </h2>
+
+        <div className="space-y-4 mb-8 text-lg md:text-xl text-gray-800 leading-relaxed">
+          <p>
+            For the unsure, growing, or ready-to-publish writer.
+          </p>
+
+          <p>
+            You’ve done the writing—and that alone is a huge achievement.
+            Now it’s time to go further.
+          </p>
+
+          <p>
+            I bring{" "}
+            <span className="text-pink-500">fresh eyes</span>,{" "}
+            <span className="text-pink-500">sharp instincts</span>, and five years
+            of <span className="text-pink-500">editing muscle</span> to show you
+            <span className="text-pink-500"> what works, what doesn’t</span>, and
+            <span className="text-pink-500"> how to fix it.</span>
+          </p>
+
+          <p>
+            And if your work is already strong? I’ll tell you that, too.
+          </p>
+
+          <p>
+            Ready to make your words clear, powerful, and alive?
+          </p>
+        </div>
+
+        <Link
+          href="/editing"
+          className="inline-block px-6 py-3 bg-background text-white font-bold rounded-lg hover:opacity-90 transition"
+        >
+          Explore this service →
+        </Link>
+      </div>
     </div>
-    <Link
-      href="/editing"
-      className="inline-block px-4 py-2 bg-background text-white font-bold rounded-lg"
-    >
-      Explore this service →
-    </Link>
-  </div>
 
+  </main>
 
-</main>
-<p className="text-center mt-10">Those are all my services but not everything I have to offer😊! </p>
-  </section>
+  <p className="text-center mt-12 text-background font-medium">
+    Those are all my services—but not everything I have to offer 😊
+  </p>
+</section>
+
 
 <section className="bg-[var(--background)] text-white py-20 px-6 md:px-16">
       <div className="max-w-5xl mx-auto text-center">
