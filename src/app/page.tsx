@@ -138,7 +138,7 @@ export default function Home() {
           Which one are you?
         </h1>
 
-      <div className="grid gap-8 text-gray-200 grid grid-cols-2">
+      <div className="grid gap-8 text-gray-200 grid grid-cols-1 md:grid-cols-2">
 
   {/* Card 1 */}
   <div className="bg-gray-700/40 p-6 rounded-2xl shadow-md ">
