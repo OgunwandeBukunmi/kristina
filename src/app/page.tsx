@@ -223,7 +223,7 @@ export default function Home() {
   <div className="flex justify-center pt-6">
     <Link
       href="/#services"
-      className="inline-block bg-[#1a1a1a] text-[#fdfaf7] px-8 py-4 rounded-full hover:bg-[#333] transition-all duration-300 shadow-md"
+      className="inline-block bg-white text-black px-8 py-4 rounded-full hover:bg-[#333] transition-all duration-300 shadow-md"
     >
       Explore My Services →
     </Link>
