@@ -176,7 +176,7 @@ export default function page() {
 
       </article>
 
-      <section className=" pt-8 space-y-16 ">
+      <section className="bg-secondary pt-8 space-y-16 ">
         <main className="space-y-6 py-16 px-8">
           <h1 className="text-5xl font-quintessential text-center font-bold leading-snug">
             <span className="text-pink-300 italic">Tell me</span>, what makes writing hard for you?
@@ -186,13 +186,13 @@ export default function page() {
 
           <div className="space-y-12 w-full md:w-1/2 max-w-3xl mx-auto text-xl text-gray-200 leading-relaxed text-center ">
             <p className=''>
-              Is it the fear, overwhelm, and self-doubt that sneak in when you try to start? Or the loneliness of doing it all on your own?
+              Is it the <span className="text-pink-300">fear</span>, <span className="text-pink-300">overwhelm</span>, and <span className="text-pink-300">self-doubt</span> that sneak in when you try to start? Or the <span className="text-pink-300">loneliness</span> of doing it all on your own?
             </p>
             <p>
-              Is it the struggle to stay consistent long enough to finish?
+              Is it the <span className="text-pink-300">struggle</span> to stay consistent long enough to finish?
             </p>
             <p>
-              Or the frustration of having scattered ideas that make you unsure what to say or where to begin?
+              Or the <span className="text-pink-300">frustration</span> of having scattered ideas that make you unsure what to say or where to begin?
             </p>
             <p>
               Whichever it is, <span className="font-semibold italic text-pink-500">you’re not alone.</span>
@@ -208,26 +208,28 @@ export default function page() {
             <span className="text-pink-600 italic font-bold">Heavy</span> ?
           </h1>
 
-          <div className="max-w-3xl mx-auto space-y-4 text-lg text-gray-200 leading-relaxed">
-            <p>
+          <div className="max-w-3xl mx-auto space-y-8 text-lg text-gray-200 leading-relaxed">
+            <p className='leading-8'>
               Writing can be a lot. You try your best, but the{" "}
-
-              goals still slip away
-
-              . The routines, the productivity hacks—they stop helping. You start
-              wondering if maybe{" "}
-
-              you’re not cut out for this.
-              {" "}
-              Or worse, you start thinking about{" "}
-
-              quitting altogether.
+              goals still slip away.
 
             </p>
+            <p className='leading-8'>The routines, the productivity hacks—they stop helping.</p>
+
+            <p className='leading-8'>
+              <p className='leading-8'>
+                You start
+                wondering if maybe{" "}you’re not cut out for this.
+                {" "}Or worse, you start thinking about{" "}
+
+                quitting altogether.
+              </p>
+
+            </p >
 
             <p>
               But what if someone showed up to make{" "}
-              <span className="text-green-300">writing easier</span> ?
+              <span className="text-green-300">writing easier</span>?
             </p>
 
             <div className="mt-16">
@@ -279,25 +281,25 @@ export default function page() {
               <p>
                 It&apos;s time to stop treating your writing hurdles as signs{" "}
                 <span className="italic text-pink-500">you&apos;ve failed.</span>{" "}
-                <span className="text-green-500 font-medium">You haven&apos;t.</span>
+                <span className=" font-medium">You haven&apos;t.</span>
               </p>
 
               <p>
                 You&apos;ve been trying to do something{" "}
-                <span className="text-green-500 font-semibold">
-                  incredibly brave<span className='text-white'>—</span>without the right kind of help.
+                <span className=" ">
+                  incredibly brave<span className='text-pink-500'> without the right kind of help.</span>
                 </span>
               </p>
 
               <p>
-                You deserve to feel fulfilled by your finished work—and by the journey
+                You deserve to feel fulfilled by your finished work, and by the journey
                 it took to get there.
               </p>
 
               <p>
                 Whether you&apos;re staring at a blank page, stuck halfway through, or
                 holding a quiet urge to write something meaningful, I&apos;ll meet you
-                there—with strategy, structure, and real support.
+                there, with strategy, structure, and real support.
               </p>
 
               <p>
@@ -355,7 +357,7 @@ export default function page() {
               <p className="text-gray-300">
                 I’ve been there more times than I can count. I know what it’s like to wish
                 someone could sit beside you, help untangle your thoughts, and remind you
-                that you’re not broken—you’re just stuck.
+                that you’re not broken,you’re just stuck.
               </p>
 
               <p className="text-gray-300">
@@ -364,18 +366,18 @@ export default function page() {
               </p>
 
               <p className="text-gray-300">
-                And I don’t just want to help—
-                <span className="text-green-400 font-semibold"> I know how.</span>{" "}
+                And I don’t just want to help
+                <span className="text-pink-300"> I know how.</span>{" "}
                 With over eleven years of writing and five years of editing experience,
                 I’ve learned how to turn{" "}
-                <span className="text-pink-500">chaos into clarity</span>—how to listen
+                <span className="text-pink-300">chaos into clarity</span>—how to listen
                 deeply, ask the right questions, and uncover the thread worth following.
               </p>
 
               <p className="text-gray-300">
                 With my Writing Partnership, you don’t just get guidance. You get a{" "}
-                <span className="text-green-400 font-semibold">
-                  co-writer, strategist, and cheerleader
+                <span className="text-pink-300">
+                  co-writer<span className="text-white">, </span>strategist<span className="text-white">, and</span> cheerleader
                 </span>{" "}
                 in one.
               </p>
@@ -400,7 +402,7 @@ export default function page() {
             </blockquote>
 
             <p className="text-gray-400 text-sm text-right">
-              — Jade (on our third day working together)
+              Jade (on our third day working together)
             </p>
 
             <p className="text-gray-300">
@@ -476,7 +478,7 @@ export default function page() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Clarity Plan */}
             <div className="bg-gray-900/60 border border-gray-700 rounded-2xl p-6 hover:border-green-400 transition">
-              <h3 className="text-2xl font-bold text-green-400">Clarity Plan — $200/month</h3>
+              <h3 className="text-2xl font-bold text-green-400">Clarity Plan—$200/month</h3>
               <p className="text-gray-400 italic mt-2">
                 For writers who feel stuck, scattered, or unsure where to start.
               </p>
@@ -497,7 +499,7 @@ export default function page() {
 
             {/* Development Plan */}
             <div className="bg-gray-900/60 border border-gray-700 rounded-2xl p-6 hover:border-green-400 transition">
-              <h3 className="text-2xl font-bold text-green-400">Development Plan — $320/month</h3>
+              <h3 className="text-2xl font-bold text-green-400">Development Plan—$320/month</h3>
               <p className="text-gray-400 italic mt-2">
                 For writers actively working through a book, article, paper, or story.
               </p>
@@ -520,7 +522,7 @@ export default function page() {
 
             {/* Full Partnership Plan */}
             <div className="bg-gray-900/60 border border-gray-700 rounded-2xl p-6 hover:border-green-400 transition">
-              <h3 className="text-2xl font-bold text-green-400">Full Partnership Plan — $500/month</h3>
+              <h3 className="text-2xl font-bold text-green-400">Full Partnership Plan—$500/month</h3>
               <p className="text-gray-400 italic mt-2">
                 For writers who want full creative and editorial support from idea to publish-ready draft.
               </p>
@@ -542,7 +544,7 @@ export default function page() {
 
           {/* CUSTOM PLAN */}
           <div className="text-center space-y-3">
-            <h3 className="text-2xl font-semibold text-green-400">Custom Plan — starts at $50/hour</h3>
+            <h3 className="text-2xl font-semibold text-green-400">Custom Plan—starts at $50/hour</h3>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Not sure what you need yet? You can book a single session for brainstorming,
               outlining, or feedback on a specific piece. It’s perfect if you just need help
@@ -593,7 +595,7 @@ export default function page() {
                 <SwiperSlide key={index}>
                   <div className="flex flex-col items-center text-center gap-4 p-8">
                     <p className="text-gray-900 leading-relaxed italic">“{review.content}”</p>
-                    <p className="font-semibold text-pink-500 mt-2">--{review.person}</p>
+                    <p className="font-semibold text-pink-500 mt-2">{review.person}</p>
                   </div>
                 </SwiperSlide>
               ))}
