@@ -255,11 +255,11 @@ export default function Home() {
 
 
             <Image
-              src="https://images.unsplash.com/photo-1646133754508-3a795f34acae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=722"
+              src="/me.jpg"
               alt="Woman"
               width={300} // required
               height={360} // required
-              className="rounded-lg shadow-xl"
+              className="rounded-lg shadow-xl h-[500px] w-3/4  md:w-[350px] "
             />
 
           </div>

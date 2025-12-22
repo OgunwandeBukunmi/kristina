@@ -12,7 +12,7 @@ import type { Post } from "@/store/useSpaceStore";
 
 export default function PostsList() {
   const [posts, setPosts] = useState<Post[]>([]);
-  const{setBlogPosts} = usePostStore()
+  const { setBlogPosts } = usePostStore()
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -32,64 +32,74 @@ export default function PostsList() {
     fetchPosts();
   }, []);
 
-  if (loading)return(
-  <> 
-  <Navbar/>
-    <p className="text-center mt-10 min-h-screen">Loading posts...</p>
-  <Footer/>
-  </>)
- if (!posts.length)
-    return(
-        <> 
-        <Navbar/>
-        <p className="text-center mt-10 min-h-screen">No posts found yet.</p>
-        <Footer/>
-        </>)
+  if (loading) return (
+    <>
+      <Navbar />
+      <p className="text-center mt-10 min-h-screen">Loading posts...</p>
+      <Footer />
+    </>)
+  if (!posts.length)
+    return (
+      <>
+        <Navbar />
+        <div className="flex flex-col items-center justify-center min-h-[70vh] px-6 text-center">
+          <div className="max-w-2xl">
+            <p className="text-xl text-gray-300 leading-relaxed mb-10 italic">
+              Here’s where I write just because I want to—fiction, non-fiction, whatever’s calling me. These are the pieces closest to my heart, and I hope they find their way into yours.
+            </p>
+            <div className="space-y-2">
+              <h2 className="text-2xl font-semibold text-white">No posts found yet</h2>
+              <p className="text-pink-300">New Blogs are being prepared. Please check back soon.</p>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </>)
 
   return (
- <section>
-  <Navbar />
-  <div className="max-w-5xl mx-auto p-4 sm:p-6 min-h-screen">
-    <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-white text-center sm:text-left">All Posts</h1>
+    <section>
+      <Navbar />
+      <div className="max-w-5xl mx-auto p-4 sm:p-6 min-h-screen">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-white text-center sm:text-left">All Posts</h1>
 
-    <div className="space-y-6">
-      {posts.map((post) => (
-        <Link
-          key={post._id}
-          href={`/blogs/${post._id}`}
-          className="flex flex-col sm:flex-row bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-        >
-          {/* Left box */}
-          <div className="flex flex-col justify-between gap-4 sm:gap-16 bg-white md:w-96 md:min-h-88  sm:w-56 sm:h-48 sm:min-h-64 items-center p-6 sm:p-8">
-            <h2 className="text-pink-500 font-quintessential text-center text-xl sm:text-3xl">
-              {post.title.toUpperCase()}
-            </h2>
-            <Image
-              src="/kristina.png"
-              alt="logo"
-              height={80} // smaller on mobile
-              width={80}
-              className="sm:h-36 sm:w-36"
-            />
-          </div>
+        <div className="space-y-6">
+          {posts.map((post) => (
+            <Link
+              key={post._id}
+              href={`/blogs/${post._id}`}
+              className="flex flex-col sm:flex-row bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+            >
+              {/* Left box */}
+              <div className="flex flex-col justify-between gap-4 sm:gap-16 bg-white md:w-96 md:min-h-88  sm:w-56 sm:h-48 sm:min-h-64 items-center p-6 sm:p-8">
+                <h2 className="text-pink-500 font-quintessential text-center text-xl sm:text-3xl">
+                  {post.title.toUpperCase()}
+                </h2>
+                <Image
+                  src="/kristina.png"
+                  alt="logo"
+                  height={80} // smaller on mobile
+                  width={80}
+                  className="sm:h-36 sm:w-36"
+                />
+              </div>
 
-          {/* Right side / content */}
-          <div className="flex-1 p-4 sm:p-6 flex flex-col gap-2">
-            {post.description && (
-              <p className="text-white text-lg sm:text-2xl line-clamp-3 mb-4">
-                {post.description}
-              </p>
-            )}
+              {/* Right side / content */}
+              <div className="flex-1 p-4 sm:p-6 flex flex-col gap-2">
+                {post.description && (
+                  <p className="text-white text-lg sm:text-2xl line-clamp-3 mb-4">
+                    {post.description}
+                  </p>
+                )}
 
-          </div>
-        </Link>
-      ))}
-    </div>
-  </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
 
-  <Footer />
-</section>
+      <Footer />
+    </section>
 
-  
+
   );
 }
