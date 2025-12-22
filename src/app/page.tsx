@@ -11,85 +11,86 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Footer from "@/components/Footer";
 
 export type space = {
-  name : string,
-  target : string,
-  content : string,
-  cta : string,
-  link : string
+  name: string,
+  target: string,
+  content: string,
+  cta: string,
+  link: string
 }
 
 export default function Home() {
 
 
-  const reviews =[
-     {content : "Working with Kristina was the difference between having an idea and having it come alive. I told her everything I had in my head, and she just listened—then somehow turned all my rambling into something that actually made sense. Through genuine understanding and skill, she helped me get my ideas on the page and create a finished draft. The result felt effortless to read, and the result reminded me how powerful human writing is.",
-  person : "Daniel"
-  },
+  const reviews = [
     {
-    content : "“I've worked with Ewaoluwa for several years now, and it never ceases to amaze me how good she is at capturing my ideas and articulating them with true perfection. I found that in order to be a good writer, you must also be an amazing listener, and she truly is that. She listens closely and recreates my words as they are in my mind. Her editing is just as amazing as her writing skills. With a keen eye for detail, Ewaoluwa has successfully edited a number of my works with incredible accuracy. She takes her time to not just read text, but breaks it down to ensure she fully understands it before marking it up. Anyone lucky enough to work with Ewaoluwa is truly blessed“.",
-    person : "Porsché Mysticque Steele (My former boss🙈, CEO of MysticqueRose Publishing, and TEDx Speaker)"
-  },
-  {
-    content : "Thank you so much for editing the sample, Kristina. This is exactly the type of feedback & guidance I need to make my book the best it can be.",
-    person : "Felicia Emery (She immediately hired me to edit her book!)"
-  },
-   {
-    content : "Amazing job! I’m truly grateful for her help in telling and editing my life’s story.",
-    person : "Whitney Williams, Author of The Revival (We spent three amazing months working on her story!)"
-  },
-    {
-    content : "She was superb! Very talented. She took my run-on sentences and chaotic paragraphs and made them flow like a pro. Definitely recommend her.",
-    person : "Gregory Maisonville (I enjoyed it!)"
-  },
-   {
-    content : "During this project, Kristina was flexible and easy to contact, and she remained dedicated to ensuring the project was completed to my satisfaction.",
-    person : "Dorian (That’s what I do!)"
-  },
-   {
-    content : "Kristina is a phenomenal writer. She was hardworking, transparent, and delivered great results. These are typical for a well-reviewed freelance copywriter, but the thing that I was really impressed with was her ability to learn the style and tone of the client. To take feedback with a grain of salt and make adjustments. I’d recommend working with her for a great experience and great results.",
-    person : "Eric Kim (My former boss🙈 and Principal Consultant at Zator Media)"
-  },
-  {
-    content : "Ewaoluwa writes things amazingly. She also enjoys and analyzes literary works. I think she is like a ball of fire- beautiful with the ability to beat things into perfection.",
-    person : "Ololade Edun"
-  },
-    {
-    content : "We had fun creating stories together.",
-    person : "Angela Jamieson (Told you I enjoy what I do!)"
-  },
- {
-  content : "Kristina took my rough ideas and turned them into something I couldn’t stop reading. Every line felt natural, like she understood exactly what I wanted to say before I did. The writing was clear, human, and alive. I saw my vision on the page and heard it in my words. That’s what makes her writing stand out—it feels like you.",
-  person : "Daniel"
-  }
-,{
-  content : "Kristina helped me put my brand into words in a way I’d never been able to before—and she did it so fast! It was just one ad copy, but she managed to capture what makes my brand unique and get the message across clearly. It was short, sharp, and actually made people want to act. She just gets it.",
-  person : "Titobi"
-},{
-  content : "I was really struggling to organize my ideas for an essay, and Kristina helped me sort everything out. We talked through each point together, and she helped me expand on them, making sure they actually fit the topic and made sense. My thoughts were all over the place, but she helped me detangle and structure them. By the end, everything flowed and felt clear. It honestly made such a difference.",
-  person : "Jerry"
-}
-
-]
-  const WritingSpaces : space[] = [
-    {
-      name : "Interviews",
-      target : "For the curious",
-      content : "I tell the stories of everyday people—the ones who may not be famous but are absolutely fascinating. Their experiences hold meaning, depth, and humanity. Maybe you’ll be inspired, entertained, or even shed a tear.",
-      cta : "Read Interviews",
-      link: "interviews" 
+      content: "Working with Kristina was the difference between having an idea and having it come alive. I told her everything I had in my head, and she just listened, then somehow turned all my rambling into something that actually made sense. Through genuine understanding and skill, she helped me get my ideas on the page and create a finished draft. The result felt effortless to read, and the result reminded me how powerful human writing is.",
+      person: "Daniel"
     },
-       {
-      name : "Resources",
-      target : "To help my fellow editors and guide writerss",
-      content : "I share the tools, lessons, and lightbulb moments that have shaped me as an editor and as a human. Everything here has either helped me grow or increased my efficiency, and I hope it helps you too.",
-      cta : "Explore Resources",
-      link : "resources"
+    {
+      content: "I've worked with Ewaoluwa for several years now, and it never ceases to amaze me how good she is at capturing my ideas and articulating them with true perfection. I found that in order to be a good writer, you must also be an amazing listener, and she truly is that. She listens closely and recreates my words as they are in my mind. Her editing is just as amazing as her writing skills. With a keen eye for detail, Ewaoluwa has successfully edited a number of my works with incredible accuracy. She takes her time to not just read text, but breaks it down to ensure she fully understands it before marking it up. Anyone lucky enough to work with Ewaoluwa is truly blessed“.",
+      person: "Porsché Mysticque Steele (My former boss🙈, CEO of MysticqueRose Publishing, and TEDx Speaker)"
+    },
+    {
+      content: "Thank you so much for editing the sample, Kristina. This is exactly the type of feedback & guidance I need to make my book the best it can be.",
+      person: "Felicia Emery (She immediately hired me to edit her book!)"
+    },
+    {
+      content: "Amazing job! I’m truly grateful for her help in telling and editing my life’s story.",
+      person: "Whitney Williams, Author of The Revival (We spent three amazing months working on her story!)"
+    },
+    {
+      content: "She was superb! Very talented. She took my run-on sentences and chaotic paragraphs and made them flow like a pro. Definitely recommend her.",
+      person: "Gregory Maisonville (I enjoyed it!)"
+    },
+    {
+      content: "During this project, Kristina was flexible and easy to contact, and she remained dedicated to ensuring the project was completed to my satisfaction.",
+      person: "Dorian (That’s what I do!)"
+    },
+    {
+      content: "Kristina is a phenomenal writer. She was hardworking, transparent, and delivered great results. These are typical for a well-reviewed freelance copywriter, but the thing that I was really impressed with was her ability to learn the style and tone of the client. To take feedback with a grain of salt and make adjustments. I’d recommend working with her for a great experience and great results.",
+      person: "Eric Kim (My former boss🙈 and Principal Consultant at Zator Media)"
+    },
+    {
+      content: "Ewaoluwa writes things amazingly. She also enjoys and analyzes literary works. I think she is like a ball of fire- beautiful with the ability to beat things into perfection.",
+      person: "Ololade Edun"
+    },
+    {
+      content: "We had fun creating stories together.",
+      person: "Angela Jamieson (Told you I enjoy what I do!)"
+    },
+    {
+      content: "Kristina took my rough ideas and turned them into something I couldn’t stop reading. Every line felt natural, like she understood exactly what I wanted to say before I did. The writing was clear, human, and alive. I saw my vision on the page and heard it in my words. That’s what makes her writing stand out, it feels like you.",
+      person: "Daniel"
+    }
+    , {
+      content: "Kristina helped me put my brand into words in a way I’d never been able to before, and she did it so fast! It was just one ad copy, but she managed to capture what makes my brand unique and get the message across clearly. It was short, sharp, and actually made people want to act. She just gets it.",
+      person: "Titobi"
     }, {
-      name : "Blog",
-      target : "For everyone.",
-      content : "Here’s where I write just because I want to—fiction, non-fiction, whatever’s calling me. These are the pieces closest to my heart, and I hope they find their way into yours.",
-      cta : "Read My Stories",
-      link : "blog"
+      content: "I was really struggling to organize my ideas for an essay, and Kristina helped me sort everything out. We talked through each point together, and she helped me expand on them, making sure they actually fit the topic and made sense. My thoughts were all over the place, but she helped me detangle and structure them. By the end, everything flowed and felt clear. It honestly made such a difference.",
+      person: "Jerry"
+    }
+
+  ]
+  const WritingSpaces: space[] = [
+    {
+      name: "Interviews",
+      target: "For the curious",
+      content: "I tell the stories of everyday people—the ones who may not be famous but are absolutely fascinating. Their experiences hold meaning, depth, and humanity. Maybe you’ll be inspired, entertained, or even shed a tear.",
+      cta: "Read Interviews",
+      link: "interviews"
+    },
+    {
+      name: "Resources",
+      target: "To help my fellow editors and guide writers",
+      content: "I share the tools, lessons, and lightbulb moments that have shaped me as an editor and as a human. Everything here has either helped me grow or increased my efficiency, and I hope it helps you too.",
+      cta: "Explore Resources",
+      link: "resources"
+    }, {
+      name: "Blog",
+      target: "For everyone",
+      content: "Here’s where I write just because I want to—fiction, non-fiction, whatever’s calling me. These are the pieces closest to my heart, and I hope they find their way into yours.",
+      cta: "Read My Stories",
+      link: "blog"
     },
 
 
@@ -97,413 +98,382 @@ export default function Home() {
 
 
   return (
-   <section className="w-full h-screen">
+    <section className="w-full h-screen">
 
-  <Navbar />
-  {/* Hero section */}
-  <article className=" h-[500px]  relative text-center py-12   overflow-hidden p-2 ">
-    {/* Background image and gradient */}
-    <div className="absolute inset-0 bg-gradient-to-r from-gray-500 to-gray-800 bg-[url('/passion_word.jpg')] bg-cover bg-center opacity-60"></div>
+      <Navbar />
+      {/* Hero section */}
+      <article className=" h-[500px]  relative text-center py-12   overflow-hidden p-2 ">
+        {/* Background image and gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-500 to-gray-800 bg-[url('/passion_word.jpg')] bg-cover bg-center opacity-60"></div>
 
-    {/* Softer overlay for better text visibility */}
-    <div className="absolute inset-0 bg-black/20"></div>
+        {/* Softer overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black/20"></div>
 
-    {/* Content */}
-    <div className="relative z-10 text-white px-4">
-      <h1 className="text-5xl md:text-8xl font-instrument font-bold font-de leading-tight">
-       You’ve got something worth saying—I help you say it <span className="italic text-pink-500">better</span> . 
-      </h1>
-      <h3 className="mt-6 font-bold text-lg md:text-xl text-gray-100 font-instrument tracking-wider">
-       Writing Partnership and Editing support that turns rough ideas and drafts into impactful, goal-crushing pieces. 
+        {/* Content */}
+        <div className="relative z-10 text-white px-4">
+          <h1 className="text-5xl md:text-8xl font-instrument font-bold font-de leading-tight">
+            You’ve got something worth saying—I help you say it <span className="italic text-pink-500">better</span>.
+          </h1>
+          <h3 className="mt-6 font-bold text-lg md:text-xl text-gray-100 font-instrument tracking-wider">
+            Writing Partnership and Editing support that turns rough ideas and drafts into impactful, goal-crushing pieces.
 
-      </h3>
-      <div className="mt-5 py-5">  <Link
-      href="#services" className="p-3 font-semibold rounded-md text-xl bg-pink-400 ">Work With Me</Link>
-    </div></div>
-   
-  </article>
+          </h3>
+          <div className="mt-5 py-5">  <Link
+            href="#services" className="p-3 font-semibold rounded-md text-xl bg-pink-400 ">Work With Me</Link>
+          </div></div>
 
-    <section className="min-h-screen bg-secondary text-white flex flex-col justify-center items-center px-6 md:px-20 py-20 text-lg leading-relaxed font-delius">
-      <div className="max-w-4xl text-center space-y-6">
-        <p className="text-xl md:text-2xl italic text-pink-300">
-         One thing I know for sure? Writing is one hell of a task!
-        </p>
+      </article>
 
-        <p className="text-gray-200">
-          It asks everything of you—focus, honesty, time. And you could’ve chosen
-          to run from it. But you’re here. Ready to face it head-on.
-        </p>
+      <section className="min-h-screen bg-secondary text-white flex flex-col justify-center items-center px-6 md:px-20 py-20 text-lg leading-relaxed font-delius">
+        <div className="max-w-4xl text-center space-y-8">
+          <p className="text-xl md:text-2xl italic text-pink-300 ">
+            One thing I know for sure? Writing is one hell of a task!
+          </p>
 
-        <h1 className="text-3xl md:text-5xl font-semibold font-funnel  mt-10 mb-4">
-          Which one are you?
+          <p className="text-gray-200 mt-4 space-y-4">
+            <p>It demands focus, honesty, and time</p>
+
+            <p>But instead of running from it, you’re here. Ready to face it head-on.</p>
+          </p>
+
+
+
+          <h1 className="text-3xl md:text-5xl font-semibold font-funnel  mt-10 ">
+            Which one are you?
+          </h1>
+
+          <div className=" gap-8 text-gray-200 ">
+
+            {/* Card 1 */}
+            <div className=" p-6 rounded-2xl  ">
+              <p>
+                Are you the writer with{" "}
+                <span className="text-pink-300 italic">rough ideas</span> and{" "}
+                <span className=" text-pink-300">unfinished drafts</span>?{" "}
+
+                Wrestling with <span className="text-pink-300">fear</span>,<span className="text-pink-300"> overwhelm</span>, and <span className="text-pink-300">inconsistency</span>? Unable to stand how <span className="text-pink-300">lonely</span> writing can get?
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className=" p-6 rounded-2xl ">
+              <p>
+                Or maybe you’re the writer who’s already written their piece. You’re{" "}
+                proud, but <span className="text-pink-300">
+                  unsure
+                </span>
+                <span className="text-white">, </span>wondering if it’s
+                <span className="text-pink-300"> good enough</span>, or{" "}
+
+                if the world will understand and accept it.
+
+              </p>
+            </div>
+
+
+
+            {/* Card 4 – Bridge Statement */}
+            <div className="  p-6 rounded-2xl ">
+              <p className="font-medium">
+                Whichever it is, I meet you in the middle of your chaos
+                and help you turn it into{" "}
+                <span className="text-pink-300">
+                  clear<span className="text-white">, </span>confident<span className="text-white">, and</span> complete
+                </span>{" "}
+                stories and copy.
+              </p>
+            </div>
+
+          </div>
+
+
+
+
+          {/* CTA */}
+          <div className="flex justify-center ">
+            <Link
+              href="/#services"
+              className="inline-block bg-white text-black px-8 py-4 rounded-full hover:bg-[#333] transition-all duration-300 shadow-md"
+            >
+              Explore My Services →
+            </Link>
+          </div>
+
+        </div>
+      </section>
+      {/* Meet Kristina */}
+
+      <section className="w-full my-8 mb-12 md:mt-10 ">
+        <div className="relative flex flex-col items-center">
+          <h2 className="relative  text-6xl md:text-8xl font-cookie text-center">Hi, I’m Kristina!
+
+          </h2>
+
+        </div>
+
+
+        <main className=" flex flex-col-reverse lg:flex-row justify-between  mt-12 p-8 font-sans text-purple-300">
+          <div className="my-5  w-full lg:w-1/2  space-y-3 leading-relaxed text-lg">
+            <p className="">
+              <span className="font-bold text-xl text-purple-200">The most important thing you need to know about me?</span><br />
+              I don’t just love writing and editing—
+
+              I love love <span className="text-2xl italic text-pink-400 font-extrabold tracking-wide">LOVE</span> it.
+
+              &nbsp;It excites me.
+              And I’ve spent the past five years getting <span className="underline decoration-pink-500">damn good</span> at it.<br />
+            </p>
+
+            <p className="text-lg">
+
+              I’ve worked with publishing and editing companies like
+              <span className="text-purple-200 font-medium"> MysticqueRose Publishing</span> and
+              <span className="text-purple-200 font-medium"> FirstEditing.com</span>, and written with teams like
+              <span className="text-purple-200 font-medium"> Eric Kim Digital Agency</span> (now
+              <span className="text-purple-200 font-medium"> Zator Media</span>).
+            </p>
+
+            <p className="">But honestly?
+              <span className="text-pink-500">   My favorite part has been collaborating with individual writers</span>—
+
+              <span className=" text-purple-200">people who just need someone to believe in their stories as much as they do. </span>
+
+
+            </p>
+            <p>
+              I care about words because I care about people. I believe that every story, even the most fantastical ones, carries elements of the human experience.
+              I’m <span className=" text-pink-500">obsessed</span> with exploring it and helping writers share that truth, and I get to see it happen in real-time! (That’s probably the Psychology degree talking🤔.)
+            </p>
+
+            <p className="text-xl ">
+              Oh, and yes—I love purple! Obviously.
+            </p>
+            <p>But back to what’s important right now: <span className="text-xl text-white  decoration-pink-500 font-bold"> What do you need?</span> </p>
+          </div>
+          <div className=" relative w-full lg:w-1/2 flex items-center justify-center">
+
+
+
+            <Image
+              src="https://images.unsplash.com/photo-1646133754508-3a795f34acae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=722"
+              alt="Woman"
+              width={300} // required
+              height={360} // required
+              className="rounded-lg shadow-xl"
+            />
+
+          </div>
+        </main>
+
+      </section>
+      {/* Services */}
+      <section className="bg-pink-200 py-16" id="services">
+        <h1 className="font-cookie text-7xl text-center text-background font-bold mb-12">
+          My Services
         </h1>
 
-      <div className="grid gap-8 text-gray-200 grid grid-cols-1 md:grid-cols-2">
+        <main className="flex flex-col gap-12 px-6 font-delius max-w-6xl mx-auto">
 
-  {/* Card 1 */}
-  <div className="bg-gray-700/40 p-6 rounded-2xl shadow-md ">
-    <p>
-      Are you the writer with{" "}
-      <span className="text-pink-300 italic">rough ideas</span> and{" "}
-      <span className="underline text-pink-300">unfinished drafts</span>?{" "}
-      <span className="text-red-400">
-        Wrestling with fear, overwhelm, and inconsistency
-      </span>
-      ? Unable to stand how lonely writing can get?
-    </p>
-  </div>
+          {/* Writing Partnership */}
+          <div className="bg-white text-black p-6 md:p-8 rounded-xl shadow-md flex flex-col md:flex-row gap-10">
 
-  {/* Card 2 */}
-  <div className="bg-gray-700/40 p-6 rounded-2xl shadow-md">
-    <p>
-      Or maybe you’re the writer who’s already written their piece. You’re{" "}
-      <span className="text-red-300">
-        proud, but unsure<span className="text-white">—</span>wondering if it’s
-        good enough
-      </span>
-      , or{" "}
-      <span className="text-green-300">
-        if the world will understand and accept it.
-      </span>
-    </p>
-  </div>
+            <div className="w-full md:w-1/2">
+              <Image
+                src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?auto=format&fit=crop&q=80&w=1170"
+                alt="Books on a table"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
 
-  {/* Card 3 */}
-  <div className="bg-gray-700/40 p-6 rounded-2xl shadow-md">
-    <p>
-      Or perhaps you’re not a writer at all. You’re a professional or creative
-      done with copy that sounds like everyone else’s.{" "}
-      <span className="text-green-300">
-        You want your voice to show up in your online presence.
-      </span>
-    </p>
-  </div>
+            <div className="w-full md:w-1/2">
+              <h2 className="text-2xl md:text-4xl font-quintessential font-bold mb-6 tracking-wide">
+                Writing Partnership
+              </h2>
 
-  {/* Card 4 – Bridge Statement */}
- <div className="bg-gray-800 border border-pink-500/30 p-6 rounded-2xl shadow-md">
-    <p className="font-medium">
-      Whichever it is, I’m ready to{" "}
-      <span className="text-pink-500">
-        meet you in the middle of your chaos
-      </span>{" "}
-      and help you turn it into{" "}
-      <span className="text-green-300">
-        clear, confident, and complete
-      </span>{" "}
-      stories and copy.
-    </p>
-  </div>
+              <div className="space-y-4 mb-8 text-lg md:text-xl text-gray-800 leading-relaxed">
+                <p>
+                  For the scared, inconsistent, confused, or lonely writer.
+                </p>
 
-</div>
- 
+                <p>
+                  Writing can be{" "}
+                  <span className="text-pink-500 italic">a lot</span>—stressful, lonely,
+                  anxiety-inducing, overwhelming… even scary.
+                </p>
 
-  {/* Card 5 – Services */}
-  <div className="bg-pink-800 p-6 rounded-2xl shadow-lg">
-    <p className="mb-4 text-2xl font-semibold text-gray-200">
-      Whether that means:
-    </p>
+                <p>
+                  I’m a writer. I get it. So let me step in with{" "}
+                  <span className="text-pink-500">energy</span>,{" "}
+                  <span className="text-pink-500">structure</span>, and{" "}
+                  <span className="text-pink-500">empathy</span> to help you become the
+                  best writer you can be.
+                </p>
+              </div>
 
-    <ul className="list-disc list-inside space-y-2 text-gray-100">
-      <li>Partnering with you to write or finish your drafts</li>
-      <li>Editing your manuscript until it shines</li>
-      <li>
-        Creating authentic LinkedIn and website copy that connects and converts
-      </li>
-    </ul>
-  </div>
-
-  {/* Card 6 – Closing */}
-  <div className=" p-6 rounded-2xl text-center">
-    <p className="text-white font-semibold">
-      I help you bring your words and ideas to life—without losing your voice.
-    </p>
-  </div>
-
-  {/* CTA */}
-  <div className="flex justify-center pt-6">
-    <Link
-      href="/#services"
-      className="inline-block bg-white text-black px-8 py-4 rounded-full hover:bg-[#333] transition-all duration-300 shadow-md"
-    >
-      Explore My Services →
-    </Link>
-  </div>
-
-      </div>
-    </section>
-    {/* Meet Kristina */}
-
-  <section className="w-full my-8 mb-12 md:mt-10 ">
-    <div className="relative flex flex-col items-center">
-       <h2 className="relative  text-6xl md:text-8xl font-cookie text-center">Hi, I’m Kristina!
-
-      </h2> 
-  
-    </div>
-  
-
-<main className=" flex flex-col-reverse lg:flex-row justify-between  mt-12 p-8 font-sans text-purple-300">
-  <div className="my-5  w-full lg:w-1/2  space-y-3 leading-relaxed text-lg">
-    <p className="">
-      <span className="font-bold text-xl text-purple-200">The most important thing you need to know about me?</span><br />
-      I don’t just love writing and editing— 
-      
-        I love love <span className="text-2xl italic text-pink-400 font-extrabold tracking-wide">LOVE</span> it.
-      
-       &nbsp;It excites me.
-       And I’ve spent the past five years getting <span className="underline decoration-pink-500">damn good</span> at it.<br />
-    </p>
-
-    <p className="text-lg">
-       
-      I’ve worked with publishing and editing companies like 
-      <span className="text-purple-200 font-medium"> MysticqueRose Publishing</span> and 
-      <span className="text-purple-200 font-medium"> FirstEditing.com</span>, and written with teams like 
-      <span className="text-purple-200 font-medium"> Eric Kim Digital Agency</span> (now 
-      <span className="text-purple-200 font-medium"> Zator Media</span>).
-    </p>
-
-    <p className="">But honestly?
-      <span className="text-pink-500">   My favorite part has been collaborating with individual writers</span>—
-    
-      <span className=" text-purple-200">people who just need someone to believe in their stories as much as they do. </span>
-    
-
-    </p>
-    <p>
-      I care about words because I care about people. I believe that every story, even the most fantastical ones, carries elements of the human experience.
-      I’m <span className=" text-pink-500">obsessed</span> with exploring it and helping writers share that truth, and I get to see it happen in real-time! (That’s probably the Psychology degree talking🤔.)
-    </p>
- 
-    <p className="text-xl ">
-      Oh, and yes—I love purple! Obviously.
-    </p>
-    <p>But back to what’s important right now: <span className="text-xl text-white  decoration-pink-500 font-bold"> What do you need?</span> </p>
-  </div>
-  <div className=" relative w-full lg:w-1/2 flex items-center justify-center">
-       
-
-     
-     <Image
-        src="https://images.unsplash.com/photo-1646133754508-3a795f34acae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=722"
-        alt="Woman"
-        width={300} // required
-        height={360} // required
-        className="rounded-lg shadow-xl"
-      />
-
-  </div>
-</main>
-
-  </section>
-        {/* Services */}
-<section className="bg-pink-200 py-16" id="services">
-  <h1 className="font-cookie text-7xl text-center text-background font-bold mb-12">
-    My Services
-  </h1>
-
-  <main className="flex flex-col gap-12 px-6 font-delius max-w-6xl mx-auto">
-
-    {/* Writing Partnership */}
-    <div className="bg-white text-black p-6 md:p-8 rounded-xl shadow-md flex flex-col md:flex-row gap-10">
-      
-      <div className="w-full md:w-1/2">
-        <Image
-          src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?auto=format&fit=crop&q=80&w=1170"
-          alt="Books on a table"
-          width={600}
-          height={400}
-          className="w-full h-full object-cover rounded-lg"
-        />
-      </div>
-
-      <div className="w-full md:w-1/2">
-        <h2 className="text-2xl md:text-4xl font-quintessential font-bold mb-6 tracking-wide">
-          Writing Partnership
-        </h2>
-
-        <div className="space-y-4 mb-8 text-lg md:text-xl text-gray-800 leading-relaxed">
-          <p>
-            For the scared, inconsistent, confused, or lonely writer.
-          </p>
-
-          <p>
-            Writing can be{" "}
-            <span className="text-pink-500 italic">a lot</span>—stressful, lonely,
-            anxiety-inducing, overwhelming… even scary.
-          </p>
-
-          <p>
-            I’m a writer. I get it. So let me step in—with{" "}
-            <span className="text-pink-500">energy</span>,{" "}
-            <span className="text-pink-500">structure</span>, and{" "}
-            <span className="text-pink-500">empathy</span>—to help you become the
-            best writer you can be.
-          </p>
-        </div>
-
-        <Link
-          href="/writingpartnership"
-          className="inline-block px-6 py-3 bg-background text-white font-bold rounded-lg hover:opacity-90 transition"
-        >
-          Explore this service →
-        </Link>
-      </div>
-    </div>
-
-    {/* Editing */}
-    <div className="bg-white text-black p-6 md:p-8 rounded-xl shadow-md flex flex-col md:flex-row gap-10">
-
-      <div className="w-full md:w-1/2">
-        <Image
-          src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=687"
-          alt="Open book and notes"
-          width={600}
-          height={400}
-          className="w-full h-[80vh] object-cover rounded-lg"
-        />
-      </div>
-
-      <div className="w-full md:w-1/2">
-        <h2 className="text-2xl md:text-4xl font-quintessential font-bold mb-6 tracking-wide">
-          Editing
-        </h2>
-
-        <div className="space-y-4 mb-8 text-lg md:text-xl text-gray-800 leading-relaxed">
-          <p>
-            For the unsure, growing, or ready-to-publish writer.
-          </p>
-
-          <p>
-            You’ve done the writing—and that alone is a huge achievement.
-            Now it’s time to go further.
-          </p>
-
-          <p>
-            I bring{" "}
-            <span className="text-pink-500">fresh eyes</span>,{" "}
-            <span className="text-pink-500">sharp instincts</span>, and five years
-            of <span className="text-pink-500">editing muscle</span> to show you
-            <span className="text-pink-500"> what works, what doesn’t</span>, and
-            <span className="text-pink-500"> how to fix it.</span>
-          </p>
-
-          <p>
-            And if your work is already strong? I’ll tell you that, too.
-          </p>
-
-          <p>
-            Ready to make your words clear, powerful, and alive?
-          </p>
-        </div>
-
-        <Link
-          href="/editing"
-          className="inline-block px-6 py-3 bg-background text-white font-bold rounded-lg hover:opacity-90 transition"
-        >
-          Explore this service →
-        </Link>
-      </div>
-    </div>
-
-  </main>
-
-  <p className="text-center mt-12 text-background font-medium">
-    Those are all my services—but not everything I have to offer 😊
-  </p>
-</section>
-
-
-<section className="bg-[var(--background)] text-white py-20 px-6 md:px-16">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-medium leading-relaxed mb-12 text-pink-200">
-          I’ve built this space to be part portfolio, part home — a place where
-          you can find support, learn, and notice with me, even before we meet.
-        </h2>
-
-        <main className="grid md:grid-cols-3 gap-10">
-          {WritingSpaces &&
-            WritingSpaces?.map((item:space, index : number) => (
-              <div
-                key={index}
-                className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 text-left border border-white/10 hover:bg-white/20 hover:scale-[1.02] transition-all duration-300"
+              <Link
+                href="/writingpartnership"
+                className="inline-block px-6 py-3 bg-background text-white font-bold rounded-lg hover:opacity-90 transition"
               >
-                <h1 className="text-xl font-semibold text-pink-300 mb-2 group-hover:text-pink-200 transition">
-                  {item.name}
-                </h1>
-                <h3 className="text-sm uppercase tracking-widest text-gray-300 mb-4">
-                  {item.target}
-                </h3>
-                <p className="text-gray-200 text-sm leading-relaxed mb-6 h-42">
-                  {item.content}
+                Explore this service →
+              </Link>
+            </div>
+          </div>
+
+          {/* Editing */}
+          <div className="bg-white text-black p-6 md:p-8 rounded-xl shadow-md flex flex-col md:flex-row gap-10">
+
+            <div className="w-full md:w-1/2">
+              <Image
+                src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=687"
+                alt="Open book and notes"
+                width={600}
+                height={400}
+                className="w-full h-[80vh] object-cover rounded-lg"
+              />
+            </div>
+
+            <div className="w-full md:w-1/2">
+              <h2 className="text-2xl md:text-4xl font-quintessential font-bold mb-6 tracking-wide">
+                Editing
+              </h2>
+
+              <div className="space-y-4 mb-8 text-lg md:text-xl text-gray-800 leading-relaxed">
+                <p>
+                  For the unsure, growing, or ready-to-publish writer.
                 </p>
-                <Link
-                  href={item.link}
-                  className="inline-block bg-pink-500 text-white px-5 py-2 rounded-full font-medium hover:bg-pink-400 transition-all duration-300"
-                >
-                  {item.cta || "Learn more"}
-                </Link>
+
+                <p>
+                  You’ve done the writing, and that alone is a huge achievement.
+                  Now it’s time to go further.
+                </p>
+
+                <p>
+                  I bring{" "}
+                  <span className="text-pink-500">fresh eyes</span>,{" "}
+                  <span className="text-pink-500">sharp instincts</span>, and five years
+                  of <span className="text-pink-500">editing muscle</span> to show you
+                  <span className="text-pink-500"> what works</span>,<span className="text-pink-500"> what doesn’t</span>, and
+                  <span className="text-pink-500"> how to fix it<span className="text-black">.</span></span>
+                </p>
+
+                <p>
+                  And if your work is already strong? I’ll tell you that, too.
+                </p>
+
+                <p>
+                  Ready to make your words clear, powerful, and alive?
+                </p>
               </div>
-            ))}
+
+              <Link
+                href="/editing"
+                className="inline-block px-6 py-3 bg-background text-white font-bold rounded-lg hover:opacity-90 transition"
+              >
+                Explore this service →
+              </Link>
+            </div>
+          </div>
+
         </main>
-      </div>
-    </section>
 
-<section className="bg-[#430169] text-white py-16 px-4 md:px-10 lg:px-20 relative">
-      <h2 className="text-3xl md:text-4xl font-quintessential text-center mb-16 text-pink-300">
-       What’s a home page without a little brag section😜?
-      </h2>
+        <p className="text-center mt-12 text-background font-medium">
+          Those are all my services—but not everything I have to offer 😊
+        </p>
+      </section>
 
-      {/* Swiper Container */}
-      <div className="relative max-w-5xl mx-auto">
-        <Swiper
-          modules={[ Autoplay, Navigation]}
-          spaceBetween={40}
-          slidesPerView={1}
-          loop={true}
-          pagination={{ clickable: true }}
-          autoplay={{
-            delay: 6000,
-            disableOnInteraction: false,
-          }}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
-          className="rounded-2xl overflow-hidden"
-        >
-          {reviews.map((review, index) => (
-            <SwiperSlide key={index}>
-              <div className="bg-white min-h-96 text-[#430169] rounded-2xl shadow-lg p-8 md:p-12 flex flex-col items-center text-center transition-all duration-500 hover:shadow-xl">
-                <p className="text-lg md:text-xl italic leading-relaxed text-gray-800 mb-6 z-30">
-                  {review.content}
-                </p>
-                <p className="text-sm md:text-base font-semibold text-pink-600 mx-2 px-2">
-                  {review.person}
-                </p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
 
-        {/* Navigation Buttons */}
-        <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2   transparent -z-5 p-3 rounded-full shadow-lg transition-all duration-300">
-          <ChevronLeft size={24} className="text-pink-500 -z-5 " />
-        </button>
+      <section className="bg-[var(--background)] text-white py-20 px-6 md:px-16">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-medium leading-relaxed mb-12 text-pink-200">
+            I’ve built this space to be part portfolio, part home, a place where
+            you can find support, learn, and notice with me, even before we meet.
+          </h2>
 
-        <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 transparent p-3 rounded-full shadow-lg transition-all duration-300">
-          <ChevronRight size={24} className="text-pink-500 -z-5 " />
-        </button>
-      </div>
-    </section>
-         
+          <main className="grid md:grid-cols-3 gap-10">
+            {WritingSpaces &&
+              WritingSpaces?.map((item: space, index: number) => (
+                <div
+                  key={index}
+                  className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 text-left border border-white/10 hover:bg-white/20 hover:scale-[1.02] transition-all duration-300"
+                >
+                  <h1 className="text-xl font-semibold text-pink-300 mb-2 group-hover:text-pink-200 transition">
+                    {item.name}
+                  </h1>
+                  <h3 className="text-sm uppercase tracking-widest text-gray-300 mb-4">
+                    {item.target}
+                  </h3>
+                  <p className="text-gray-200 text-sm leading-relaxed mb-6 h-42">
+                    {item.content}
+                  </p>
+                  <Link
+                    href={item.link}
+                    className="inline-block bg-pink-500 text-white px-5 py-2 rounded-full font-medium hover:bg-pink-400 transition-all duration-300"
+                  >
+                    {item.cta || "Learn more"}
+                  </Link>
+                </div>
+              ))}
+          </main>
+        </div>
+      </section>
+
+      <section className="bg-[#430169] text-white py-16 px-4 md:px-10 lg:px-20 relative">
+        <h2 className="text-3xl md:text-4xl font-quintessential text-center mb-16 text-pink-300">
+          What’s a home page without a little brag section😜?
+        </h2>
+
+        {/* Swiper Container */}
+        <div className="relative max-w-5xl mx-auto">
+          <Swiper
+            modules={[Autoplay, Navigation]}
+            spaceBetween={40}
+            slidesPerView={1}
+            loop={true}
+            pagination={{ clickable: true }}
+            autoplay={{
+              delay: 10000,
+              disableOnInteraction: false,
+            }}
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+            className="rounded-2xl overflow-hidden"
+          >
+            {reviews.map((review, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-white min-h-96 text-[#430169] rounded-2xl shadow-lg p-8 md:p-12 flex flex-col items-center text-center transition-all duration-500 hover:shadow-xl">
+                  <p className="text-lg md:text-xl italic leading-relaxed text-gray-800 mb-6 z-30">
+                    {review.content}
+                  </p>
+                  <p className="text-sm md:text-base font-semibold text-pink-600 mx-2 px-2">
+                    {review.person}
+                  </p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Navigation Buttons */}
+          <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2   transparent -z-5 p-3 rounded-full shadow-lg transition-all duration-300">
+            <ChevronLeft size={24} className="text-pink-500 -z-5 " />
+          </button>
+
+          <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 transparent p-3 rounded-full shadow-lg transition-all duration-300">
+            <ChevronRight size={24} className="text-pink-500 -z-5 " />
+          </button>
+        </div>
+      </section>
+
       {/* contact form    */}
 
 
-<Footer/>
+      <Footer />
 
- 
-</section>
+
+    </section>
 
 
 
