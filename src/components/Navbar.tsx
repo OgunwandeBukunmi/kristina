@@ -9,14 +9,14 @@ export default function Navbar() {
   return (
     // Desktop navbar
     <header>
-      <div className='hidden  lg:flex flex-row w-full p-2  bg-white items-center   justify-around  '>
+      <div className='hidden  lg:flex flex-row w-full p-2  bg-white items-center   justify-around   '>
         <h1>
           <Image
-            src="/logokristia.png"
+            src="/purpletransparent.png"
             alt="LOGO"
             width={150}
             height={150}
-            className='w-[150px] h-[100px] p-2 '
+            className='w-[150px] h-[100px] p-2 relative -top-2 '
           />
 
 

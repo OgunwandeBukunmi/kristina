@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <div className='bg-pink-300 p-2 '>
-      <main className='flex flex-col md:flex-row justify-between px-8'>
+      <main className='flex flex-col md:flex-row items-center justify-between px-8'>
         <div>
           <Image
             src="/transparentlogo.png"

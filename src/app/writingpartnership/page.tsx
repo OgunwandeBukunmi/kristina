@@ -310,7 +310,7 @@ export default function page() {
 
             {/* CTA */}
             <div>
-              <button className="bg-pink-700 hover:bg-pink-600 transition text-white text-lg font-semibold px-6 py-3 rounded-full shadow-lg">
+              <button className="bg-pink-700 hover:bg-pink-600 transition text-white text-sm md:text-lg font-semibold px-6 py-3 rounded-full shadow-lg">
                 <Link href={"/contact"}>
                   I’m Ready to Crush My Writing Goals 🚀
                 </Link>
