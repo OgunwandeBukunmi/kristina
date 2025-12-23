@@ -75,7 +75,7 @@ export default function PostsList() {
                   {post.title.toUpperCase()}
                 </h2>
                 <Image
-                  src="/kristina.png"
+                  src="/purpletransparent.png"
                   alt="logo"
                   height={80} // smaller on mobile
                   width={80}

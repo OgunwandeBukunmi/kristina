@@ -259,7 +259,7 @@ export default function Home() {
               alt="Woman"
               width={300} // required
               height={360} // required
-              className="rounded-lg shadow-xl h-[500px] w-3/4  md:w-[350px] "
+              className="rounded-lg shadow-xl h-[500px] w-full   md:w-[350px] "
             />
 
           </div>
