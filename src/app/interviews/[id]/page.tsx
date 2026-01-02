@@ -29,10 +29,10 @@ export default function PostPage() { // Renamed for clarity (optional)
     const fetchPost = async () => {
       try {
         setLoading(true);
-        const value :Post  = findinterviewPosts(id)!// Assuming this is sync; make async if needed
+        const value: Post = findinterviewPosts(id)!
         setPost(value || []);
         console.log("Fetched post:", value);
-        if (!value) { 
+        if (!value) {
           setError("Post not found");
         }
       } catch (err) {
@@ -49,42 +49,42 @@ export default function PostPage() { // Renamed for clarity (optional)
   if (loading) {
     return (
       <>
-      <Navbar/>
-      <div className="flex items-center justify-center min-h-screen">
-        <p className="text-gray-500">Loading post...</p>
-      </div>
-     <Footer/>
-      </> 
+        <Navbar />
+        <div className="flex items-center justify-center min-h-screen">
+          <p className="text-gray-500">Loading post...</p>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   if (error || !post) {
     return (
       <>
-      <Navbar/>
-       <div className="flex items-center justify-center min-h-screen">
-        <p className="text-red-500">{error || "Post not found"}</p>
-      </div>
-      <Footer/>
+        <Navbar />
+        <div className="flex items-center justify-center min-h-screen">
+          <p className="text-red-500">{error || "Post not found"}</p>
+        </div>
+        <Footer />
 
       </>
-     
+
     );
   }
 
   return (
     <>
-    <Navbar/>
-    <div className="max-w-4xl mx-auto p-6 min-h-screen">
-      <h1 className="text-5xl font-bold text-white mb-4">{post.title}</h1>
-      {post.description && (
-        <p className="text-gray-300 mb-6 italic">{post.description}</p>
-      )}
-      <div className="prose prose-invert max-w-none mt-16">
-        <RenderQuillContent data={post.content} />
+      <Navbar />
+      <div className="max-w-4xl mx-auto p-6 min-h-screen">
+        <h1 className="text-5xl font-bold text-white mb-4">{post.title}</h1>
+        {post.description && (
+          <p className="text-gray-500 mb-6 italic">{post.description}</p>
+        )}
+        <div className="prose prose-invert max-w-none mt-16">
+          <RenderQuillContent data={post.content} />
+        </div>
       </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
   );
 }

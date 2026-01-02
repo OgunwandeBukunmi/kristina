@@ -3,9 +3,9 @@ import clientPromise from "../../../../../lib/mongodb";
 
 export async function GET(
   request: Request,
- context: { params: Promise<{ space: string }> }) {
+  context: { params: Promise<{ space: string }> }) {
   try {
-    const { space } = await context.params; 
+    const { space } = await context.params;
     console.log(space);
     console.log(space);
 
@@ -13,7 +13,7 @@ export async function GET(
     const db = client.db("kristina");
 
     // Always await your MongoDB query
-    const docs = await db.collection("posts").find({ space }).toArray();
+    const docs = await db.collection("posts").find({ space }).sort({ createdAt: -1 }).toArray();
 
     return NextResponse.json({ success: true, data: docs }, { status: 200 });
   } catch (err) {

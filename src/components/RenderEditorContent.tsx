@@ -3,9 +3,9 @@ import React from "react";
 import "../app/globals.css"
 
 
-export type DeltaOp  = {
+export type DeltaOp = {
   insert: string | {
-    image : string
+    image: string
   };
   attributes?: {
     header?: number;
@@ -16,7 +16,7 @@ export type DeltaOp  = {
     background?: string;
     list?: "ordered" | "bullet";
     code?: boolean;
-    inline : boolean;
+    inline: boolean;
     blockquote?: boolean;
   };
 }
@@ -33,31 +33,31 @@ export default function RenderQuillContent({ data }: { data: DeltaData }) {
   }
 
   const getClassNameAttributes = () => {
-  const attributes:ClassAttribute  = [];
+    const attributes: ClassAttribute = [];
 
-  // Step 1: Build the initial attributes array
-  data.ops?.forEach((item) => {
-    if (!item.insert) return;
-    if (item.insert !== "\n") return attributes.push(null);
-    attributes.push(item?.attributes || null);
-  });
+    // Step 1: Build the initial attributes array
+    data.ops?.forEach((item) => {
+      if (!item.insert) return;
+      if (item.insert !== "\n") return attributes.push(null);
+      attributes.push(item?.attributes || null);
+    });
 
 
-  // Step 2: Replace nulls with the next non-null value
-  for (let i = 0; i < attributes.length; i++) {
-    if (attributes[i] === null) {
-      for (let j = i + 1; j < attributes.length; j++) {
-        if (attributes[j] !== null) {
-          attributes[i] = attributes[j];
-          break;
+    // Step 2: Replace nulls with the next non-null value
+    for (let i = 0; i < attributes.length; i++) {
+      if (attributes[i] === null) {
+        for (let j = i + 1; j < attributes.length; j++) {
+          if (attributes[j] !== null) {
+            attributes[i] = attributes[j];
+            break;
+          }
         }
       }
     }
-  }
-  attributes.pop()
+    attributes.pop()
 
-  return attributes;
-};
+    return attributes;
+  };
 
   const headers = getClassNameAttributes()
 
@@ -84,8 +84,8 @@ export default function RenderQuillContent({ data }: { data: DeltaData }) {
 
   // Helper to get className from attributes
   const getClassName = (key: number) => {
-   const  attributes = headers[key]
- // Default text: bigger (text-base), better spacing (leading-loose)
+    const attributes = headers[key]
+    // Default text: bigger (text-base), better spacing (leading-loose)
     let classes = "";
     if (attributes?.header == 1) classes += "text-pink-800 font-bold mt-8 mb-4 leading-tight tracking-wide text-5xl"; // Bigger H1, tighter line-height for headers
     else if (attributes?.header === 2) classes += "text-gray-100 font-bold mt-6 mb-3 text-3xl leading-tight"; // Bigger H2
@@ -104,12 +104,12 @@ export default function RenderQuillContent({ data }: { data: DeltaData }) {
   // Render function for each op
   const renderOp = (op: DeltaOp, key: number) => {
 
-    const { insert,attributes} = op;
- 
+    const { insert, attributes } = op;
 
-  
-    
- 
+
+
+
+
 
     // Handle embeds (e.g., images)
     if (typeof insert !== "string") {
@@ -131,39 +131,39 @@ export default function RenderQuillContent({ data }: { data: DeltaData }) {
 
 
 
-let element = "span";
+    let element = "span";
 
-if (attributes?.list === "ordered") {
-  element = "ol";
-} else if (attributes?.list === "bullet") {
-  element = "ul";
-} else if (
-  attributes?.header != null ||
-  attributes?.blockquote ||
-  (attributes?.code && insert.includes("\n"))
-) {
-  element = "div";
-}
+    if (attributes?.list === "ordered") {
+      element = "ol";
+    } else if (attributes?.list === "bullet") {
+      element = "ul";
+    } else if (
+      attributes?.header != null ||
+      attributes?.blockquote ||
+      (attributes?.code && insert.includes("\n"))
+    ) {
+      element = "div";
+    }
 
-const content = element === "ol" || element === "ul"
-  ? `<li>${insert.replace(/\n/g, "<br>")}</li>`
-  : insert.replace(/\n/g, "<br>");
+    const content = element === "ol" || element === "ul"
+      ? `<li>${insert.replace(/\n/g, "<br>")}</li>`
+      : insert.replace(/\n/g, "<br>");
 
 
-return React.createElement(
-  element,
-  {
-    key,
-    className: getClassName(key),
-    style: getInlineStyles(attributes),
-    dangerouslySetInnerHTML: { __html: content },
-  }
-);
+    return React.createElement(
+      element,
+      {
+        key,
+        className: getClassName(key),
+        style: getInlineStyles(attributes),
+        dangerouslySetInnerHTML: { __html: content },
+      }
+    );
 
   };
 
   return (
-    <div className="prose prose-invert max-w-none">
+    <div className="prose prose-invert max-w-none text-gray-300">
       {data.ops.map((op, index) => renderOp(op, index))}
     </div>
   );

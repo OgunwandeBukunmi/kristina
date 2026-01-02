@@ -1,43 +1,62 @@
-import { NextRequest,NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "../../../../lib/mongodb";
-import { Network } from "lucide-react";
 
-export async function POST(req:NextRequest) {
-    const {space, title,description,savedData} = await req.json()
 
-    try{
+export async function POST(req: NextRequest) {
+    const { space, title, description, savedData } = await req.json()
+
+    try {
         const client = await clientPromise
         const db = client.db("kristina")
-        const doc = await db.collection("posts").insertOne({ space,title,description, content : savedData})
-        if(!doc ) return;
-        return NextResponse.json({succes : true, data: doc})
+        const doc = await db.collection("posts").insertOne({ space, title, description, content: savedData, createdAt: new Date() })
+        if (!doc) return;
+        return NextResponse.json({ succes: true, data: doc })
 
-    }catch(err : unknown){
+    } catch (err: unknown) {
         let message = "An unexpected error occurred";
         if (err instanceof Error) message = err.message;
-    
+
         console.error("❌ Upload failed:", message);
         return NextResponse.json({ success: false, message }, { status: 500 });
-      }
+    }
 
 
 }
 
-export async function GET(req:NextRequest) {
-    try{
+export async function GET() {
+    try {
         const client = await clientPromise;
         const db = client.db("kristina")
-        const doc = await db.collection("posts").find({}).toArray()
+        const doc = await db.collection("posts").find({}).sort({ createdAt: -1 }).toArray()
 
-        if(doc) return NextResponse.json({success:false,message : "Something Went Wrong"} , {status : 500})
+        if (!doc) return NextResponse.json({ success: false, message: "Something Went Wrong" }, { status: 500 })
         return NextResponse.json({
-            success : true, data : doc,
+            success: true, data: doc,
         })
 
-    }catch(err:unknown){
+    } catch (err: unknown) {
         let message = "An unexpected error occurred";
         if (err instanceof Error) message = err.message;
-    
+
+        console.error("❌ Upload failed:", message);
+        return NextResponse.json({ success: false, message }, { status: 500 });
+    }
+}
+
+export async function DELETE(req: NextRequest) {
+    try {
+        const { id } = await req.json()
+        console.log(id)
+        const client = await clientPromise;
+        const db = client.db("kristina")
+        const doc = await db.collection("posts").deleteOne({ _id: id })
+        console.log(doc)
+        if (!doc) return NextResponse.json({ success: false, message: "Something Went Wrong" }, { status: 500 })
+        return NextResponse.json({ success: true, data: doc })
+    } catch (err: unknown) {
+        let message = "An unexpected error occurred";
+        if (err instanceof Error) message = err.message;
+
         console.error("❌ Upload failed:", message);
         return NextResponse.json({ success: false, message }, { status: 500 });
     }

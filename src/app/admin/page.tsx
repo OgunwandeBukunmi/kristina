@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
+import type { Post } from "@/store/useSpaceStore";
+import usePostStore from "@/store/useSpaceStore";
 
 // Dynamic import (unchanged)
 const ReactQuill = dynamic(() => import("react-quill-new"), {
@@ -51,40 +53,73 @@ const ReactQuillWithRef = ReactQuill as React.ForwardRefExoticComponent<
 export default function AdminDashboard() {
   // Fully typed ref — no `any`, no errors
   const quillRef = useRef<QuillEditorInstance | null>(null);
-
+  const { findAndDeletePost } = usePostStore()
   const [currentStep, setCurrentStep] = useState<"admin-login" | "admin-writing">("admin-login");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [contentFor, setContentFor] = useState<"interviews" | "blogs" | "resources" | "responses">("interviews");
-  const [error, setError] = useState<string | null>("");
+  const [contentFor, setContentFor] = useState<"interviews" | "blogs" | "resources" | "responses" | "writingSpaces">("interviews");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [contactLoading, setContactLoading] = useState(false);
   const [responses, setResponses] = useState<response[]>([]);
   const [message, setMessage] = useState("");
+  const [posts, setPosts] = useState<Post[] | null>(null)
   const [shouldRenderEditor, setShouldRenderEditor] = useState(false);
+  const [writingSpaceLoading, setWritingSpaceLoading] = useState(false)
+  const [loginError, setLoginError] = useState<string | null>("")
+  const [contactError, setContactError] = useState<string | null>("");
+  const [writingSpaceError, setWritingSpaceError] = useState<string | null>("")
+  const [publishError, setPublishError] = useState<string | null>("")
+
 
   useEffect(() => {
     async function fetchResponses() {
       setContactLoading(true);
       try {
         const request = await fetch("/api/contact");
-        if (!request.ok) return setError("Error, Something Happened");
+        if (!request.ok) return setContactError(`Request failed with error code: ${request.status}`);
         const response = await request.json();
-        if (!response.data) return;
-        setContactLoading(false);
+        if (!response.data) return setContactError(`Error: ${response.message}`);
         setResponses(response.data);
+        console.log(response.data)
       } catch (err: unknown) {
         if (err instanceof Error) {
           console.error(err.message);
-          setError(err.message);
+          setContactError(err.message);
         } else {
           console.error(String(err));
-          setError("Something went wrong");
+          setContactError(`Error: ${String(err)}`);
         }
       }
+      setContactLoading(false);
     }
+
+    async function fetchPosts() {
+      setWritingSpaceLoading(true)
+      try {
+        const request = await fetch("/api/post");
+
+        if (!request.ok) return setWritingSpaceError(`Request failed with error code: ${request.status}`);
+        const response = await request.json();
+        if (!response.data) return setWritingSpaceError(`Error: ${response.message}`)
+        setPosts(response.data);
+        setWritingSpaceLoading(false);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          console.error(err.message);
+          setWritingSpaceError(err.message);
+        } else {
+          console.error(String(err));
+          setWritingSpaceError(`Error: ${String(err)}`);
+        }
+      }
+
+
+    }
+
     fetchResponses();
+    fetchPosts();
+
   }, []);
 
   useEffect(() => {
@@ -93,7 +128,7 @@ export default function AdminDashboard() {
 
   // Image handler — fully safe and typed
   const imageHandler = useMemo(() => {
-    if (typeof window === "undefined") return () => {};
+    if (typeof window === "undefined") return () => { };
     return () => {
       const input = document.createElement("input");
       input.setAttribute("type", "file");
@@ -155,10 +190,10 @@ export default function AdminDashboard() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !password.trim()) return setError("Incomplete Credentials");
+    if (!name.trim() || !password.trim()) return setLoginError("Incomplete Credentials");
 
     if (name === "Kristina" && password === "kristina123") return setCurrentStep("admin-writing");
-    setError("Incorrect Username or Password");
+    setLoginError("Incorrect Username or Password");
   };
 
   const handlePublish = async () => {
@@ -182,7 +217,7 @@ export default function AdminDashboard() {
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Something Went Wrong";
       console.error("Upload failed:", message);
-      setError(message);
+      setPublishError(message);
     }
   };
 
@@ -195,8 +230,8 @@ export default function AdminDashboard() {
             Welcome Back Kristina
           </h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
-            {error ? (
-              <span className="bg-red-700 text-red-300 p-2 rounded-md font-bold mb-8 w-full">{error}</span>
+            {loginError ? (
+              <span className="bg-red-700 text-red-300 p-2 rounded-md font-bold mb-8 w-full">{loginError}</span>
             ) : null}
             <div className="mt-4">
               <label className="block text-sm font-medium mb-1">Username</label>
@@ -235,134 +270,242 @@ export default function AdminDashboard() {
   // Dashboard UI — only one tiny change: ReactQuill → ReactQuillWithRef
   return (
     <div className="min-h-screen w-full bg-gray-100 flex flex-col md:flex-row">
-      {/* Sidebar — unchanged */}
-      <aside className="w-full md:w-64 bg-white shadow-md border-r border-gray-200 p-6 flex flex-col justify-between">
-        <div>
-          <h2 className="text-2xl font-bold text-background mb-6">Dashboard</h2>
-          <nav className="flex flex-col gap-3">
+      {/* Sidebar */}
+      <aside className="w-full md:w-64 bg-white shadow-md border-r border-gray-200 p-6 flex flex-col">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          Dashboard
+        </h2>
+
+        <nav className="flex flex-col gap-2">
+          {(
+            [
+              "interviews",
+              "blogs",
+              "resources",
+              "responses",
+              "writingSpaces",
+            ] as const
+          ).map((item) => (
             <button
-              onClick={() => setContentFor("interviews")}
-              className={`p-2 rounded-lg font-medium transition ${
-                contentFor === "interviews" ? "bg-green-100 text-green-700" : "hover:bg-gray-100 text-gray-700"
-              }`}
+              key={item}
+              onClick={() => setContentFor(item)}
+              className={`px-3 py-2 rounded-lg text-left font-medium transition
+            ${contentFor === item
+                  ? "bg-green-100 text-green-700"
+                  : "text-gray-700 hover:bg-gray-100"
+                }`}
             >
-              Interviews
+              {item === "writingSpaces"
+                ? "Writing Spaces"
+                : item.charAt(0).toUpperCase() + item.slice(1)}
             </button>
-            <button
-              onClick={() => setContentFor("blogs")}
-              className={`p-2 rounded-lg font-medium transition ${
-                contentFor === "blogs" ? "bg-green-100 text-green-700" : "hover:bg-gray-100 text-gray-700"
-              }`}
-            >
-              Blogs
-            </button>
-            <button
-              onClick={() => setContentFor("resources")}
-              className={`p-2 rounded-lg font-medium transition ${
-                contentFor === "resources" ? "bg-green-100 text-green-700" : "hover:bg-gray-100 text-gray-700"
-              }`}
-            >
-              Resources
-            </button>
-            <button
-              onClick={() => setContentFor("responses")}
-              className={`p-2 rounded-lg font-medium transition ${
-                contentFor === "responses" ? "bg-green-100 text-green-700" : "hover:bg-gray-100 text-gray-700"
-              }`}
-            >
-              Contact Responses
-            </button>
-          </nav>
-        </div>
+          ))}
+        </nav>
       </aside>
 
       {/* Main Content */}
-      {contentFor !== "responses" ? (
-        <main className="flex-1 p-6 flex flex-col">
-          <h1 className="text-2xl font-semibold text-gray-800 mb-4">
-            Writing for: <span className="text-green-600 capitalize">{contentFor}</span>
-          </h1>
-
-          <input
-            type="text"
-            placeholder="Enter title..."
-            className="p-3 border border-gray-300 bg-white text-gray-800 rounded-lg mb-4 w-full max-w-xl focus:ring-2 focus:ring-green-200 outline-none"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Enter description..."
-            className="p-3 border border-gray-300 bg-white text-gray-800 rounded-lg mb-4 w-full focus:ring-2 focus:ring-green-200 outline-none"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          {message && <span className="p-2 text-green-800 w-full bg-green-300 mb-4">{message}</span>}
-
-          {shouldRenderEditor && (
-            <div className="flex-1 bg-white text-gray-800 border border-gray-200 rounded-lg shadow-sm p-6 min-h-[500px] flex flex-col">
-              <ReactQuillWithRef
-                ref={quillRef}
-                theme="snow"
-                modules={modules}
-                formats={formats}
-                placeholder="Start writing..."
-                className="flex-1"
-              />
+      <section className="flex-1 p-6 overflow-y-auto">
+        {contentFor === "responses" ? (
+          contactLoading ? (
+            <div className="flex items-center justify-center h-40 text-gray-500">
+              Loading responses...
             </div>
-          )}
+          ) : contactError ? (
+            <div className="flex items-center justify-center h-40 text-gray-500">
+              {contactError}
+            </div>
+          ) : (
+            <>
+              <h1 className="text-3xl font-bold text-gray-900 mb-6">
+                Contact Responses
+              </h1>
 
-          <button
-            className="mt-6 self-end bg-green-600 hover:bg-green-500 text-white font-medium py-2 px-6 rounded-lg transition-all"
-            onClick={handlePublish}
-          >
-            Publish
-          </button>
-        </main>
-      ) : contactLoading ? (
-        <div className="text-black">
-          <h1>Loading...</h1>
-        </div>
-      ) : responses.length === 0 ? (
-        <div className="text-black">No Responses</div>
-      ) : (
-        <section className="px-4">
-          <h1 className="text-4xl text-black mb-4 font-bold">All the responses from your Contact Form</h1>
-          {responses.map((item) => (
-            <div
-              key={item._id}
-              className="bg-white shadow-md rounded-xl p-5 mb-4 border border-gray-100 hover:shadow-lg transition-shadow duration-200"
-            >
-              <div className="space-y-2">
-                <h2 className="text-lg font-semibold text-gray-900">{item.name}</h2>
-                <p className="text-sm text-gray-600">{item.email}</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {responses.map((item) => (
+                  <div
+                    key={item._id}
+                    className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition"
+                  >
+                    <div className="flex justify-between mb-4">
+                      <div>
+                        <h2 className="text-lg font-semibold text-gray-900">
+                          {item.name}
+                        </h2>
+                        <a
+                          href={`mailto:${item.email}`}
+                          className="text-sm text-green-600 hover:underline"
+                        >
+                          {item.email}
+                        </a>
+                      </div>
 
-                <div className="mt-3">
-                  <p className="text-gray-800">
-                    <span className="font-medium text-gray-700">Project Details:</span> {item.projectDetails}
-                  </p>
-                  <p className="text-gray-800">
-                    <span className="font-medium text-gray-700">Reason:</span> {item.reason}
-                  </p>
-                  <p className="text-gray-800">
-                    <span className="font-medium text-gray-700">Time:</span> {item.time}
-                  </p>
-                  {item.url && (
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 font-medium underline"
-                    >
-                      View File
-                    </a>
-                  )}
-                </div>
+                      <span className="text-xs text-gray-400">
+                        {item.time}
+                      </span>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="text-xs font-semibold text-gray-500 uppercase">
+                          Project Details
+                        </h3>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          {item.projectDetails}
+                        </p>
+                      </div>
+
+                      <div>
+                        <h3 className="text-xs font-semibold text-gray-500 uppercase">
+                          Reason
+                        </h3>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          {item.reason}
+                        </p>
+                      </div>
+                    </div>
+
+                    {item.url && (
+                      <div className="mt-5 pt-4 border-t flex justify-end">
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 text-sm border rounded-lg text-black hover:bg-gray-100"
+                        >
+                          View Attachment
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
+            </>
+          )
+        ) : contentFor === "writingSpaces" ? (
+          writingSpaceLoading ? (
+            <div className="flex items-center justify-center h-40 text-gray-500">
+              Loading posts...
             </div>
-          ))}
-        </section>
-      )}
+          ) : writingSpaceError ? (
+            <div className="flex items-center justify-center h-40 text-gray-500">
+              {writingSpaceError}
+            </div>
+          ) : (
+            <>
+              <h1 className="text-3xl font-bold text-gray-900 mb-6">
+                Posts
+              </h1>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {posts?.map((post) => (
+                  <div
+                    key={post._id}
+                    className="bg-white border rounded-xl p-5 hover:shadow-md transition cursor-pointer"
+                  >
+                    <h2 className="title text-lg font-semibold text-gray-900 mb-2">
+                      {post.title}
+                    </h2>
+
+                    <p className="text-sm text-gray-600 line-clamp-3 mb-4">
+                      {post.description}
+                    </p>
+                    <p className="text-sm text-gray-600 line-clamp-3 mb-4">
+                      {post.space}
+                    </p>
+                    <button
+                      onClick={async (e) => {
+                        e.stopPropagation();
+                        if (!confirm("Are you sure you want to delete this post?")) return;
+                        try {
+                          const res = await fetch(`/api/post`,
+                            {
+                              method: "DELETE",
+                              headers: {
+                                "Content-Type": "application/json"
+                              },
+                              body: JSON.stringify({ id: post._id })
+                            });
+                          setPosts(prev => prev ? prev.filter(item => item._id !== post._id) : prev);
+                        } catch (err) {
+                          alert(`Error failed ${err}`)
+                        }
+                      }}
+                      className="text-sm text-red-600 hover:text-red-800 font-medium mb-3 block"
+                    >
+                      Delete Post
+                    </button>
+
+
+                    <span className="text-xs text-gray-400">
+                      {new Date(post.createdAt).toLocaleDateString()}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </>
+          )
+        ) : (
+          <>
+            <h1 className="text-2xl font-semibold text-gray-800 mb-6">
+              Writing for{" "}
+              <span className="text-green-600 capitalize">{contentFor}</span>
+            </h1>
+
+            <div className="max-w-3xl space-y-4">
+              <input
+                type="text"
+                placeholder="Enter title..."
+                className="w-full bg-white text-gray-900 p-3  rounded-lg focus:ring-2 focus:ring-green-200 outline-none"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+
+              <input
+                type="text"
+                placeholder="Enter description..."
+                className="w-full bg-white text-gray-900 p-3  rounded-lg focus:ring-2 focus:ring-green-200 outline-none"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+
+              {message && (
+                <div className="p-2 bg-green-100 text-green-800 rounded">
+                  {message}
+                </div>
+              )}
+              {publishError && (
+                <div className="p-2 bg-red-100 text-red-800 rounded">
+                  {publishError}
+                </div>
+              )}
+
+
+
+            </div>
+
+            {shouldRenderEditor && (
+              <div className="mt-6 bg-white border rounded-lg p-6 min-h-[500px]">
+                <ReactQuillWithRef
+                  ref={quillRef}
+                  theme="snow"
+                  modules={modules}
+                  formats={formats}
+                  placeholder="Start writing..."
+                  className="h-full"
+                />
+              </div>
+            )}
+
+            <button
+              onClick={handlePublish}
+              className="mt-6 bg-green-600 hover:bg-green-500 text-white px-6 py-2 rounded-lg"
+            >
+              Publish
+            </button>
+          </>
+        )}
+      </section>
     </div>
+
   );
 }

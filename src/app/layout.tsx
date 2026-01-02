@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    icons: {
-    icon: "/kristina.png",
-    shortcut: "/kristina.png",
-    apple: "/kristina.png",
+  icons: {
+    icon: "/purpletransparent.png",
+    shortcut: "/purpletransparent.png",
+    apple: "/purpletransparent.png",
   },
   title: "Kristina",
   description: "A Look into the Mind of a Writer that loves Writing; KRISTINA",
