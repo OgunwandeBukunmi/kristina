@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     apple: "/purpletransparent.png",
   },
   title: "Kristina",
-  description: "A home for writers- where your work is brough to its fullest expression.",
+  description: "A home for writers- where your work is brought to its fullest expression.",
 };
 
 export default function RootLayout({
