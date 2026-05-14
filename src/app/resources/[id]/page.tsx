@@ -3,26 +3,17 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import RenderQuillContent from '@/components/RenderEditorContent';
-import type { DeltaOp } from '@/components/RenderEditorContent';
-// Updated import path to match your renderer file
 import usePostStore from '@/store/useSpaceStore';
 
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-
-export interface Post {
-  _id: string;
-  space: string;
-  title: string;
-  description?: string;
-  content: { ops: DeltaOp[] }; // Fixed: Added [] for array type
-}
+import type { InternalPost } from '@/store/useSpaceStore';
 
 export default function PostPage() { // Renamed for clarity (optional)
   const params = useParams(); // Destructure properly
   const id = params?.id as string; // Safer extraction
   const { findResourcesPosts } = usePostStore();
-  const [post, setPost] = useState<Post | undefined>();
+  const [post, setPost] = useState<InternalPost | undefined>();
   const [loading, setLoading] = useState(true); // Added for better UX
   const [error, setError] = useState<string | null>(null);
 
@@ -36,7 +27,7 @@ export default function PostPage() { // Renamed for clarity (optional)
     const fetchPost = async () => {
       try {
         setLoading(true);
-        const value: Post = findResourcesPosts(id)!// Assuming this is sync; make async if needed
+        const value: InternalPost = findResourcesPosts(id)!// Assuming this is sync; make async if needed
         setPost(value || []);
         console.log("Fetched post:", value);
         if (!value) {

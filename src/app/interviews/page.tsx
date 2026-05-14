@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import RenderEditorContent from "@/components/RenderEditorContent"; // from earlier
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -30,7 +29,7 @@ export default function PostsList() {
     }
 
     fetchPosts();
-  }, []);
+  }, [setInterviewPosts]);
 
   if (loading) return (
     <>

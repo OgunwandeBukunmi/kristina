@@ -9,13 +9,13 @@ import usePostStore from '@/store/useSpaceStore';
 
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import type { Post } from '@/store/useSpaceStore';
+import type { InternalPost } from '@/store/useSpaceStore';
 
 export default function PostPage() { // Renamed for clarity (optional)
   const params = useParams(); // Destructure properly
   const id = params?.id as string; // Safer extraction
   const { findinterviewPosts } = usePostStore();
-  const [post, setPost] = useState<Post | undefined>();
+  const [post, setPost] = useState<InternalPost | undefined>();
   const [loading, setLoading] = useState(true); // Added for better UX
   const [error, setError] = useState<string | null>(null);
 
@@ -29,7 +29,7 @@ export default function PostPage() { // Renamed for clarity (optional)
     const fetchPost = async () => {
       try {
         setLoading(true);
-        const value: Post = findinterviewPosts(id)!
+        const value: InternalPost = findinterviewPosts(id)!
         setPost(value || []);
         console.log("Fetched post:", value);
         if (!value) {

@@ -1,27 +1,41 @@
-// src/store/usePostStore.ts
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { DeltaOp } from '@/components/RenderEditorContent';
 
-export interface Post {
+interface BasePost {
   _id: string;
   space: string;
   title: string;
   description?: string;
-  content: { ops: DeltaOp[] };
   createdAt: string;
+  publishedAt?: string;
+  image?: string | null;
+  readingTime?: string;
 }
+
+export interface InternalPost extends BasePost {
+  content: { ops: DeltaOp[] };
+  isExternal?: false;
+}
+
+export interface ExternalPost extends BasePost {
+  content: string;
+  isExternal: true;
+  link: string;
+}
+
+export type Post = InternalPost | ExternalPost;
 
 interface PostStore {
   blogPosts: Post[];
-  interviewPosts: Post[];
-  resourcesPosts: Post[];
+  interviewPosts: InternalPost[];
+  resourcesPosts: InternalPost[];
   setBlogPosts: (posts: Post[]) => void;
-  setInterviewPosts: (posts: Post[]) => void;
-  setResourcesPosts: (posts: Post[]) => void;
+  setInterviewPosts: (posts: InternalPost[]) => void;
+  setResourcesPosts: (posts: InternalPost[]) => void;
   findBlogPost: (id: string) => Post | undefined;
-  findinterviewPosts: (id: string) => Post | undefined;
-  findResourcesPosts: (id: string) => Post | undefined;
+  findinterviewPosts: (id: string) => InternalPost | undefined;
+  findResourcesPosts: (id: string) => InternalPost | undefined;
   findAndDeletePost: (id: string, space: string) => Post | null;
 }
 
@@ -33,17 +47,17 @@ const usePostStore = create<PostStore>()(
       resourcesPosts: [],
 
       setBlogPosts: (posts: Post[]) => set({ blogPosts: posts }),
-      setInterviewPosts: (posts: Post[]) => set({ interviewPosts: posts }),
-      setResourcesPosts: (posts: Post[]) => set({ resourcesPosts: posts }),
+      setInterviewPosts: (posts: InternalPost[]) => set({ interviewPosts: posts }),
+      setResourcesPosts: (posts: InternalPost[]) => set({ resourcesPosts: posts }),
 
       findBlogPost: (id: string) => {
         return get().blogPosts.find((item: Post) => item._id === id)
       },
       findinterviewPosts: (id: string) => {
-        return get().interviewPosts.find((item: Post) => item._id === id)
+        return get().interviewPosts.find((item: InternalPost) => item._id === id)
       },
       findResourcesPosts: (id: string) => {
-        return get().resourcesPosts.find((item: Post) => item._id === id)
+        return get().resourcesPosts.find((item: InternalPost) => item._id === id)
       },
       findAndDeletePost: (id: string, space: string) => {
         let deletedPost: Post | null = null;
