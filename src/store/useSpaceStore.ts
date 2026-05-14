@@ -1,4 +1,3 @@
-// src/store/usePostStore.ts
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { DeltaOp } from '@/components/RenderEditorContent';
@@ -15,7 +14,7 @@ interface BasePost {
 }
 
 export interface InternalPost extends BasePost {
-  content: { ops: any[] };
+  content: { ops: DeltaOp[] };
   isExternal?: false;
 }
 

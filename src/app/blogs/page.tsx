@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import RenderEditorContent from "@/components/RenderEditorContent"; // from earlier
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -108,7 +107,7 @@ export default function PostsList() {
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, index) => {
+          {posts.map((post) => {
             const href = `/blogs/${encodeURIComponent(post._id)}`;
             const date = new Date(post.publishedAt || post.createdAt || Date.now());
             const formattedDate = date.toLocaleDateString("en-US", {

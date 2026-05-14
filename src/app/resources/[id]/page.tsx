@@ -3,8 +3,6 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import RenderQuillContent from '@/components/RenderEditorContent';
-import type { DeltaOp } from '@/components/RenderEditorContent';
-// Updated import path to match your renderer file
 import usePostStore from '@/store/useSpaceStore';
 
 import { useParams } from 'next/navigation';
