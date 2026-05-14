@@ -39,14 +39,16 @@ export async function GET(request: Request) {
     let feed;
     try {
       feed = await parser.parseString(sanitizedXml);
-    } catch (parseError: any) {
-      console.error("RSS Parsing Error at:", parseError.line, ":", parseError.column);
+    } catch (parseError: unknown) {
+      const error = parseError as { line?: number; column?: number };
+      console.error("RSS Parsing Error at:", error.line, ":", error.column);
       console.error("First 100 chars of feed:", sanitizedXml.slice(0, 100));
       throw parseError;
     }
     
-    const posts = feed.items.map((item: any) => {
-      const content = item["content:encoded"] || item.content || "";
+    const posts = feed.items.map((item) => {
+      const itemWithEncoded = item as Parser.Item & { "content:encoded"?: string };
+      const content = itemWithEncoded["content:encoded"] || item.content || "";
       
       // Extract the first image from content
       const imageMatch = content.match(/<img[^>]+src="([^"]+)"/);
@@ -74,7 +76,8 @@ export async function GET(request: Request) {
         .replace(/<form[\s\S]*?<\/form>/g, "");
 
       // Extract a clean slug from the link (e.g., 'dont-stop-writing-live')
-      const slug = item.link.split("/p/")[1]?.split("?")[0] || item.guid || item.link;
+      const itemLink = item.link || "";
+      const slug = itemLink.split("/p/")[1]?.split("?")[0] || item.guid || itemLink;
 
       // Calculate reading time
       const wordCount = textContent.split(/\s+/).length;

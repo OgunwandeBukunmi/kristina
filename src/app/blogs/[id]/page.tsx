@@ -4,22 +4,11 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import RenderQuillContent from '@/components/RenderEditorContent';
 import Link from 'next/link';
-import type { DeltaOp } from '@/components/RenderEditorContent';
-// Updated import path to match your renderer file
 import usePostStore from '@/store/useSpaceStore';
-
+import type { Post } from '@/store/useSpaceStore';
+import type { DeltaOp } from '@/components/RenderEditorContent';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-
-export interface Post {
-  _id: string;
-  space: string;
-  title: string;
-  description?: string;
-  content?: { ops: any[] } | string;
-  isExternal?: boolean;
-  link?: string;
-}
 
 export default function PostPage() { // Renamed for clarity (optional)
   const params = useParams(); // Destructure properly
@@ -48,7 +37,7 @@ export default function PostPage() { // Renamed for clarity (optional)
           const res = await fetch("/api/substack");
           const data = await res.json();
           if (data.success) {
-            value = data.data.find((p: any) => p._id === id);
+            value = data.data.find((p: Post) => p._id === id);
           }
         }
 

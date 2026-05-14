@@ -20,7 +20,7 @@ export default function Pagination({
   const getVisiblePages = () => {
     const halfWindow = 1; // Show 1 page before and 1 after current
     let start = Math.max(1, currentPage - halfWindow);
-    let end = Math.min(totalPages, start + 2);
+    const end = Math.min(totalPages, start + 2);
 
     // Adjust if we're near the end
     if (end === totalPages) {
