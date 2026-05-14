@@ -8,8 +8,13 @@ export interface Post {
   space: string;
   title: string;
   description?: string;
-  content: { ops: DeltaOp[] };
+  content?: { ops: any[] } | string;
   createdAt: string;
+  publishedAt?: string;
+  isExternal?: boolean;
+  link?: string;
+  image?: string | null;
+  readingTime?: string;
 }
 
 interface PostStore {

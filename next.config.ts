@@ -4,7 +4,17 @@ const nextConfig: NextConfig = {
   /* config options here */
   
     images: {
-    domains: ['images.unsplash.com',"images.squarespace-cdn.com","plus.unsplash.com","media.istockphoto.com"],
+    remotePatterns: [
+      { protocol: 'https', hostname: '**.substack.com' },
+      { protocol: 'https', hostname: '**.substackcdn.com' },
+      { protocol: 'https', hostname: 'substackcdn.com' },
+      { protocol: 'https', hostname: 'substack-post-media.s3.amazonaws.com' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'images.squarespace-cdn.com' },
+      { protocol: 'https', hostname: 'plus.unsplash.com' },
+      { protocol: 'https', hostname: 'media.istockphoto.com' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+    ],
   },
 
 };
