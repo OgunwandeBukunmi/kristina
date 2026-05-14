@@ -9,20 +9,13 @@ import usePostStore from '@/store/useSpaceStore';
 
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-
-export interface Post {
-  _id: string;
-  space: string;
-  title: string;
-  description?: string;
-  content: { ops: DeltaOp[] }; // Fixed: Added [] for array type
-}
+import type { InternalPost } from '@/store/useSpaceStore';
 
 export default function PostPage() { // Renamed for clarity (optional)
   const params = useParams(); // Destructure properly
   const id = params?.id as string; // Safer extraction
   const { findResourcesPosts } = usePostStore();
-  const [post, setPost] = useState<Post | undefined>();
+  const [post, setPost] = useState<InternalPost | undefined>();
   const [loading, setLoading] = useState(true); // Added for better UX
   const [error, setError] = useState<string | null>(null);
 
@@ -36,7 +29,7 @@ export default function PostPage() { // Renamed for clarity (optional)
     const fetchPost = async () => {
       try {
         setLoading(true);
-        const value: Post = findResourcesPosts(id)!// Assuming this is sync; make async if needed
+        const value: InternalPost = findResourcesPosts(id)!// Assuming this is sync; make async if needed
         setPost(value || []);
         console.log("Fetched post:", value);
         if (!value) {
@@ -88,13 +81,7 @@ export default function PostPage() { // Renamed for clarity (optional)
           <p className="text-gray-500 mb-6 italic">{post.description}</p>
         )}
         <div className="prose prose-invert max-w-none">
-          {typeof post.content === 'string' ? (
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
-          ) : post.content ? (
-            <RenderQuillContent data={post.content} />
-          ) : (
-            <p className="text-gray-500 italic">No content available.</p>
-          )}
+          <RenderQuillContent data={post.content} />
         </div>
       </div>
       <Footer />
