@@ -88,7 +88,13 @@ export default function PostPage() { // Renamed for clarity (optional)
           <p className="text-gray-500 mb-6 italic">{post.description}</p>
         )}
         <div className="prose prose-invert max-w-none">
-          <RenderQuillContent data={post.content} />
+          {typeof post.content === 'string' ? (
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          ) : post.content ? (
+            <RenderQuillContent data={post.content} />
+          ) : (
+            <p className="text-gray-500 italic">No content available.</p>
+          )}
         </div>
       </div>
       <Footer />
