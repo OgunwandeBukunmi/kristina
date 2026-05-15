@@ -1,4 +1,12 @@
-export function calculateReadingTime(content: any): string {
+interface QuillOp {
+  insert: string | { image?: string };
+}
+
+interface QuillDelta {
+  ops: QuillOp[];
+}
+
+export function calculateReadingTime(content: string | QuillDelta | unknown): string {
   let text = "";
   let imageCount = 0;
 
@@ -6,12 +14,12 @@ export function calculateReadingTime(content: any): string {
     // HTML content
     text = content.replace(/<[^>]+>/g, " ").trim();
     imageCount = (content.match(/<img/g) || []).length;
-  } else if (content && Array.isArray(content.ops)) {
+  } else if (content && typeof content === "object" && "ops" in content && Array.isArray((content as QuillDelta).ops)) {
     // Quill Delta content
-    content.ops.forEach((op: any) => {
+    (content as QuillDelta).ops.forEach((op: QuillOp) => {
       if (typeof op.insert === "string") {
         text += op.insert;
-      } else if (op.insert && op.insert.image) {
+      } else if (op.insert && typeof op.insert === "object" && "image" in op.insert) {
         imageCount++;
       }
     });
