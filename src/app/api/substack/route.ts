@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import Parser from "rss-parser";
+import { calculateReadingTime } from "../../../../lib/readingTime";
 
 const parser = new Parser({
   customFields: {
@@ -80,8 +81,7 @@ export async function GET(request: Request) {
       const slug = itemLink.split("/p/")[1]?.split("?")[0] || item.guid || itemLink;
 
       // Calculate reading time
-      const wordCount = textContent.split(/\s+/).length;
-      const readingTime = Math.ceil(wordCount / 200); // Average 200 words per minute
+      const readingTime = calculateReadingTime(content);
 
       return {
         _id: slug,
@@ -89,7 +89,7 @@ export async function GET(request: Request) {
         description: preview,
         content: cleanedContent.trim(),
         publishedAt: item.pubDate,
-        readingTime: `${readingTime} min read`,
+        readingTime: readingTime,
         link: item.link,
         image: image,
         space: "blogs",
