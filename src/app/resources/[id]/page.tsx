@@ -95,7 +95,7 @@ export default function PostPage() { // Renamed for clarity (optional)
       <Navbar />
       <div className="max-w-4xl mx-auto p-6 min-h-screen">
         <Link
-          href="/blogs"
+          href="/resources"
           className="text-pink-400 hover:text-pink-300 flex items-center gap-2 mb-8 transition-colors group"
         >
           <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to all posts
