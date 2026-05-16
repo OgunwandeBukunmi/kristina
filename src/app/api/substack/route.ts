@@ -2,6 +2,20 @@ import { NextResponse } from "next/server";
 import Parser from "rss-parser";
 import { calculateReadingTime } from "../../../../lib/readingTime";
 
+
+interface SubstackPost {
+  _id: string;
+  space: string;
+  title: string;
+  description?: string;
+  content: string;
+  publishedAt: string | undefined;
+  readingTime: string;
+  link: string | undefined;
+  image: string | null;
+  isExternal: boolean;
+}
+
 const parser = new Parser({
   customFields: {
     item: ["content:encoded", "description"],
@@ -13,18 +27,19 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get("page") || "1");
     const limit = parseInt(searchParams.get("limit") || "6");
+    const space = searchParams.get("space") || "blogs";
     const skip = (page - 1) * limit;
 
     const SUBSTACK_URL = "https://kristinawrites93.substack.com/feed";
-    
+
     // Fetch raw text first to check if it's valid XML/RSS
     const response = await fetch(SUBSTACK_URL);
     if (!response.ok) {
       throw new Error(`Substack returned ${response.status}: ${response.statusText}`);
     }
-    
+
     const xmlText = await response.text();
-    
+
     // Check if it's HTML (indicating a 404 or error page) instead of XML
     if (xmlText.trim().startsWith("<!DOCTYPE html") || xmlText.trim().startsWith("<html")) {
       console.error("Received HTML instead of RSS feed. Check your Substack URL.");
@@ -46,11 +61,11 @@ export async function GET(request: Request) {
       console.error("First 100 chars of feed:", sanitizedXml.slice(0, 100));
       throw parseError;
     }
-    
+
     const posts = feed.items.map((item) => {
       const itemWithEncoded = item as Parser.Item & { "content:encoded"?: string };
       const content = itemWithEncoded["content:encoded"] || item.content || "";
-      
+
       // Extract the first image from content
       const imageMatch = content.match(/<img[^>]+src="([^"]+)"/);
       const image = imageMatch ? imageMatch[1] : null;
@@ -66,7 +81,7 @@ export async function GET(request: Request) {
         .replace(/&nbsp;/g, " ")
         .replace(/&amp;/g, "&")
         .trim();
-      
+
       const preview = textContent.slice(0, 200) + (textContent.length > 200 ? "..." : "");
 
       // Clean Substack platform widgets and buttons
@@ -97,10 +112,22 @@ export async function GET(request: Request) {
       };
     });
 
-    const paginatedPosts = posts.slice(skip, skip + limit);
-    
-    return NextResponse.json({ 
-      success: true, 
+    let filteredPosts: SubstackPost[] = posts;
+
+    if (!space || space === "blogs") {
+      filteredPosts = posts.filter(
+        (post) => post._id !== "an-editors-view-into-a-writers-mind"
+      );
+    } else if (space === "resources") {
+      const found = posts.find(
+        (post) => post._id === "an-editors-view-into-a-writers-mind"
+      );
+      filteredPosts = found ? [found] : [];
+    }
+
+    const paginatedPosts = filteredPosts.slice(skip, skip + limit);
+    return NextResponse.json({
+      success: true,
       data: paginatedPosts,
       pagination: {
         total: posts.length,

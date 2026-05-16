@@ -34,7 +34,14 @@ export default function PostsList() {
   if (loading) return (
     <>
       <Navbar />
-      <p className="text-center mt-10 min-h-screen">Loading posts...</p>
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="loader-container">
+          <span className="custom-loader"></span>
+          <p className="text-pink-300 font-medium tracking-widest uppercase text-xs animate-pulse">
+            Loading Content...
+          </p>
+        </div>
+      </div>
       <Footer />
     </>)
   if (!posts.length)

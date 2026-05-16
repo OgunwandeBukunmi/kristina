@@ -3,17 +3,18 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import RenderQuillContent from '@/components/RenderEditorContent';
+import Link from 'next/link';
 import usePostStore from '@/store/useSpaceStore';
-
+import type { Post } from '@/store/useSpaceStore';
+import type { DeltaOp } from '@/components/RenderEditorContent';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import type { InternalPost } from '@/store/useSpaceStore';
 
 export default function PostPage() { // Renamed for clarity (optional)
   const params = useParams(); // Destructure properly
   const id = params?.id as string; // Safer extraction
   const { findResourcesPosts } = usePostStore();
-  const [post, setPost] = useState<InternalPost | undefined>();
+  const [post, setPost] = useState<Post | undefined>();
   const [loading, setLoading] = useState(true); // Added for better UX
   const [error, setError] = useState<string | null>(null);
 
@@ -27,10 +28,24 @@ export default function PostPage() { // Renamed for clarity (optional)
     const fetchPost = async () => {
       try {
         setLoading(true);
-        const value: InternalPost = findResourcesPosts(id)!// Assuming this is sync; make async if needed
-        setPost(value || []);
-        console.log("Fetched post:", value);
+        // 1. Try to find in store first
+        let value = findResourcesPosts(id);
+
+        // 2. If not in store, it might be a direct navigation or refresh
         if (!value) {
+          console.log("Post not in store, fetching from Substack API...");
+          const res = await fetch("/api/substack?space=resources");
+          const data = await res.json();
+          if (data.success) {
+            console.log(data)
+            value = data.data.find((p: Post) => p._id == id);
+          }
+        }
+
+
+        if (value) {
+          setPost(value);
+        } else {
           setError("Post not found");
         }
       } catch (err) {
@@ -48,8 +63,13 @@ export default function PostPage() { // Renamed for clarity (optional)
     return (
       <>
         <Navbar />
-        <div className="flex items-center justify-center min-h-screen">
-          <p className="text-gray-500">Loading post...</p>
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <div className="loader-container">
+            <span className="custom-loader"></span>
+            <p className="text-pink-300 font-medium tracking-widest uppercase text-xs animate-pulse">
+              Loading Content...
+            </p>
+          </div>
         </div>
         <Footer />
       </>
@@ -74,13 +94,36 @@ export default function PostPage() { // Renamed for clarity (optional)
     <>
       <Navbar />
       <div className="max-w-4xl mx-auto p-6 min-h-screen">
-        <h1 className="text-5xl font-bold text-white mb-4">{post.title}</h1>
+        <Link
+          href="/blogs"
+          className="text-pink-400 hover:text-pink-300 flex items-center gap-2 mb-8 transition-colors group"
+        >
+          <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to all posts
+        </Link>
+        <h1 className="text-4xl sm:text-6xl font-roboto-slab text-white mb-6 leading-tight">{post.title}</h1>
         {post.description && (
-          <p className="text-gray-500 mb-6 italic">{post.description}</p>
+          <p className="text-gray-400 text-xl mb-10 font-roboto-slab opacity-80">{post.description}</p>
         )}
-        <div className="prose prose-invert max-w-none">
-          <RenderQuillContent data={post.content} />
+        <div className="prose prose-invert max-w-none blog-content font-roboto-slab text-lg sm:text-xl leading-relaxed text-gray-200">
+          {typeof post.content === 'string' ? (
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          ) : (
+            <RenderQuillContent data={post.content!} />
+          )}
         </div>
+
+        {post.isExternal && post.link && (
+          <div className="mt-12 pt-8 border-t border-gray-800 text-start">
+            <a
+              href={post.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 px-8 rounded-full transition-colors"
+            >
+              View this post on Substack
+            </a>
+          </div>
+        )}
       </div>
       <Footer />
     </>
