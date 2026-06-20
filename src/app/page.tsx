@@ -255,7 +255,7 @@ export default function Home() {
 
 
             <Image
-              src="/me.jpg"
+              src="/me2.jpeg"
               alt="Woman"
               width={300} // required
               height={360} // required
