@@ -255,11 +255,11 @@ export default function Home() {
 
 
             <Image
-              src="/me2.jpeg"
+              src="/newher2.jpeg"
               alt="Woman"
-              width={300} // required
-              height={360} // required
-              className="rounded-lg shadow-xl h-[500px] w-full   md:w-[350px] "
+              width={600} // required
+              height={800} // required
+              className="rounded-lg  h-[550px] w-full   md:w-[450px] "
             />
 
           </div>
