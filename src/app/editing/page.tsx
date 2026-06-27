@@ -174,7 +174,7 @@ export default function page() {
                 <h3 className="text-2xl font-semibold mb-2 text-pink-400 flex items-center gap-2">
                   <FiBookOpen className="text-green-500" /> Manuscript Evaluation
                 </h3>
-                <p className="text-sm text-gray-200 mb-4">$8 per 1,000 words</p>
+                <p className="text-sm text-gray-200 mb-4">$300 per 100,000 words</p>
                 <p className="text-gray-100 leading-relaxed">
                   If you’re not sure what your book needs next, this is the perfect place to start.
                 </p>
@@ -190,7 +190,7 @@ export default function page() {
                 <h3 className="text-2xl font-semibold mb-2 text-pink-400 flex items-center gap-2">
                   <FiEdit className="text-green-500" /> Developmental Editing
                 </h3>
-                <p className="text-sm text-gray-200 mb-4">$24 per 1,000 words</p>
+                <p className="text-sm text-gray-200 mb-4">$15 per 1,000 words</p>
                 <p className="text-gray-100 leading-relaxed">
                   We’ll address the overall content and structure of your book, reworking structure, flow, pacing, and character depth.
                 </p>
@@ -206,7 +206,7 @@ export default function page() {
                 <h3 className="text-2xl font-semibold mb-2 text-pink-400 flex items-center gap-2">
                   <FiType className="text-green-500" /> Line Editing
                 </h3>
-                <p className="text-sm text-gray-200 mb-4">$20 per 1,000 words</p>
+                <p className="text-sm text-gray-200 mb-4">$10 per 1,000 words</p>
                 <p className="text-gray-100 leading-relaxed">
                   We focus on how your story is told—your sentences, rhythm, word choice, and phrasing.
                 </p>
