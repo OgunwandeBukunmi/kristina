@@ -63,7 +63,7 @@ export default function Page() {
           </h3>
 
           <form className="flex flex-col gap-5" onSubmit={handleContactFormSubmit}>
-            {error ? <span className="p-s bg-red-900 text-red-300 rounded-md">{error}</span> : <></>}
+
             <input
               type="text"
               placeholder="Your Name"
@@ -142,7 +142,8 @@ export default function Page() {
             >
               Send Message
             </button>
-            {message ? <span className="p-s bg-red-900 text-red-300 rounded-md">{message}</span> : <></>}
+            {message ? <span className="p-3 bg-green-900 text-green-300 rounded-md">{message}</span> : <></>}
+            {error ? <span className="p-3 bg-red-900 text-red-300 rounded-md">{error}</span> : <></>}
           </form>
         </div>
       </section>
