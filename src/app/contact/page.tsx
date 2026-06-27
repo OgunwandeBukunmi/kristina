@@ -96,6 +96,7 @@ export default function Page() {
               <option>Writing Partnership</option>
               <option>Editing</option>
               <option>LinkedIn/Website Content Writing</option>
+              <option >Discounted Editing</option>
               <option>Something else!</option>
             </select>
 

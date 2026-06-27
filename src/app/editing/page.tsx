@@ -11,7 +11,7 @@ import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Image from "next/image";
 import { FiBookOpen, FiEdit, FiType, FiUsers, FiCheckCircle, FiXCircle, FiHeart } from 'react-icons/fi'
-import { Handshake } from 'lucide-react';
+import { Handshake, Sparkles } from 'lucide-react';
 
 export default function page() {
   const reviews = [{
@@ -233,6 +233,45 @@ export default function page() {
                 </Link>
               </div>
             </div>
+
+            {/* Discounted Deals CTA */}
+            <div className="relative mt-14 group">
+
+              <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden">
+                {/* Decorative sparkles */}
+                <div className="absolute top-4 right-6 text-pink-400/30 animate-pulse">
+                  <Sparkles size={32} />
+                </div>
+                <div className="absolute bottom-4 left-6 text-purple-400/20 animate-pulse" style={{ animationDelay: '1s' }}>
+                  <Sparkles size={24} />
+                </div>
+
+                <div className="flex items-center gap-4 text-center md:text-left">
+
+                  <div>
+                    <p className="text-xl md:text-2xl font-bold text-white">
+                      Need Discounted Deals?
+                    </p>
+
+                  </div>
+                </div>
+
+                <Link href="/contact">
+                  <span className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:scale-105 cursor-pointer whitespace-nowrap">
+                    Click Here
+                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                  </span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Shimmer keyframes */}
+            <style jsx>{`
+              @keyframes shimmer {
+                0%, 100% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+              }
+            `}</style>
           </div>
         </main>
       </section>
